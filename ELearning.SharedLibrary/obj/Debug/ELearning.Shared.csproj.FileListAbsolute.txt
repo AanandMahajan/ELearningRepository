@@ -1,0 +1,8 @@
+D:\Study\ELearningPOC\ELearning.SharedLibrary\bin\Debug\ELearning.Shared.dll
+D:\Study\ELearningPOC\ELearning.SharedLibrary\bin\Debug\ELearning.Shared.pdb
+D:\Study\ELearningPOC\ELearning.SharedLibrary\obj\Debug\ELearning.Shared.dll
+D:\Study\ELearningPOC\ELearning.SharedLibrary\obj\Debug\ELearning.Shared.pdb
+D:\Study\ELearningPOC\Workspace\ELearning.SharedLibrary\bin\Debug\ELearning.Shared.dll
+D:\Study\ELearningPOC\Workspace\ELearning.SharedLibrary\bin\Debug\ELearning.Shared.pdb
+D:\Study\ELearningPOC\Workspace\ELearning.SharedLibrary\obj\Debug\ELearning.Shared.dll
+D:\Study\ELearningPOC\Workspace\ELearning.SharedLibrary\obj\Debug\ELearning.Shared.pdb

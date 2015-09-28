@@ -1,0 +1,4 @@
+D:\Study\ELearningPOC\ELearning.SharedLibrary\bin\Debug\ELearning.SharedLibrary.dll
+D:\Study\ELearningPOC\ELearning.SharedLibrary\bin\Debug\ELearning.SharedLibrary.pdb
+D:\Study\ELearningPOC\ELearning.SharedLibrary\obj\Debug\ELearning.SharedLibrary.dll
+D:\Study\ELearningPOC\ELearning.SharedLibrary\obj\Debug\ELearning.SharedLibrary.pdb

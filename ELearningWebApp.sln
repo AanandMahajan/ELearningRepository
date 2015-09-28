@@ -1,0 +1,96 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELearning.Web", "ELearningWebApp\ELearning.Web.csproj", "{6321739D-7FD1-4A1C-BF24-430AFFB050C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELearning.WebAPI", "ELearningWebAPIApp\ELearning.WebAPI.csproj", "{A764D96F-F049-4838-B585-3D66980C525F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elearning.Web.Library", "Elearning.Web.Library\Elearning.Web.Library.csproj", "{DF49A86C-EE4A-4D63-AF83-04489ECA4477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELearning.WebAPI.Library", "ELearning.WebAPI.Library\ELearning.WebAPI.Library.csproj", "{78D0F2FA-6AB9-442E-860C-B2D7B5B813A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELearning.Shared", "ELearning.SharedLibrary\ELearning.Shared.csproj", "{DBDD0993-787F-4F20-8973-B39213E5ED29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELearning.Web.Test", "ELearning.Web.Test\ELearning.Web.Test.csproj", "{7BBA92C3-C574-4CD3-B148-B8E37DD1C2AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELearning.WebAPI.Test", "ELearning.WebAPI.Test\ELearning.WebAPI.Test.csproj", "{BED62BBB-5F25-4265-A063-A817280ED3E6}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ELearning.Database", "ELearning.Database\ELearning.Database.sqlproj", "{82711215-CCF4-4F68-84E5-B98840028947}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://anandmahajan.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ELearningWebApp\\ELearning.Web.csproj
+		SccProjectName1 = ELearningWebApp
+		SccLocalPath1 = ELearningWebApp
+		SccProjectUniqueName2 = ELearningWebAPIApp\\ELearning.WebAPI.csproj
+		SccProjectName2 = ELearningWebAPIApp
+		SccLocalPath2 = ELearningWebAPIApp
+		SccProjectUniqueName3 = Elearning.Web.Library\\Elearning.Web.Library.csproj
+		SccProjectName3 = Elearning.Web.Library
+		SccLocalPath3 = Elearning.Web.Library
+		SccProjectUniqueName4 = ELearning.WebAPI.Library\\ELearning.WebAPI.Library.csproj
+		SccProjectName4 = ELearning.WebAPI.Library
+		SccLocalPath4 = ELearning.WebAPI.Library
+		SccProjectUniqueName5 = ELearning.SharedLibrary\\ELearning.Shared.csproj
+		SccProjectName5 = ELearning.SharedLibrary
+		SccLocalPath5 = ELearning.SharedLibrary
+		SccProjectUniqueName6 = ELearning.Web.Test\\ELearning.Web.Test.csproj
+		SccProjectName6 = ELearning.Web.Test
+		SccLocalPath6 = ELearning.Web.Test
+		SccProjectUniqueName7 = ELearning.WebAPI.Test\\ELearning.WebAPI.Test.csproj
+		SccProjectName7 = ELearning.WebAPI.Test
+		SccLocalPath7 = ELearning.WebAPI.Test
+		SccProjectUniqueName8 = ELearning.Database\\ELearning.Database.sqlproj
+		SccProjectName8 = ELearning.Database
+		SccLocalPath8 = ELearning.Database
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6321739D-7FD1-4A1C-BF24-430AFFB050C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6321739D-7FD1-4A1C-BF24-430AFFB050C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6321739D-7FD1-4A1C-BF24-430AFFB050C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6321739D-7FD1-4A1C-BF24-430AFFB050C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A764D96F-F049-4838-B585-3D66980C525F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A764D96F-F049-4838-B585-3D66980C525F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A764D96F-F049-4838-B585-3D66980C525F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A764D96F-F049-4838-B585-3D66980C525F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF49A86C-EE4A-4D63-AF83-04489ECA4477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF49A86C-EE4A-4D63-AF83-04489ECA4477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF49A86C-EE4A-4D63-AF83-04489ECA4477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF49A86C-EE4A-4D63-AF83-04489ECA4477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78D0F2FA-6AB9-442E-860C-B2D7B5B813A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78D0F2FA-6AB9-442E-860C-B2D7B5B813A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78D0F2FA-6AB9-442E-860C-B2D7B5B813A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78D0F2FA-6AB9-442E-860C-B2D7B5B813A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBDD0993-787F-4F20-8973-B39213E5ED29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBDD0993-787F-4F20-8973-B39213E5ED29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBDD0993-787F-4F20-8973-B39213E5ED29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBDD0993-787F-4F20-8973-B39213E5ED29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BBA92C3-C574-4CD3-B148-B8E37DD1C2AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BBA92C3-C574-4CD3-B148-B8E37DD1C2AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BBA92C3-C574-4CD3-B148-B8E37DD1C2AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BBA92C3-C574-4CD3-B148-B8E37DD1C2AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BED62BBB-5F25-4265-A063-A817280ED3E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BED62BBB-5F25-4265-A063-A817280ED3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BED62BBB-5F25-4265-A063-A817280ED3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BED62BBB-5F25-4265-A063-A817280ED3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82711215-CCF4-4F68-84E5-B98840028947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82711215-CCF4-4F68-84E5-B98840028947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82711215-CCF4-4F68-84E5-B98840028947}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{82711215-CCF4-4F68-84E5-B98840028947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82711215-CCF4-4F68-84E5-B98840028947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82711215-CCF4-4F68-84E5-B98840028947}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

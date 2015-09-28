@@ -1,0 +1,10 @@
+D:\Study\ELearningPOC\ELearning.WebAPI.Library\bin\Debug\ELearning.WebAPI.Library.dll
+D:\Study\ELearningPOC\ELearning.WebAPI.Library\bin\Debug\ELearning.WebAPI.Library.pdb
+D:\Study\ELearningPOC\ELearning.WebAPI.Library\obj\Debug\ELearning.WebAPI.Library.csprojResolveAssemblyReference.cache
+D:\Study\ELearningPOC\ELearning.WebAPI.Library\obj\Debug\ELearning.WebAPI.Library.dll
+D:\Study\ELearningPOC\ELearning.WebAPI.Library\obj\Debug\ELearning.WebAPI.Library.pdb
+D:\Study\ELearningPOC\Workspace\ELearning.WebAPI.Library\bin\Debug\ELearning.WebAPI.Library.dll
+D:\Study\ELearningPOC\Workspace\ELearning.WebAPI.Library\bin\Debug\ELearning.WebAPI.Library.pdb
+D:\Study\ELearningPOC\Workspace\ELearning.WebAPI.Library\obj\Debug\ELearning.WebAPI.Library.csprojResolveAssemblyReference.cache
+D:\Study\ELearningPOC\Workspace\ELearning.WebAPI.Library\obj\Debug\ELearning.WebAPI.Library.dll
+D:\Study\ELearningPOC\Workspace\ELearning.WebAPI.Library\obj\Debug\ELearning.WebAPI.Library.pdb

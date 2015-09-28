@@ -1,0 +1,10 @@
+D:\Study\ELearningPOC\ELearning.Web.Test\bin\Debug\ELearning.Web.Test.dll
+D:\Study\ELearningPOC\ELearning.Web.Test\bin\Debug\ELearning.Web.Test.pdb
+D:\Study\ELearningPOC\ELearning.Web.Test\obj\Debug\ELearning.Web.Test.csprojResolveAssemblyReference.cache
+D:\Study\ELearningPOC\ELearning.Web.Test\obj\Debug\ELearning.Web.Test.dll
+D:\Study\ELearningPOC\ELearning.Web.Test\obj\Debug\ELearning.Web.Test.pdb
+D:\Study\ELearningPOC\Workspace\ELearning.Web.Test\bin\Debug\ELearning.Web.Test.dll
+D:\Study\ELearningPOC\Workspace\ELearning.Web.Test\bin\Debug\ELearning.Web.Test.pdb
+D:\Study\ELearningPOC\Workspace\ELearning.Web.Test\obj\Debug\ELearning.Web.Test.csprojResolveAssemblyReference.cache
+D:\Study\ELearningPOC\Workspace\ELearning.Web.Test\obj\Debug\ELearning.Web.Test.dll
+D:\Study\ELearningPOC\Workspace\ELearning.Web.Test\obj\Debug\ELearning.Web.Test.pdb
