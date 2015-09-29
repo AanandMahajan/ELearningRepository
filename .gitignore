@@ -4,8 +4,8 @@
 
 /ELearning.Database/bin/Debug
 /ELearning.Database/obj/Debug
-/ELearning.ShareLibrary/bin/Debug
-/ELearning.ShareLibrary/obj/Debug
+/ELearning.SharedLibrary/bin/Debug
+/ELearning.SharedLibrary/obj/Debug
 /ELearning.Web.Library/bin/Debug
 /ELearning.Web.Library/obj/Debug
 /ELearning.Web.Test/bin/Debug
@@ -30,3 +30,5 @@
 /ELearningWebAPIApp/ELearning.WebAPI.csproj.user
 /ELearningWebApp/ELearning.Web.csproj.user
 *.suo
+/ELearningWebAPIApp/bin
+/ELearningWebApp/bin
