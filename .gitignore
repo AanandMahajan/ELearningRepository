@@ -29,3 +29,4 @@
 /ELearning.WebAPI.Test/ELearning.WebAPI.Test.csproj.user
 /ELearningWebAPIApp/ELearning.WebAPI.csproj.user
 /ELearningWebApp/ELearning.Web.csproj.user
+*.suo
