@@ -16,7 +16,7 @@ namespace ELearning.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "", action = "", id = UrlParameter.Optional } //TODO: Update Controller and Action here
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
