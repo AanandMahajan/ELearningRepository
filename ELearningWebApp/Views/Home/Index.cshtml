@@ -104,24 +104,48 @@
                                     <input type="text" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
                                 </div>
                             </ul>*@
-                        <ul class="nav navbar-nav navbar-right" ng-show="authentication">                            
-                            <li class="dropdown" dropdown>
 
-                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <img ng-src="/images/prof.jpg" alt="{{authentication.user.displayName}}" class="header-profile-image" />
-                                    <span ng-bind="user"></span> <b class="caret"></b>
-                                </button>
+                        <ul class="nav navbar-nav navbar-right" ng-show="authentication">
+                            @*<li class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><br>
+                                    </button>
 
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">Edit Profile</a></li>
-                                    <li><a href="#">Change Password</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#/routeOne"><div ng-click="logout()"> Logout</div></a></li>
-                                </ul>
-                            </li>
-                            </li>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="#">New course request</a></li>
+                                        <li><a href="#">New notification</a></li>
+                                        <li><a href="#">Reminder</a></li>
+                                    </ul>
+                                </li>*@
+                            <ul class="nav nav-pills" role="tablist">
+
+                                <li class="dropdown">
+                                    <div class="btn btn-default dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <span class="glyphicon glyphicon-list-alt badge"> 4</span>
+                                    </div>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li><a href="#">New course request from your friend</a></li>
+                                        <li><a href="#"><strong>you have 4 notification unread </strong></a></li>
+                                        <li><a href="#">Reminder</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <div class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <img ng-src="/images/prof.jpg" alt="{{authentication.user.displayName}}" class="header-profile-image" />
+                                        <span ng-bind="user"></span> <b class="caret"></b>
+                                    </div>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="#">Edit Profile</a></li>
+                                        <li><a href="#">Change Password</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#/routeOne"><div ng-click="logout()"> Logout</div></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </ul>
-
                     </div><!-- /.navbar-collapse -->
 
 

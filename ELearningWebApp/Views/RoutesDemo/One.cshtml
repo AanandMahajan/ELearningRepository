@@ -1,154 +1,179 @@
-﻿<div style="background-color: #309BBE">
-    <br />
-    <div class="col-lg-1"></div>
-    <div class="col-lg-1">
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown" dropdown>
+﻿<div ng-controller="SearchController" ng-init="intitalizevalues()">
 
-                @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <img ng-src="/images/BrowseCourseImage1.png" height="50" width="50" class="header-profile-image" />
-                    </button>*@
+    <div style="background-color: #309BBE">
+        <br />
+        <div class="col-lg-1"></div>
+        <div class="col-lg-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" dropdown>
 
-                <img ng-src="/images/BrowseCourseImage1.png" height="50" width="50" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    @*<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <img ng-src="/images/BrowseCourseImage1.png" height="50" width="50" class="header-profile-image" />
+                        </button>*@
+
+                    <img ng-src="/images/BrowseCourseImage1.png" height="50" width="50" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
 
 
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="">Category 1</a></li>
-                    <li class="divider"></li>
-                    <li><a href="">Category 2</a></li>
-                    <li class="divider"></li>
-                    <li><a href="">Category 3</a></li>
-                    <li class="divider"></li>
-                    <li><a href="">Category 4</a></li>
-                    <li class="divider"></li>
-                    <li><a href="">Category 5</a></li>
-                    <li class="divider"></li>
-                    <li><a href="">Category 6</a></li>
-                    <li class="divider"></li>
-                </ul>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="">Cloud Computing</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">Finance</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">HealthCare Unit</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">Banking</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">E-Commerce</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">Administration</a></li>
+                        <li class="divider"></li>
+                    </ul>
 
-            </li>
-        </ul>
-    </div>
-    <div class="col-lg-8">
-        <div class="input-group col-lg-12">
-            <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
-            <input type="text" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
-        </div><br />
-    </div>
-    <br /><br />
-    <br />
-</div>
-
-<div class="header_banner">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-            <li data-target="#myCarousel" data-slide-to="4"></li>
-            <li data-target="#myCarousel" data-slide-to="5"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active  image-wid">
-                <img src="/images/AngularJS.png" alt="..." class="img-responsive">
-
-            </div>
-            <div class="item  image-wid">
-                <img src="/images/Azure.png" alt="..." class="img-responsive">
-
-            </div>
-            <div class="item  image-wid">
-                <img src="/images/Java.png" alt="..." class="img-responsive">
-
-            </div>
-            <div class="item  image-wid">
-                <img src="/images/MSSQLServer.png" alt="..." class="img-responsive">
-            </div>
-            <div class="item  image-wid">
-                <img src="/images/Salesforce.png" alt="..." class="img-responsive">
-
-            </div>
-            <div class="item  image-wid">
-                <img src="/images/TestNG.png" alt="..." class="img-responsive">
-            </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-8">
+            <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+                <input type="text" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
+                <span class="input-group-addon" id="basic-addon1"><button ng-click="search()">Search</button></span>
+            </div><br />
 
         </div>
-        <!-- Controls -->
-        @*<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>*@
+        <br /><br />
+        <br />
     </div>
-</div>
 
-@*<div class="header_banner">
-        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+    <div class="header_banner" ng-hide="searchresultcount">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel1" data-slide-to="1"></li>
-                <li data-target="#myCarousel1" data-slide-to="2"></li>
-                <li data-target="#myCarousel1" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
             </ol>
-            <br /><br />
+
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active  image-wid">
-
-
-
-                    <!--<iframe width="700" height="205" src="https://www.youtube.com/embed/ejBkOjEG6F0" frameborder="0" allowfullscreen></iframe>-->
-                    <!--<div>Check out videos</div>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-u-j7uqU7sI?list=PL6gx4Cwl9DGBMdkKFn3HasZnnAqVjzHn_" frameborder="0" allowfullscreen ></iframe>-->
-                    <img src="/images/app.jpg" alt="..." class="img-responsive">
-                    <!--<div class="carousel-caption">
-                        <h3>There is no death to learning</h3>
-                        <p>Click on Read more to explore more</p>
-                        <button type="button" class="btn btn-info sld">Read more</button>
-                    </div>-->
-
-                </div>
-                <!--<div class="item  image-wid">
-                    <iframe width="400" marginwidth="10px" height="205" src="https://www.youtube.com/embed/-u-j7uqU7sI?list=PL6gx4Cwl9DGBMdkKFn3HasZnnAqVjzHn_" frameborder="0" allowfullscreen></iframe>
-                </div>-->
-                <div class="item  image-wid">
-                    <img src="/images/offer1.jpg" alt="..." class="img-responsive">
+                    <img src="/images/Salesforce.png" alt="..." class="img-responsive">
                 </div>
                 <div class="item  image-wid">
-                    <img src="/images/offer2.jpg" alt="..." class="img-responsive">
+                    <img src="/images/Azure.png" alt="..." class="img-responsive">
 
                 </div>
                 <div class="item  image-wid">
-                    <img src="/images/offer3.jpg" alt="..." class="img-responsive">
+                    <img src="/images/Java.png" alt="..." class="img-responsive">
+
                 </div>
+                <div class="item  image-wid">
+                    <img src="/images/MSSQLServer.png" alt="..." class="img-responsive">
+                </div>
+                <div class="item  image-wid">
+                    <img src="/images/TestNG.png" alt="..." class="img-responsive">
+                </div>
+                <div class="item  image-wid">
+                    <img src="/images/TechnologyCloud.png" alt="..." class="img-responsive">
+                </div>
+
             </div>
             <!-- Controls -->
-            <a class="left carousel-control" href="#myCarousel1" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel1" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            @*<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>*@
         </div>
-    </div>*@
+    </div>
 
-<div class="footer">
-    <div class="container">
-        <div class="footer-text">
-            <h3><a href="index.html">E-Pathshala</a></h3>
-            <p>&#169;E-Pathshala Designed by <a href="http://www.persistent.com/" target="_blank">Persistent</a></p>
+    <div class="footer" ng-hide="searchresultcount">
+        <div class="container">
+            <div class="footer-text">
+                <h3><a href="index.html">E-Pathshala</a></h3>
+                <p>&#169;E-Pathshala Designed by <a href="http://www.persistent.com/" target="_blank">Persistent</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div ng-show="searchresultcount">
+        <br />
+        <div class="col-lg-2">filters here</div>
+        <div class="bs-example col-lg-10" data-example-id="media-alignment">
+            <div ng-repeat="model in searchresults">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" style="width: 64px; height: 64px;" src="/images/VisualStudio.png" alt="64x64" data-holder-rendered="true">
+                        </a>
+                    </div>
+                    <div class="media-body">
+
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{model.CourseTitle}}</h3>
+                            </div>
+                            <div class="panel-body">
+                                {{model.Description}}
+                            </div>
+                            <div class="panel-footer">
+                                <button class="btn btn-success"> Register</button>
+                            </div>
+                        </div>
+                                                
+
+                        @*<h4 class="media-heading">{{model.CourseTitle}}</h4>
+                            <p>{{model.Description}}</p>
+                            <p><strong>Created On:</strong> {{model.CreatedON}}</p>*@
+                    </div>
+                </div><br />
+
+            </div>
+
+
         </div>
     </div>
 </div>
+
+
+
+
+
+@*code for tabs approach*@
+@*<div>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+            <p>{{model.Description}}</p>
+        </div>
+        <div id="sectionB" class="tab-pane fade">
+            <p><strong>Outline is:</strong> {{model.Description}}</p>
+        </div>
+        @*<div id="dropdown1" class="tab-pane fade">
+                <h3>Dropdown 1</h3>
+                <p>WInteger convallis, nulla in sollicitudin placerat, ligula enim auctor lectus, in mollis diam dolor at lorem. Sed bibendum nibh sit amet dictum feugiat. Vivamus arcu sem, cursus a feugiat ut, iaculis at erat. Donec vehicula at ligula vitae venenatis. Sed nunc nulla, vehicula non porttitor in, pharetra et dolor. Fusce nec velit velit. Pellentesque consectetur eros.</p>
+            </div>
+            <div id="dropdown2" class="tab-pane fade">
+                <h3>Dropdown 2</h3>
+                <p>Donec vel placerat quam, ut euismod risus. Sed a mi suscipit, elementum sem a, hendrerit velit. Donec at erat magna. Sed dignissim orci nec eleifend egestas. Donec eget mi consequat massa vestibulum laoreet. Mauris et ultrices nulla, malesuada volutpat ante. Fusce ut orci lorem. Donec molestie libero in tempus imperdiet. Cum sociis natoque penatibus et magnis.</p>
+            </div>
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#sectionA">Description</a></li>
+        <li><a data-toggle="tab" href="#sectionB">Outline</a></li>
+        <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a data-toggle="tab" href="#dropdown1">Dropdown1</a></li>
+                    <li><a data-toggle="tab" href="#dropdown2">Dropdown2</a></li>
+                </ul>
+            </li>
+    </ul>
+
+</div>*@

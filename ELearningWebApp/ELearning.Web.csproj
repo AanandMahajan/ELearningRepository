@@ -200,6 +200,7 @@
     <Content Include="Scripts\Controllers\LandingPageController.js" />
     <Content Include="Scripts\Controllers\LoginController.js" />
     <Content Include="Scripts\Controllers\RegisterController.js" />
+    <Content Include="Scripts\Controllers\SearchController.js" />
     <Content Include="Scripts\css\bootstrap.min.css" />
     <Content Include="Scripts\css\owl.carousel.css" />
     <Content Include="Scripts\css\style.css" />
@@ -208,6 +209,7 @@
     <Content Include="Scripts\Factories\AuthHttpResponseInterceptor.js" />
     <Content Include="Scripts\Factories\LoginFactory.js" />
     <Content Include="Scripts\Factories\RegistrationFactory.js" />
+    <Content Include="Scripts\js\azure-search.min.js" />
     <Content Include="Scripts\js\bootstrap.min.js" />
     <Content Include="Scripts\js\easing.js" />
     <Content Include="Scripts\js\jquery-2.1.4.min.js" />
@@ -232,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

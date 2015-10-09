@@ -23,7 +23,7 @@ var LandingPageController = function ($scope, $location) {
             $scope.authentication = true;
 
             console.log("Val is: " + $scope.authentication);
-            $scope.user = 'Onkar Patil';
+            $scope.user = 'Onkar';
             $location.path('/routeTwo');
 
         }
@@ -36,6 +36,9 @@ var LandingPageController = function ($scope, $location) {
         $location.path('/routeOne');
 
     }
+
+       
+
 
 }
 
