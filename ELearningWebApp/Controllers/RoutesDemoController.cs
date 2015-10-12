@@ -4,18 +4,17 @@ namespace ELearning.Web.Controllers
 {
     public class RoutesDemoController : Controller
     {
-        public ActionResult One()
+        public ActionResult Search()
         {
             return View();
         }
 
-        public ActionResult Two()
+        public ActionResult Home()
         {            
             return View();
         }
-
-        [Authorize]
-        public ActionResult Three()
+                
+        public ActionResult CourseDetails()
         {
             return View();
         }

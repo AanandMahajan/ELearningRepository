@@ -8,6 +8,9 @@ var SearchController = function ($scope, $location) {
         $scope.searchresults = new Array();        
     }    
 
+   
+
+
     $scope.search=function()
     {
 
@@ -18,7 +21,7 @@ var SearchController = function ($scope, $location) {
 
         var searchkey = $scope.searchkeys + '*';
 
-        client.search('course', { search: searchkey, $facet:CourseTitle}, function (err, results) {
+        client.search('course', { search: searchkey}, function (err, results) {
             // results is an array of matching documents
 
             console.log(results);
@@ -30,16 +33,18 @@ var SearchController = function ($scope, $location) {
             else {
                 $scope.searchresultcount = false;
                 alert("No data found");
-            }
-            
+            }           
 
         });
+    }
 
-        
-
-
+    $scope.registerCourse = function () {
+        alert('in register function');
+        //$location.path('/routeCourseDetails');
 
     }
+
+
 
 }
 

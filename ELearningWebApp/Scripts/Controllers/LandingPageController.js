@@ -2,7 +2,7 @@
 var LandingPageController = function ($scope, $location) {
     //$scope.authentication = false;
     $scope.user = '';
-    $location.path('/routeOne');
+    $location.path('/routeSearch');
 
     $scope.login = function (myModal) {
         //var result = LoginFactory($scope.loginForm.emailAddress, $scope.loginForm.password, $scope.loginForm.rememberMe);
@@ -10,7 +10,7 @@ var LandingPageController = function ($scope, $location) {
         //result.then(function (result) {
         //    if (result.success) {
         //        if ($scope.loginForm.returnUrl !== undefined) {
-        //            $location.path('/routeOne');
+        //            $location.path('/routeSearch');
         //        } else {
         //            $location.path($scope.loginForm.returnUrl);
         //        }
@@ -24,7 +24,7 @@ var LandingPageController = function ($scope, $location) {
 
             console.log("Val is: " + $scope.authentication);
             $scope.user = 'Onkar';
-            $location.path('/routeTwo');
+            $location.path('/routeHome');
 
         }
     }
@@ -33,7 +33,7 @@ var LandingPageController = function ($scope, $location) {
     $scope.logout = function () {
         console.log("loging out..");
         $scope.authentication = false;
-        $location.path('/routeOne');
+        $location.path('/routeSearch');
 
     }
 

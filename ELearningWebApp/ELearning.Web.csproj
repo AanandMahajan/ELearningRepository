@@ -197,6 +197,7 @@
     <Content Include="images\social.png" />
     <Content Include="images\title.png" />
     <Content Include="images\twitter.png" />
+    <Content Include="Scripts\Controllers\CourseDetailsController.js" />
     <Content Include="Scripts\Controllers\LandingPageController.js" />
     <Content Include="Scripts\Controllers\LoginController.js" />
     <Content Include="Scripts\Controllers\RegisterController.js" />
@@ -225,10 +226,12 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\RoutesDemo\Two.cshtml" />
-    <Content Include="Views\RoutesDemo\Three.cshtml" />
+    <Content Include="Views\RoutesDemo\Home.cshtml" />
+    <Content Include="Views\RoutesDemo\CourseDetails.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
@@ -243,7 +246,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Project_Readme.html" />
-    <Content Include="Views\RoutesDemo\One.cshtml" />
+    <Content Include="Views\RoutesDemo\Search.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

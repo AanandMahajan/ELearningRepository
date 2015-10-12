@@ -10,17 +10,17 @@ ELearningWeb.factory('RegistrationFactory', RegistrationFactory);
 
 var configFunction = function ($routeProvider, $httpProvider) {
     $routeProvider.
-        when('/routeOne', {
-            templateUrl: 'routesDemo/one'
+        when('/routeSearch', {
+            templateUrl: 'routesDemo/Search'
         })
         //.when('/routeTwo/:donuts', {
         //    templateUrl: function (params) { return '/routesDemo/two?donuts=' + params.donuts; }
         //})
-        .when('/routeTwo', {
-            templateUrl: 'routesDemo/two'
+        .when('/routeHome', {
+            templateUrl: 'routesDemo/Home'
         })
-        .when('/routeThree', {
-            templateUrl: 'routesDemo/three'
+        .when('/routeCourseDetails', {
+            templateUrl: 'routesDemo/CourseDetails'
         })
         .when('/login', {
             templateUrl: '/Account/Login',

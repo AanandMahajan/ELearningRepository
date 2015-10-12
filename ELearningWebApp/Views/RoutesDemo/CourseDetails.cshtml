@@ -1,0 +1,85 @@
+﻿<div ng-controller="CourseDetailsController" ng-init="initialize()" style="margin-left:8px">
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title" style="margin-left:500px;">
+                C++ Programming
+            </h3>
+        </div>
+    </div>
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" style="width: 200px; height: 200px;" src="/images/VisualStudio.png" alt="64x64" data-holder-rendered="true">
+            </a>
+        </div>
+        <div class="media-body" style="background-color:aliceblue">
+
+            <div class="col-lg-10">
+                <div>
+                    @*<button ng-click="btnClickDescription()">Description</button>
+                        <button ng-click="btnClickOutline()">Outline</button>*@
+
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a ng-click="btnClickDescription()">Description</a></li>
+                        <li role="presentation" class="active"><a ng-click="btnClickOutline()">Outline</a></li>
+                    </ul>
+
+                </div><br />
+                <div ng-show="isDescription">
+                    <strong style="color:skyblue">
+                        Description: C++ is an intermediate-level language with object-oriented programming features, originally designed to enhance the C language. C++ powers major software like Firefox, Winamp and Adobe programs. Its used to develop systems software, application software, high-performance server and client applications and video games.C++ is an intermediate-level language with object-oriented programming features, originally designed to enhance the C language. C++ powers major software like Firefox, Winamp and Adobe programs. Its used to develop systems software, application software, high-performance server and client applications and video games.
+                    </strong>
+                </div>
+                <div ng-hide="isDescription">
+                    <strong style="color:skyblue">
+                        Outline: C++ is an intermediate-level language with object-oriented programming features, originally designed to enhance the C language. C++ powers major software like Firefox, Winamp and Adobe programs. Its used to develop systems software, application software, high-performance server and client applications and video games. C++ is an intermediate-level language with object-oriented programming features, originally designed to enhance the C language. C++ powers major software like Firefox, Winamp and Adobe programs. Its used to develop systems software, application software, high-performance server and client applications and video games.
+                    </strong>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div>
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                    <span class="badge">126655964</span>
+                </div><br />
+                <div>
+                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                    <span class="badge">88963</span>
+                </div><br />
+                <div>
+                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                    <span class="badge">72963</span>
+                </div><br />
+                <div>
+                    <button class="btn btn-success">Enroll <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> </button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="panel-body" style="border:2px">
+            <strong>Topics:</strong><br /><br />
+            
+            <div class="list-group">
+                <a class="list-group-item">Basics of C Programming</a>
+                <a class="list-group-item">Use of Console</a>
+                <a class="list-group-item">If statements</a>
+                <a class="list-group-item">Functions and Program Organization</a>
+                <a class="list-group-item">Switch case </a>
+                <a class="list-group-item">Pointers, Arrays and Strings</a>
+                <a class="list-group-item">File IO and command line arguments</a>
+                <a class="list-group-item">Linked lists, binary trees, recursion</a>
+                <a class="list-group-item">Exactly how to get started with C++ (or C) today </a>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <strong>User's who viewed this course also viewed: TBD</strong>
+        </div>
+    </div>
+
+
+
+
+</div>

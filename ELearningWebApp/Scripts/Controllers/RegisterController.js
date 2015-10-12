@@ -10,7 +10,7 @@
         var result = RegistrationFactory($scope.registerForm.emailAddress, $scope.registerForm.password, $scope.registerForm.confirmPassword);
         result.then(function (result) {
             if (result.success) {
-                $location.path('/routeOne');
+                $location.path('/routeSearch');
             } else {
                 $scope.registerForm.registrationFailure = true;
             }

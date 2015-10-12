@@ -12,7 +12,7 @@
         result.then(function(result) {
             if (result.success) {
                 if ($scope.loginForm.returnUrl !== undefined) {
-                    $location.path('/routeOne');
+                    $location.path('/routeSearch');
                 } else {
                     $location.path($scope.loginForm.returnUrl);
                 }
