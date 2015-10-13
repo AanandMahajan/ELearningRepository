@@ -48,6 +48,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -150,9 +152,87 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CourseDetailController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DBModel\CategoryMaster.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ChapterContent.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ChapterDetail.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\CountryMaster.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\CourseBookmark.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\CourseDetail.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\CourseStatusMaster.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\C__MigrationHistory.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ELearningDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ELearningDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ELearningDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ELearningDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ELearningDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\FileTypeMaster.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\GenderMaster.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ImageMaster.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\NotificationTypeMaster.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\RoleMaster.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\TenantMaster.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\ThirdpartyProvider.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\User.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\UserInterest.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\UserLoginAuditTrail.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\UserNotification.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\UserStatusMaster.cs">
+      <DependentUpon>ELearningDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +292,23 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <EntityDeploy Include="DBModel\ELearningDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ELearningDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DBModel\ELearningDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ELearningDataModel.edmx</DependentUpon>
+      <LastGenOutput>ELearningDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBModel\ELearningDataModel.edmx.diagram">
+      <DependentUpon>ELearningDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="DBModel\ELearningDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ELearningDataModel.edmx</DependentUpon>
+      <LastGenOutput>ELearningDataModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -244,12 +341,13 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Images\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
