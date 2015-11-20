@@ -1,0 +1,131 @@
+﻿<div ng-controller="SearchController" ng-init="intitalizevalues()">
+
+    <div style="background-color: #309BBE">
+        <br />
+        <div class="col-lg-1"></div>
+        <div class="col-lg-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" dropdown>
+
+                    <img ng-src="../../images/BrowseCourseImage1.png" height="50" width="50" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="">Cloud Computing</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">Finance</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">HealthCare Unit</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">Banking</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">E-Commerce</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">Administration</a></li>
+                        <li class="divider"></li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-8">
+            <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+                <input type="text" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
+                <span class="input-group-addon" id="basic-addon1"><button ng-click="search()">Search</button></span>
+            </div><br />
+
+        </div>
+        <br /><br />
+        <br />
+    </div>
+
+    <div class="header_banner" ng-hide="searchresultcount">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active  image-wid">
+                    <img src="../../images/Salesforce.png" alt="..." class="img-responsive">
+                </div>
+                <div class="item  image-wid">
+                    <img src="../../images/Azure.png" alt="..." class="img-responsive">
+
+                </div>
+                <div class="item  image-wid">
+                    <img src="../../images/Java.png" alt="..." class="img-responsive">
+
+                </div>
+                <div class="item  image-wid">
+                    <img src="../../images/MSSQLServer.png" alt="..." class="img-responsive">
+                </div>
+                <div class="item  image-wid">
+                    <img src="../../images/TestNG.png" alt="..." class="img-responsive">
+                </div>
+                <div class="item  image-wid">
+                    <img src="../../images/TechnologyCloud.png" alt="..." class="img-responsive">
+                </div>
+
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="footer" ng-hide="searchresultcount">
+        <div class="container">
+            <div class="footer-text">
+                <h3><a href="index.html">E-Pathshala</a></h3>
+                <p>&#169;E-Pathshala Designed by <a href="http://www.persistent.com/" target="_blank">Persistent</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div ng-show="searchresultcount">
+        <br />
+        <div class="col-lg-2">filters here</div>
+        <div class="bs-example col-lg-10" data-example-id="media-alignment">
+            <div ng-repeat="model in searchresults">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" style="width: 64px; height: 64px;" src="../../images/VisualStudio.png" alt="64x64" data-holder-rendered="true">
+                        </a>
+                    </div>
+                    <div class="media-body">
+
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{model.CourseTitle}}</h3>
+                            </div>
+                            <div class="panel-body">
+                                {{model.Description}}
+                            </div>
+                            <div class="panel-footer">
+                                
+                                <a href="/#/routeCourseDetails">Register</a>
+                            </div>
+                        </div>
+                                                
+
+                        
+                    </div>
+                </div><br />
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
