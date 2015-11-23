@@ -22,5 +22,7 @@ namespace ELearning.WebAPI.DBModel
         public int FileTypeID { get; set; }
         public string FileBlobURL { get; set; }
         public Nullable<int> Order { get; set; }
+
+        public virtual ChapterDetail ChapterDetail { get; set; }
     }
 }

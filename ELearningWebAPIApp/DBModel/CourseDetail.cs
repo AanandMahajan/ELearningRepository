@@ -30,5 +30,8 @@ namespace ELearning.WebAPI.DBModel
         public Nullable<int> Views { get; set; }
         public Nullable<int> Likes { get; set; }
         public Nullable<int> Enrollments { get; set; }
+
+        public virtual ICollection<ChapterDetail> ChapterDetails { get; set; }
+
     }
 }

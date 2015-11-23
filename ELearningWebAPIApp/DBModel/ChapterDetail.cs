@@ -20,5 +20,10 @@ namespace ELearning.WebAPI.DBModel
         public string ChapterTitle { get; set; }
         public string Description { get; set; }
         public Nullable<int> Order { get; set; }
+        
+        public virtual CourseDetail CourseDetail { get; set; }
+
+        public virtual ICollection<ChapterContent> ChapterContents { get; set; }
+
     }
 }

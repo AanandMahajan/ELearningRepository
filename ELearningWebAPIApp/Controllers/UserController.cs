@@ -68,11 +68,13 @@ namespace ELearning.WebAPI.Controllers
         {
             Request.CreateResponse(HttpStatusCode.Found);
 
-            var result = from user in db.Users where user.Email == U.Email && user.Password == U.Password select user;            
+            var result = from user in db.Users where user.Email == U.Email && user.Password == U.Password select user;
 
-            if (result == null)
+            User user_data = result.FirstOrDefault();
+
+            if (user_data == null)
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+                return null;
             }           
             else
             {

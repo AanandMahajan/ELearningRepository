@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using ELearning.WebAPI.DBModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ELearning.WebAPI.Models
 {
@@ -24,8 +25,36 @@ namespace ELearning.WebAPI.Models
 
             modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<CourseDetail>().ToTable("CourseDetail");
+            modelBuilder.Entity<ChapterDetail>().ToTable("ChapterDetail");
+            modelBuilder.Entity<ChapterContent>().ToTable("ChapterContent");
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+
+            // Configure the primary key for BaseCard
+            modelBuilder.Entity<ChapterDetail>().HasKey(t => t.ID);
+            //specify no autogenerate the Id Column
+            //modelBuilder.Entity<ChapterDetail>().Property(b => b.ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+            //one-to-many relationship 
+            modelBuilder.Entity<ChapterContent>().HasRequired(c => c.ChapterDetail)
+                    .WithMany(s => s.ChapterContents)
+                    .HasForeignKey(c => c.ChapterID);
+
+
+            // Configure the primary key for BaseCard
+            modelBuilder.Entity<CourseDetail>().HasKey(t => t.ID);
+            //specify no autogenerate the Id Column
+            //modelBuilder.Entity<CourseDetail>().Property(b => b.ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+            //one-to-many relationship 
+            modelBuilder.Entity<ChapterDetail>().HasRequired(c => c.CourseDetail)
+                    .WithMany(s => s.ChapterDetails)
+                    .HasForeignKey(c => c.CourseID);
+            
+
             base.OnModelCreating(modelBuilder);
+
+
         }
         public DbSet<User> Users { get; set; }
 
