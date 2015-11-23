@@ -27,36 +27,35 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL) {
         user_new.Password = $scope.password;
         user_new.Email = $scope.user;
 
-        var test = angular.toJson(user_new);          
-                 
-        $http.get('http://172.25.217.78/api/User/5', { headers: { 'Content-Type': 'application/json' } }).then(
-
-            function successCallback(res)
-            {
-                console.log(res);
-            },
-            function errorCallback(res)
-            {
-                console.log(res);
-            }
-        );             
-
         
+                 
+        //$http.get('http://172.25.217.78/api/User/5', { headers: { 'Content-Type': 'application/json' } }).then(
 
-        //Validate User
-       // $http.post('http://localhost:49923/api/User/', angular.toJson(user_new)).then(
+        //    function successCallback(res)
+        //    {
+        //        console.log(res);
+        //    },
+        //    function errorCallback(res)
+        //    {
+        //        console.log(res);
+        //    }
+        //);             
+                
+        $http.post(WebAPIBaseURL + '/api/user/validateuser/validate', angular.toJson(user_new)).then(
 
-       //    function successCallback(res) {
-       //        console.log(res);
-       //    },
-       //    function errorCallback(res) {
-       //        console.log(res);
-       //    }
-       //);
+          function successCallback(res) {
+
+              console.log("Login Successfull: " + res);
+              $scope.authentication = true;              
+              $location.path('/routeHome');  
+
+          },
+          function errorCallback(res) {
+              console.log("Login Failed: "+res);
+          }
+      );
        
-        //$scope.authentication = true;
-        //console.log("Username: " + $scope.user + " pwd:" + $scope.password);
-        //$location.path('/routeHome/' + $scope.user + '/' + $scope.password);        
+            
     };
 
 
@@ -67,46 +66,21 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL) {
         $location.path('/routeSearch');
     };
 
+    //Adding new user
     $scope.AddUser = function (myModal) {
-
-        //console.log("Full name " + $scope.publisher.fullname);
-        //console.log("Email " + $scope.publisher.email);
-
-        //$http.post('http://172.25.217.78/api/User/', angular.toJson($scope.publisher)).then(
-
-        //    function successCallback(res) {
-        //        console.log(res);
-        //    },
-        //    function errorCallback(res) {
-        //        console.log(res);
-        //    }
-        //);
-        
-        //$http.defaults.headers.common = {};
-        //$http.defaults.headers.post = {};
-        //$http.defaults.headers.put = {};
-        //$http.defaults.headers.patch = {};
-        
-        $http.post('http://172.25.217.78/api/user/onkar/1', angular.toJson($scope.publisher)).then(
+                      
+        $http.post(WebAPIBaseURL + 'api/user', angular.toJson($scope.publisher)).then(
 
             function successCallback(res) {
                 console.log(res);
+                alert("User added successfully!! Please login and continue");
             },
             function errorCallback(res) {
                 console.log(res);
+                alert("User insertion failed. Please try again");
             }
         );
-
-      //  $http.post('http://localhost:49923/api/User/', angular.toJson($scope.publisher)).then(
-
-      //    function successCallback(res) {
-      //        console.log(res);
-      //    },
-      //    function errorCallback(res) {
-      //        console.log(res);
-      //    }
-      //);
-
+            
     };    
 }
 
