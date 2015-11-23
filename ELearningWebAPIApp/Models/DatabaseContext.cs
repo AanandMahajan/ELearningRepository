@@ -16,6 +16,7 @@ namespace ELearning.WebAPI.Models
 
         public DatabaseContext() : base("name=DatabaseContext")
         {
+            Database.SetInitializer<DatabaseContext>(null);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
