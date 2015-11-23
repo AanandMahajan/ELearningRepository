@@ -62,6 +62,26 @@ namespace ELearning.WebAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        [ActionName("validateuser")]
+        [HttpPost]
+        public User PostValidateUser(User U)
+        {
+            Request.CreateResponse(HttpStatusCode.Found);
+
+            var result = from user in db.Users where user.Email == U.Email && user.Password == U.Password select user;            
+
+            if (result == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }           
+            else
+            {
+                return result.FirstOrDefault();
+            }
+
+        }
+
+
         // POST api/User
         public HttpResponseMessage PostUser(User user)
         {

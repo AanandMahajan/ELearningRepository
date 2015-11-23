@@ -24,7 +24,7 @@ namespace ELearning.WebAPI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            //Database.SetInitializer<DatabaseContext>(null);
+            Database.SetInitializer<DatabaseContext>(null);
         }
         
         protected void Application_BeginRequest()

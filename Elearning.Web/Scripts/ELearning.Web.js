@@ -2,7 +2,8 @@
 /// <reference path="../Views/RoutesDemo/Search.html" />
 var ELearningWeb = angular.module('ELearning.Web', ['ngRoute']);
 
-ELearningWeb.constant('WebAPIBaseURL', 'http://pad22991/');
+//ELearningWeb.constant('WebAPIBaseURL', 'http://pad22991/');
+ELearningWeb.constant('WebAPIBaseURL', 'http://localhost:49923/');
 
 ELearningWeb.controller('LandingPageController', LandingPageController);
 ELearningWeb.controller('LoginController', LoginController);
@@ -25,8 +26,9 @@ var configFunction = function ($routeProvider, $httpProvider) {
         //.when('/routeHome', {
         //    templateUrl: 'routesDemo/Home'
         //})
-         .when('/routeHome/:username/:password', {
-             templateUrl: function (params) { return '/routesDemo/Home?username=' + params.username + '&password=' + params.password; }
+         .when('/routeHome', {
+             //templateUrl: function (params) { return '/routesDemo/Home?username=' + params.username + '&password=' + params.password; }
+             templateUrl: '../RoutesDemo/Home.html'
          })
         .when('/routeCourseDetails', {
             templateUrl: 'routesDemo/CourseDetails'
