@@ -1,23 +1,22 @@
 ﻿<div ng-controller="CourseDetailsController" ng-init="initialize()" style="margin-left:8px">
-
+    
     <div class="panel panel-success">
         <div class="panel-heading">
             <h3 class="panel-title" style="margin-left:500px;">
-                C++ Programming
+                {{course.CourseTitle}}
             </h3>
         </div>
     </div>
     <div class="media">
         <div class="media-left">
             <a href="#">
-                <img class="media-object" style="width: 200px; height: 200px;" src="/images/VisualStudio.png" alt="64x64" data-holder-rendered="true">
+                <img class="media-object" style="width: 200px; height: 200px;" src="../../images/VisualStudio.png" alt="64x64" data-holder-rendered="true">
             </a>
         </div>
         <div class="media-body" style="background-color:aliceblue">
 
             <div class="col-lg-10">
-                <div>
-                 
+                <div>                
 
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="active"><a ng-click="btnClickDescription()">Description</a></li>
@@ -27,27 +26,31 @@
                 </div><br />
                 <div ng-show="isDescription">
                     <strong style="color:skyblue">
-                        Description: C++ is an intermediate-level language with object-oriented programming features, originally designed to enhance the C language. C++ powers major software like Firefox, Winamp and Adobe programs. Its used to develop systems software, application software, high-performance server and client applications and video games.C++ is an intermediate-level language with object-oriented programming features, originally designed to enhance the C language. C++ powers major software like Firefox, Winamp and Adobe programs. Its used to develop systems software, application software, high-performance server and client applications and video games.
+                        Description: {{course.Description}}
+                        <br />
+                        Created On: {{course.CreatedON}}
                     </strong>
                 </div>
                 <div ng-hide="isDescription">
                     <strong style="color:skyblue">
-                        Outline: C++ is an intermediate-level language with object-oriented programming features, originally designed to enhance the C language. C++ powers major software like Firefox, Winamp and Adobe programs. Its used to develop systems software, application software, high-performance server and client applications and video games. C++ is an intermediate-level language with object-oriented programming features, originally designed to enhance the C language. C++ powers major software like Firefox, Winamp and Adobe programs. Its used to develop systems software, application software, high-performance server and client applications and video games.
+                        Outline: {{course.Description}}
+                        <br />
+                        Tags: {{course.Tags}}
                     </strong>
                 </div>
             </div>
             <div class="col-lg-2">
                 <div>
                     <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                    <span class="badge">126655964</span>
+                    <span class="badge">{{course.Views}}</span>
                 </div><br />
                 <div>
                     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                    <span class="badge">88963</span>
+                    <span class="badge">{{course.Likes}}</span>
                 </div><br />
                 <div>
                     <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
-                    <span class="badge">72963</span>
+                    <span class="badge">{{course.Enrollments}}</span>
                 </div><br />
                 <div>
                     <button class="btn btn-success">Enroll <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> </button>

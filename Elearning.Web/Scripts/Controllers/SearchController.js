@@ -38,13 +38,9 @@ var SearchController = function ($scope, $location) {
         });
     }
 
-    $scope.registerCourse = function () {
-        alert('in register function');
-        //$location.path('/routeCourseDetails');
-
+    $scope.registerCourse = function (courseid) {        
+        $location.path('/routeCourseDetails/' + courseid);
     }
-
-
 
 }
 

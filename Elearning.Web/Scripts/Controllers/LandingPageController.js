@@ -1,51 +1,28 @@
 ﻿
 var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL) {
     //$scope.authentication = false;
-    $scope.user = '';
-    $scope.publisher = {};    
+    $scope.email = '';
+    $scope.publisher = {};
+
+    $scope.user = {};
 
     //$scope.WebApiBaseURL = 'http://pad22991/';
 
     $location.path('/routeSearch');
 
     $scope.login = function (myModal) {
-        //var result = LoginFactory($scope.loginForm.emailAddress, $scope.loginForm.password, $scope.loginForm.rememberMe);
-
-        //result.then(function (result) {
-        //    if (result.success) {
-        //        if ($scope.loginForm.returnUrl !== undefined) {
-        //            $location.path('/routeSearch');
-        //        } else {
-        //            $location.path($scope.loginForm.returnUrl);
-        //        }
-        //    } else {
-        //        $scope.loginForm.loginFailure = true;
-        //    }
-        //});
-
+        
         var user_new = {}                    
         user_new.Password = $scope.password;
-        user_new.Email = $scope.user;
+        user_new.Email = $scope.email;
 
-        
-                 
-        //$http.get('http://172.25.217.78/api/User/5', { headers: { 'Content-Type': 'application/json' } }).then(
-
-        //    function successCallback(res)
-        //    {
-        //        console.log(res);
-        //    },
-        //    function errorCallback(res)
-        //    {
-        //        console.log(res);
-        //    }
-        //);             
                 
         $http.post(WebAPIBaseURL + '/api/user/validateuser/validate', angular.toJson(user_new)).then(
 
           function successCallback(res) {
 
               console.log("Login Successfull: " + res);
+              $scope.user = res.data;
               $scope.authentication = true;              
               $location.path('/routeHome');  
 

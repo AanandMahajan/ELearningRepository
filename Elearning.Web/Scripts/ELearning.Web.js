@@ -8,6 +8,7 @@ ELearningWeb.constant('WebAPIBaseURL', 'http://localhost:49923/');
 ELearningWeb.controller('LandingPageController', LandingPageController);
 ELearningWeb.controller('LoginController', LoginController);
 ELearningWeb.controller('RegisterController', RegisterController);
+ELearningWeb.controller('CourseDetailsController', CourseDetailsController);
 
 ELearningWeb.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 ELearningWeb.factory('LoginFactory', LoginFactory);
@@ -30,17 +31,18 @@ var configFunction = function ($routeProvider, $httpProvider) {
              //templateUrl: function (params) { return '/routesDemo/Home?username=' + params.username + '&password=' + params.password; }
              templateUrl: '../RoutesDemo/Home.html'
          })
-        .when('/routeCourseDetails', {
-            templateUrl: 'routesDemo/CourseDetails'
+        .when('/routeCourseDetails/:id', {
+            controller: CourseDetailsController,
+            templateUrl: '../RoutesDemo/CourseDetails.html'
         })
-        .when('/login', {
-            templateUrl: '/Account/Login',
-            controller: LoginController
-        })
-        .when('/register', {
-            templateUrl: '/Account/Register',
-            controller: RegisterController
-        });
+        //.when('/login', {
+        //    templateUrl: '/Account/Login',0
+        //    controller: LoginController
+        //})
+        //.when('/register', {
+        //    templateUrl: '/Account/Register',
+        //    controller: RegisterController
+        //});
 
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }
