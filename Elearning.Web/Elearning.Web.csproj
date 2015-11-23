@@ -14,7 +14,7 @@
     <RootNamespace>Elearning.Web</RootNamespace>
     <AssemblyName>Elearning.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -152,7 +152,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58614</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Elearning.Web</IISUrl>
+          <IISUrl>http://localhost:58614/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
