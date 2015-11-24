@@ -2,22 +2,23 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/ELearning.Database/bin/Debug
-/ELearning.Database/obj/Debug
-/ELearning.SharedLibrary/bin/Debug
-/ELearning.SharedLibrary/obj/Debug
-/ELearning.Web.Library/bin/Debug
-/ELearning.Web.Library/obj/Debug
-/ELearning.Web.Test/bin/Debug
-/ELearning.Web.Test/obj/Debug
-/ELearning.WebAPI.Library/bin/Debug
-/ELearning.WebAPI.Library/obj/Debug
-/ELearning.WebAPI.Test/bin/Debug
-/ELearning.WebAPI.Test/obj/Debug
+/ELearning.Database/bin
+/ELearning.Database/obj
+/ELearning.SharedLibrary/bin
+/ELearning.SharedLibrary/obj
+/ELearning.Web.Library/bin
+/ELearning.Web.Library/obj
+/ELearning.Web.Test/bin
+/ELearning.Web.Test/obj
+/ELearning.WebAPI.Library/bin
+/ELearning.WebAPI.Library/obj
+/ELearning.WebAPI.Test/bin
+/ELearning.WebAPI.Test/obj
 /ELearningWebAPIApp/App_Data
-/ELearningWebAPIApp/bin/Debug
-/ELearningWebAPIApp/obj/Debug
-/ELearningWebApp.v12.suo
+/ELearningWebAPIApp/bin
+/ELearningWebAPIApp/obj
+/Elearning.Web/bin
+/Elearning.Web/obj
 /README.txt
 /ELearning.Database/ELearning.Database.sqlproj.user
 /ELearning.SharedLibrary/ELearning.Shared.csproj.user
@@ -28,7 +29,3 @@
 /ELearningWebAPIApp/ELearning.WebAPI.csproj.user
 /Elearning.Web/Elearning.Web.csproj.user
 *.suo
-/ELearningWebAPIApp/bin
-/ELearningWebApp/bin
-/Elearning.Web/bin
-/Elearning.Web/obj
