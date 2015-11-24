@@ -77,7 +77,7 @@
                 </div>
 
             </div>
-        
+
         </div>
     </div>
 
@@ -93,7 +93,20 @@
 
     <div ng-show="searchresultcount">
         <br />
-        <div class="col-lg-2">filters here</div>
+        <div class="col-lg-2">
+            <strong> Filter</strong>
+            <br />
+            <br />
+            <strong> Tags</strong>
+            <div ng-repeat="model in facetresults">
+                <input type="checkbox" ng-click="applyfacets()"/>{{model.value}} ({{model.count}})
+            </div>
+
+            <br />
+
+            
+
+        </div>
         <div class="bs-example col-lg-10" data-example-id="media-alignment">
             <div ng-repeat="model in searchresults">
                 <div class="media">
@@ -112,12 +125,12 @@
                                 {{model.Description}}
                             </div>
                             <div class="panel-footer">
-                                <button ng-click="registerCourse(model.ID)">Enroll</button>                                
+                                <button ng-click="registerCourse(model.ID)">Enroll</button>
                             </div>
                         </div>
-                                                
 
-                        
+
+
                     </div>
                 </div><br />
 
