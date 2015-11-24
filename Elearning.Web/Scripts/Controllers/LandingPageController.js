@@ -54,7 +54,7 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL) {
 
         $scope.publisher.Password = md5($scope.publisher.Password);
 
-        $http.post(WebAPIBaseURL + 'api/user', angular.toJson($scope.publisher)).then(
+        $http.post(WebAPIBaseURL + 'api/user/adduser/user', angular.toJson($scope.publisher)).then(
 
             function successCallback(res) {
                 console.log(res);

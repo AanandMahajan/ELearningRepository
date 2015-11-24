@@ -83,7 +83,8 @@ namespace ELearning.WebAPI.Controllers
 
         }
 
-
+        [ActionName("adduser")]
+        [HttpPost]
         // POST api/User
         public HttpResponseMessage PostUser(User user)
         {
