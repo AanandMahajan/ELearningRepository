@@ -13,7 +13,8 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL) {
     $scope.login = function (myModal) {
 
         var user_new = {}
-        user_new.Password = $scope.password;
+        var md5HashedPassword = md5($scope.password);
+        user_new.Password = md5HashedPassword;
         user_new.Email = $scope.email;
 
 
@@ -50,6 +51,8 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL) {
 
         //Adding new user
     $scope.AddUser = function (myModal) {
+
+        $scope.publisher.Password = md5($scope.publisher.Password);
 
         $http.post(WebAPIBaseURL + 'api/user', angular.toJson($scope.publisher)).then(
 

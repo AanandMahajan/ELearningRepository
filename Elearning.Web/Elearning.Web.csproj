@@ -62,13 +62,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\js\md5.min.js" />
     <Content Include="Views\Account\Login.html" />
     <Content Include="Views\Account\Register.html" />
     <Content Include="Views\Home\Index.html" />
     <Content Include="Views\RoutesDemo\CourseDetails.html" />
     <Content Include="Views\RoutesDemo\Home.html" />
     <Content Include="Views\RoutesDemo\Search.html" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
