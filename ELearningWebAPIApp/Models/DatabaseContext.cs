@@ -27,6 +27,8 @@ namespace ELearning.WebAPI.Models
             modelBuilder.Entity<CourseDetail>().ToTable("CourseDetail");
             modelBuilder.Entity<ChapterDetail>().ToTable("ChapterDetail");
             modelBuilder.Entity<ChapterContent>().ToTable("ChapterContent");
+            modelBuilder.Entity<CategoryMaster>().ToTable("CategoryMaster");
+            
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
 
@@ -59,5 +61,7 @@ namespace ELearning.WebAPI.Models
         public DbSet<User> Users { get; set; }
 
         public DbSet<CourseDetail> CourseDetails { get; set; }
+
+        public DbSet<CategoryMaster> CategoryMasters { get; set; }
     }
 }

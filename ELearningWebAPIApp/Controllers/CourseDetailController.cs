@@ -10,6 +10,8 @@ using System.Web;
 using System.Web.Http;
 using ELearning.WebAPI.DBModel;
 using ELearning.WebAPI.Models;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace ELearning.WebAPI.Controllers
 {
@@ -24,15 +26,24 @@ namespace ELearning.WebAPI.Controllers
         }
 
         // GET api/CourseDetail/5
-        public CourseDetail GetCourseDetail(int id)
+        public string GetCourseDetail(int id)
         {
             CourseDetail coursedetail = db.CourseDetails.Find(id);
             if (coursedetail == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
+            string list = JsonConvert.SerializeObject(coursedetail,
+                        Formatting.None,
+                        new JsonSerializerSettings()
+                        {
+                                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                        });
 
-            return coursedetail;
+            //return Content(list, "application/json");
+            
+            //string json = new JavaScriptSerializer().Serialize(coursedetail);
+            return list;
         }
 
         // PUT api/CourseDetail/5
