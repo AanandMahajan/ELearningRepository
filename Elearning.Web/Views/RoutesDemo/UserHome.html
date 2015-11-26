@@ -1,0 +1,13 @@
+﻿<div id="categories" ng-controller="HomeController" ng-init="getCategories()">
+    <div id="courses" class="container_16">
+        <a ng-class="{'flip-container flipper block blue': course.ID=='1', 'flip-container flipper block army': course.ID=='2', 'flip-container flipper block orange': course.ID=='3', 'flip-container flipper block teal': course.ID=='4', 'flip-container flipper block purple': course.ID=='5', 'flip-container flipper block lightpurple': course.ID=='6', 'flip-container flipper block lightblue': course.ID=='7', 'flip-container block blue': course.ID=='8'}" href="" ng-repeat="course in categories">
+            <span class="flipper-front">
+                <i ng-class="{icon1: course.ID=='1', icon2: course.ID =='2', icon3: course.ID =='3', icon4: course.ID =='4', icon5: course.ID =='5', icon6: course.ID =='6', icon7: course.ID =='7', icon8: course.ID =='8'}"></i>
+                <span class="title">{{course.ID=='8' ? BrowseAll : course.Category}}</span>
+            </span>
+            <span class="flipper-back">
+                <span><span>{{course.ID=='8' ? 'Browse All' : course.Category}}</span></span>
+            </span>
+        </a>
+    </div>
+</div>

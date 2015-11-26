@@ -9,6 +9,7 @@ ELearningWeb.controller('LandingPageController', LandingPageController);
 ELearningWeb.controller('LoginController', LoginController);
 ELearningWeb.controller('RegisterController', RegisterController);
 ELearningWeb.controller('CourseDetailsController', CourseDetailsController);
+ELearningWeb.controller('HomeController', HomeController);
 
 ELearningWeb.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 ELearningWeb.factory('LoginFactory', LoginFactory);
@@ -17,7 +18,7 @@ ELearningWeb.factory('RegistrationFactory', RegistrationFactory);
 var configFunction = function ($routeProvider, $httpProvider) {
     $routeProvider.
         when('/routeSearch', {
-           // templateUrl: 'routesDemo/Search'
+            // templateUrl: 'routesDemo/Search'
             controller: SearchController,
             templateUrl: '../RoutesDemo/Search.html'
         })
@@ -28,21 +29,22 @@ var configFunction = function ($routeProvider, $httpProvider) {
         //    templateUrl: 'routesDemo/Home'
         //})
          .when('/routeHome', {
-             //templateUrl: function (params) { return '/routesDemo/Home?username=' + params.username + '&password=' + params.password; }
-             templateUrl: '../RoutesDemo/Home.html'
+             //templateUrl: function (params) { return '/routesDemo/Home?username=' + params.username + '&password=' + params.password; }             
+             controller: HomeController,
+             templateUrl: '../RoutesDemo/UserHome.html'
          })
         .when('/routeCourseDetails/:id', {
             controller: CourseDetailsController,
             templateUrl: '../RoutesDemo/CourseDetails.html'
         })
-        //.when('/login', {
-        //    templateUrl: '/Account/Login',0
-        //    controller: LoginController
-        //})
-        //.when('/register', {
-        //    templateUrl: '/Account/Register',
-        //    controller: RegisterController
-        //});
+    //.when('/login', {
+    //    templateUrl: '/Account/Login',0
+    //    controller: LoginController
+    //})
+    //.when('/register', {
+    //    templateUrl: '/Account/Register',
+    //    controller: RegisterController
+    //});
 
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }

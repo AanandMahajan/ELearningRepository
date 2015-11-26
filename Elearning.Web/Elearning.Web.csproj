@@ -62,12 +62,23 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="images\Categories\1.png" />
+    <Content Include="images\Categories\2.png" />
+    <Content Include="images\Categories\3.png" />
+    <Content Include="images\Categories\4.png" />
+    <Content Include="images\Categories\5.png" />
+    <Content Include="images\Categories\6.png" />
+    <Content Include="images\Categories\7.png" />
+    <Content Include="images\Categories\8.png" />
+    <Content Include="images\Categories\BrowseAll.png" />
+    <Content Include="Scripts\Controllers\HomeController.js" />
+    <Content Include="Scripts\css\dashboard.css" />
     <Content Include="Scripts\js\md5.min.js" />
     <Content Include="Views\Account\Login.html" />
     <Content Include="Views\Account\Register.html" />
     <Content Include="Views\Home\Index.html" />
     <Content Include="Views\RoutesDemo\CourseDetails.html" />
-    <Content Include="Views\RoutesDemo\Home.html" />
+    <Content Include="Views\RoutesDemo\UserHome.html" />
     <Content Include="Views\RoutesDemo\Search.html" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>

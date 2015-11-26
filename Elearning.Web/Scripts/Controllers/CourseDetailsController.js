@@ -14,11 +14,11 @@
 
     $scope.initialize=function()
     {     
-        $http.get(WebAPIBaseURL + 'api/CourseDetail/' + $routeParams.id, { headers: { 'Content-Type': 'application/json' } }).then(
+        $http.get(WebAPIBaseURL + 'api/CourseDetail/' + $routeParams.id).then(
 
             function successCallback(res)
             {                
-                $scope.course = res.data;
+                $scope.course = JSON.parse(JSON.parse(res.data));
                 console.log($scope.course);
             },
             function errorCallback(res)
