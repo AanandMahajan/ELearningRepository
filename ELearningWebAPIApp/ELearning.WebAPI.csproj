@@ -162,6 +162,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CategoryMastersController.cs" />
     <Compile Include="Controllers\CourseDetailController.cs" />
+    <Compile Include="Controllers\ImageMastersController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DBModel\CategoryMaster.cs">
       <DependentUpon>ELearningDataModel.tt</DependentUpon>

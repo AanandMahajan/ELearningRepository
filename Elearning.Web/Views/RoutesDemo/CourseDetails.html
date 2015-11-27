@@ -10,7 +10,7 @@
     <div class="media">
         <div class="media-left">
             <a href="#">
-                <img class="media-object" style="width: 200px; height: 200px;" src="../../images/VisualStudio.png" alt="64x64" data-holder-rendered="true">
+                <img class="media-object" style="width: 200px; height: 200px;" src={{courseImageUrl}} alt="64x64" data-holder-rendered="true">
             </a>
         </div>
         <div class="media-body" style="background-color:aliceblue">
@@ -64,16 +64,20 @@
         <div class="panel-body" style="border:2px">
             <strong>Topics:</strong><br /><br />
             
-            <div class="list-group">
-                <a class="list-group-item">Basics of C Programming</a>
-                <a class="list-group-item">Use of Console</a>
-                <a class="list-group-item">If statements</a>
-                <a class="list-group-item">Functions and Program Organization</a>
-                <a class="list-group-item">Switch case </a>
-                <a class="list-group-item">Pointers, Arrays and Strings</a>
-                <a class="list-group-item">File IO and command line arguments</a>
-                <a class="list-group-item">Linked lists, binary trees, recursion</a>
-                <a class="list-group-item">Exactly how to get started with C++ (or C) today </a>
+            <div class="list-group" ng-repeat="topic in course.ChapterDetails">
+
+                <a class="list-group-item"><strong>{{topic.ChapterTitle}}</strong></a>
+
+                <div ng-repeat="chapter in topic.ChapterContents">
+                    <ul>
+                        <li>
+                            <a class="list-group-item">{{chapter.Title}}</a>
+                            
+                        </li>
+                    </ul>
+                </div>
+
+                
             </div>
         </div>
         <div class="panel-footer">
