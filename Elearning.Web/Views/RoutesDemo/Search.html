@@ -97,14 +97,20 @@
             <strong> Filter</strong>
             <br />
             <br />
-            <strong> Tags</strong>
+            <strong> Category</strong>
             <div ng-repeat="model in facetresults">
-                <input type="checkbox" ng-click="applyfacets()"/>{{model.value}} ({{model.count}})
+                <input type="checkbox" ng-model="model.isSelected" />{{model.facet}} <strong> ({{model.count}})</strong>
             </div>
-
+            <br />
+            <strong> File Types</strong>
+            <div ng-repeat="model in facetfiletypes">
+                <input type="checkbox" ng-model="model.isSelected" />{{model.facet}} 
+            </div>
+            
             <br />
 
-            
+            <button ng-click="applyfilter()">Filter</button>
+                       
 
         </div>
         <div class="bs-example col-lg-10" data-example-id="media-alignment">
