@@ -1,6 +1,6 @@
 ﻿/// <reference path="../Views/RoutesDemo/Search.html" />
 /// <reference path="../Views/RoutesDemo/Search.html" />
-var ELearningWeb = angular.module('ELearning.Web', ['ngRoute']);
+var ELearningWeb = angular.module('ELearning.Web', ['ngRoute', 'ng.httpLoader']);
 
 //ELearningWeb.constant('WebAPIBaseURL', 'http://pad22991/');
 ELearningWeb.constant('WebAPIBaseURL', 'http://localhost:49923/');
@@ -15,7 +15,8 @@ ELearningWeb.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor)
 ELearningWeb.factory('LoginFactory', LoginFactory);
 ELearningWeb.factory('RegistrationFactory', RegistrationFactory);
 
-var configFunction = function ($routeProvider, $httpProvider) {
+
+var configFunction = function ($routeProvider, $httpProvider,httpMethodInterceptorProvider) {
     $routeProvider.
         when('/routeSearch', {
             // templateUrl: 'routesDemo/Search'
@@ -47,7 +48,12 @@ var configFunction = function ($routeProvider, $httpProvider) {
     //});
 
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
+
+    httpMethodInterceptorProvider.whitelistDomain('http://localhost:49923/');
+    httpMethodInterceptorProvider.whitelistDomain('https://coursesearch.search.windows.net');
+    
+
 }
-configFunction.$inject = ['$routeProvider', '$httpProvider'];
+configFunction.$inject = ['$routeProvider', '$httpProvider','httpMethodInterceptorProvider'];
 
 ELearningWeb.config(configFunction);

@@ -61,23 +61,22 @@
 
         </div>
 
-        <div class="panel-body" style="border:2px">
+        <div class="panel-body accordion" style="border:2px">
             <strong>Topics:</strong><br /><br />
-            
-            <div class="list-group" ng-repeat="topic in course.ChapterDetails">
 
-                <a class="list-group-item"><strong>{{topic.ChapterTitle}}</strong></a>
+            <div class="list-group accordion-section" ng-repeat="topic in course.ChapterDetails" style="cursor: pointer;">
 
-                <div ng-repeat="chapter in topic.ChapterContents">
-                    <ul>
-                        <li>
-                            <a class="list-group-item">{{chapter.Title}}</a>
-                            
-                        </li>
-                    </ul>
+                <div id="accordionParent-{{$index}}" class="list-group-item accordion-section-title" href="#accordionChild-{{$index}}" ng-click="clickSectionTitle($index)">{{topic.ChapterTitle}}</div>
+                <div id="accordionChild-{{$index}}" class="accordion-section-content" style="cursor: pointer;">
+                    <div ng-repeat="chapter in topic.ChapterContents">
+                        <ul>
+                            <li>
+                                <a class="list-group-item">{{chapter.Title}}</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                
             </div>
         </div>
         <div class="panel-footer">

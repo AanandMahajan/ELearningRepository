@@ -3,7 +3,7 @@
 <head>
 
 
-    <title>CourseCloud</title>
+        <title>CourseCloud</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; application/json; charset=utf-8" />
     <meta name="keywords" content="Play-Offs Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
@@ -29,8 +29,8 @@
     <script src="../../Scripts/js/owl.carousel.js"></script>
     <script src="../../Scripts/js/azure-search.min.js"></script>    
     <script src="../../Scripts/js/easing.js"></script>
-    <script src="../../Scripts/js/move-top.js"></script>
-    
+    <script src="../../Scripts/js/move-top.js"></script>    
+
 
     <script src="../../Scripts/Factories/AuthHttpResponseInterceptor.js"></script>
     <script src="../../Scripts/Factories/LoginFactory.js"></script>
@@ -46,13 +46,13 @@
     <script src="../../Scripts/ELearning.Web.js"></script>
 
      <script src="../../Scripts/js/md5.min.js"></script>
-
+    <script src="../../Scripts/js/angular-http-loader.js"></script>
 
 
 
 </head>
 <body>
-
+    
     <div class="header" id="home">
 
         <div class="header_nav" id="home">
@@ -154,8 +154,9 @@
 
     </div>
 
+    
     <div ng-view></div>
-
+    
 
     <div class="modal" id="Login" tabindex="-1" role="dialog" aria-labelledby="LoginLabel">
         <div class="modal-dialog" role="document">
@@ -251,7 +252,7 @@
         </div>
     </div>
 
-
+    <div ng-http-loader methods="['POST', 'PUT','GET']" template="../Utilities/Loader.html"></div>
 </body>
 </html>
 
