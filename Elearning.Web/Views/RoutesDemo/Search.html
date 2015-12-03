@@ -74,7 +74,7 @@
         </div>
     </div>
 
-
+    
     <div ng-show="searchresultcount">
         <br />
         <div class="col-lg-2">
@@ -97,7 +97,15 @@
 
 
         </div>
+
         <div class="bs-example col-lg-10" data-example-id="media-alignment">
+            <div >
+                <button style="margin-left:80%" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0">Prev <</button>
+                {{showSearchResultRange}}
+                <button style="margin-left:10px" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5">Next ></button>
+            </div>
+            <br />
+            <br />
             <div ng-repeat="model in searchresults">
                 <div class="media">
                     <div class="media-left">
@@ -115,7 +123,7 @@
                                 {{model.Description}}
                             </div>
                             <div class="panel-footer">
-                                <button ng-click="registerCourse(model.ID)">Enroll</button>
+                                <button ng-click="registerCourse(model.ID)">View</button>
                             </div>
                         </div>
 
@@ -125,6 +133,14 @@
                 </div><br />
 
             </div>
+                        
+            <div>
+                <button style="margin-left:80%" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0">Prev <</button>
+                {{showSearchResultRange}}
+                <button style="margin-left:10px" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5">Next ></button>
+            </div>
+
+            <br />
 
 
         </div>
