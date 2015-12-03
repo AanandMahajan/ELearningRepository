@@ -1,13 +1,37 @@
 ﻿
-var SearchController = function ($scope, $location, $http) {
+var SearchController = function ($scope, $location, $http, WebAPIBaseURL) {
 
     var facetCategory = new Array();
     var facetFiletype = new Array();
+    var search_api_key = "3C0D5A6CEA52BBDB1FF804AF56A1289D";
 
     $scope.intitalizevalues = function () {
         $scope.searchkeys = '';
         $scope.searchresultcount = false;
         $scope.searchresults = new Array();
+
+        $scope.categoryselected = [];
+        $scope.resultdata = [];
+
+        $http({ method: 'get', url: WebAPIBaseURL + 'api/CategoryMasters/' }).
+           then(function (response) {
+               for (var i = 0; i < response.data.length; i++) {
+                   $scope.resultdata.push({ label: response.data[i].Category });
+               }
+           });
+
+        $scope.categorysettings = {
+            enableSearch: true,
+            //smartButtonMaxItems: 3,
+            displayProp: 'label', idProp: 'label',
+            //smartButtonTextConverter: function (itemText, originalItem) {
+            //    return itemText;
+            //}
+        };
+        
+        $scope.customFilter = '';
+        $scope.example5customTexts = { buttonDefaultText: 'Select Category' };
+
     }
 
 
@@ -43,7 +67,7 @@ var SearchController = function ($scope, $location, $http) {
                     if (facetCategory[i].isSelected) {
                         if (!flag)
                             result_set += " OR ";
-                        result_set += "Category:\"" + facetCategory[i].facet+"\""
+                        result_set += "Category:\"" + facetCategory[i].facet + "\""
                         flag = false;
                     }
                 }
@@ -67,7 +91,7 @@ var SearchController = function ($scope, $location, $http) {
                 }
                 result_set += ") ";
             }
-          
+
 
             if ($scope.searchkeys.length > 0) {
                 var searchkey = $scope.searchkeys + '*';
@@ -76,7 +100,7 @@ var SearchController = function ($scope, $location, $http) {
 
             console.log(result_set);
 
-            $http.get("https://coursesearch.search.windows.net/indexes/courseindex/docs?search=" + result_set + "&searchMode=all&api-version=2015-02-28-Preview&querytype=full", { headers: { 'api-key': '3C0D5A6CEA52BBDB1FF804AF56A1289D' } }).then(
+            $http.get("https://coursesearch.search.windows.net/indexes/courseindex/docs?search=" + result_set + "&searchMode=all&api-version=2015-02-28-Preview&querytype=full", { headers: { 'api-key': search_api_key } }).then(
 
              function successCallback(results) {
 
@@ -105,8 +129,33 @@ var SearchController = function ($scope, $location, $http) {
 
 
     $scope.search = function () {
-        var searchkey = $scope.searchkeys + '*';
-        searchcourse(searchkey);
+        //var searchkey = $scope.searchkeys + '*';
+        var categoryFilter = $scope.categoryselected;
+        console.log(categoryFilter);
+
+        var result_set = "";
+
+        if (categoryFilter.length > 0) {
+            result_set += "(";
+            var flag = true;
+            for (var i = 0; i < categoryFilter.length; i++) {
+
+                if (!flag)
+                    result_set += " OR ";
+                result_set += "Category:\"" + categoryFilter[i].id + "\""
+                flag = false;
+
+            }
+            result_set += ") ";
+        }
+
+        if ($scope.searchkeys.length > 0) {
+            var searchkey = $scope.searchkeys + '*';
+            result_set += "AND (CourseTitle:" + searchkey + " OR Description:" + searchkey + ")";
+        }
+
+        console.log(result_set);
+        searchcourse(result_set);
     }
 
     $scope.registerCourse = function (courseid) {
@@ -114,8 +163,8 @@ var SearchController = function ($scope, $location, $http) {
     }
 
 
-    function searchcourse(searchkey) {
-        $http.get("https://coursesearch.search.windows.net/indexes/courseindex/docs?search=" + searchkey + "&$count=true&facet=Category&facet=FileTypes&api-version=2015-02-28", { headers: { 'api-key': '3C0D5A6CEA52BBDB1FF804AF56A1289D' } }).then(
+    function searchcourse(searchkey, categoryFilter) {
+        $http.get("https://coursesearch.search.windows.net/indexes/courseindex/docs?search=" + searchkey + "&$count=true&facet=Category&facet=FileTypes&searchMode=all&api-version=2015-02-28-Preview&querytype=full", { headers: { 'api-key': search_api_key } }).then(
 
           function successCallback(results) {
 
@@ -152,7 +201,7 @@ var SearchController = function ($scope, $location, $http) {
           }
       );
     }
-    
+
     //Prepare entity and bind it to ng-checkbox
     function prepareFacetEntity(facetresults, facetfiletypes) {
 
@@ -175,4 +224,4 @@ var SearchController = function ($scope, $location, $http) {
 }
 
 // The inject property of every controller (and pretty much every other type of object in Angular) needs to be a string array equal to the controllers arguments, only as strings
-SearchController.$inject = ['$scope', '$location', '$http'];
+SearchController.$inject = ['$scope', '$location', '$http', WebAPIBaseURL];

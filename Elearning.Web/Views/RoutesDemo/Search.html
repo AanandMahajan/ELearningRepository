@@ -6,26 +6,10 @@
         <div class="col-lg-1">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown" dropdown>
-
-                    <img ng-src="../../images/BrowseCourseImage1.png" height="50" width="50" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-
-
-
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="">Cloud Computing</a></li>
-                        <li class="divider"></li>
-                        <li><a href="">Finance</a></li>
-                        <li class="divider"></li>
-                        <li><a href="">HealthCare Unit</a></li>
-                        <li class="divider"></li>
-                        <li><a href="">Banking</a></li>
-                        <li class="divider"></li>
-                        <li><a href="">E-Commerce</a></li>
-                        <li class="divider"></li>
-                        <li><a href="">Administration</a></li>
-                        <li class="divider"></li>
-                    </ul>
-
+                                                           
+                    <div ng-mouseover="Show" ng-dropdown-multiselect="" search-filter="customFilter" options="resultdata" selected-model="categoryselected" extra-settings="categorysettings" translation-texts="example5customTexts"></div>
+                    
+                    
                 </li>
             </ul>
         </div>
@@ -104,13 +88,13 @@
             <br />
             <strong> File Types</strong>
             <div ng-repeat="model in facetfiletypes">
-                <input type="checkbox" ng-model="model.isSelected" />{{model.facet}} 
+                <input type="checkbox" ng-model="model.isSelected" />{{model.facet}}
             </div>
-            
+
             <br />
 
             <button ng-click="applyfilter()">Filter</button>
-                       
+
 
         </div>
         <div class="bs-example col-lg-10" data-example-id="media-alignment">
