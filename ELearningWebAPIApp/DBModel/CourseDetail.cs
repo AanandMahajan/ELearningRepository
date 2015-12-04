@@ -13,7 +13,7 @@ namespace ELearning.WebAPI.DBModel
     using System.Collections.Generic;
     
     public partial class CourseDetail
-    {
+    {       
         public int ID { get; set; }
         public int TenantID { get; set; }
         public string CourseTitle { get; set; }
@@ -30,8 +30,8 @@ namespace ELearning.WebAPI.DBModel
         public Nullable<int> Views { get; set; }
         public Nullable<int> Likes { get; set; }
         public Nullable<int> Enrollments { get; set; }
-
+        public Nullable<int> AvgRating { get; set; }
+    
         public virtual ICollection<ChapterDetail> ChapterDetails { get; set; }
-
     }
 }

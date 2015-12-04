@@ -32,5 +32,6 @@ namespace ELearning.WebAPI.DBModel
         public Nullable<System.DateTime> LastLoggedIN { get; set; }
         public string DefaultLandingPage { get; set; }
         public string MobileNumber { get; set; }
+        public string Interest { get; set; }
     }
 }

@@ -1,10 +1,10 @@
 ﻿/// <reference path="../Views/RoutesDemo/Search.html" />
 /// <reference path="../Views/RoutesDemo/Search.html" />
-var ELearningWeb = angular.module('ELearning.Web', ['ngRoute', 'ng.httpLoader']);
+var ELearningWeb = angular.module('ELearning.Web', ['ngRoute', 'ng.httpLoader', 'azureBlobUpload']);
 
 //ELearningWeb.constant('WebAPIBaseURL', 'http://pad22991/');
 ELearningWeb.constant('WebAPIBaseURL', 'http://localhost:49923/');
-
+ 
 ELearningWeb.controller('LandingPageController', LandingPageController);
 ELearningWeb.controller('LoginController', LoginController);
 ELearningWeb.controller('RegisterController', RegisterController);

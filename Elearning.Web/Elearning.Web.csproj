@@ -66,6 +66,7 @@
     <Content Include="Scripts\Controllers\HomeController.js" />
     <Content Include="Scripts\css\dashboard.css" />
     <Content Include="Scripts\js\angular-http-loader.js" />
+    <Content Include="Scripts\js\azure-blob-upload.js" />
     <Content Include="Scripts\js\md5.min.js" />
     <Content Include="Views\Account\Login.html" />
     <Content Include="Views\Account\Register.html" />
@@ -137,7 +138,9 @@
     <Content Include="Scripts\js\jquery.swipebox.min.js" />
     <Content Include="Scripts\js\move-top.js" />
     <Content Include="Scripts\js\owl.carousel.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

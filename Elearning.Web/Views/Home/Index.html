@@ -47,6 +47,7 @@
 
      <script src="../../Scripts/js/md5.min.js"></script>
     <script src="../../Scripts/js/angular-http-loader.js"></script>
+    <script src='../../Scripts/js/azure-blob-upload.js'></script>
 
 
 
@@ -204,6 +205,10 @@
                 <div class="modal-body">
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+                        <input type="file" id="file" class="form-control"  name="file" aria-describedby="basic-addon1" placeholder="Display pic" />
+                    </div><br />
+                    <div class="input-group">
+                        <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
                         <input type="text" class="form-control" ng-model="publisher.FullName" placeholder="Full Name" aria-describedby="basic-addon1">
                     </div><br />
                     <div class="input-group">
@@ -223,11 +228,11 @@
                         <input type="date" class="form-control" ng-model="publisher.DOB" placeholder="Date of Birth" aria-describedby="basic-addon1">
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
-                        <form>
-                            <input type="radio" ng-value="Male" placeholder="Male" aria-describedby="basic-addon1"> Male
-                            <input type="radio" ng-value="Female" placeholder="Female" aria-describedby="basic-addon1"> Female
-                            <input type="radio" ng-value="Other" placeholder="Not Specified" aria-describedby="basic-addon1"> Not Specified
+                        <span class="input-group-addon glyphicon glyphicon-indent-right" id="basic-addon1"></span>
+                        <form aria-describedby="basic-addon1" class="form-control">
+                            <input type="radio" ng-model="publisher.GenderID" ng-value="1">Male
+                            <input type="radio" ng-model="publisher.GenderID" ng-value="2">Female
+                            <input type="radio" ng-model="publisher.GenderID" ng-value="3">Not Specified
                         </form>
                     </div><br />
                     <div class="input-group">
@@ -240,7 +245,7 @@
                     </div><br />
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-equalizer" id="basic-addon1"></span>
-                        <input type="text" class="form-control" ng-model="publisher.interest" placeholder="Interests" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" ng-model="publisher.Interest" placeholder="Interests" aria-describedby="basic-addon1">
                     </div>   <br />
                 </div>
 

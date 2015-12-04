@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1439e7fcdb0444c39286e9bec3a909df" Name="Diagram1">
+      <Diagram DiagramId="1439e7fcdb0444c39286e9bec3a909df" Name="Diagram1" ZoomLevel="85">
         <EntityTypeShape EntityType="ELearningDatabaseModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.CategoryMaster" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.ChapterContent" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
@@ -20,11 +20,12 @@
         <EntityTypeShape EntityType="ELearningDatabaseModel.RoleMaster" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.TenantMaster" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.ThirdpartyProvider" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ELearningDatabaseModel.User" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ELearningDatabaseModel.UserInterest" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELearningDatabaseModel.User" PointX="9.125" PointY="10.625" Width="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.UserLoginAuditTrail" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.UserNotification" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.UserStatusMaster" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="ELearningDatabaseModel.FK_ChapterContent_ChapterID" />
+        <AssociationConnector Association="ELearningDatabaseModel.FK_ChapterDetail_CourseID" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
