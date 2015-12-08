@@ -1391,7 +1391,7 @@ input.nuber {
     overflow:hidden;
     box-shadow:0px 1px 3px rgba(0,0,0,0.25);
     border-radius:3px;
-    background:#f7f7f7;
+    background:#f7f7f7 !important;
 }
  
 /*----- Section Titles -----*/
@@ -1400,7 +1400,7 @@ input.nuber {
     padding:15px;
     display:inline-block;
     border-bottom:1px solid #1a1a1a;
-    background:#333;
+    background:#333 !important;
     transition:all linear 0.15s;
     /* Type */
     font-size:1.200em;
@@ -1409,7 +1409,7 @@ input.nuber {
 }
  
 .accordion-section-title.active, .accordion-section-title:hover {
-    background:#4c4c4c;
+    background:#337ab7 !important;
     /* Type */
     text-decoration:none;
 }

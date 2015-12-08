@@ -194,14 +194,6 @@
           <Property Name="LastLoggedIN" Type="datetime" />
           <Property Name="DefaultLandingPage" Type="varchar" MaxLength="10" />
           <Property Name="MobileNumber" Type="varchar" MaxLength="10" />
-        </EntityType>
-        <EntityType Name="UserInterest">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenantID" Type="int" Nullable="false" />
-          <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Interest" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="UserLoginAuditTrail">
@@ -277,7 +269,6 @@
           <EntitySet Name="TenantMaster" EntityType="Self.TenantMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThirdpartyProvider" EntityType="Self.ThirdpartyProvider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserInterest" EntityType="Self.UserInterest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserLoginAuditTrail" EntityType="Self.UserLoginAuditTrail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserNotification" EntityType="Self.UserNotification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserStatusMaster" EntityType="Self.UserStatusMaster" Schema="dbo" store:Type="Tables" />
@@ -456,35 +447,27 @@
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Email" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
           <Property Name="TenantID" Type="Int32" />
-          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DOB" Type="DateTime" Precision="3" />
-          <Property Name="GenderID" Type="Byte" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreatedON" Type="DateTime" Precision="3" />
+          <Property Name="FullName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="DOB" Precision="3" Type="DateTime" />
+          <Property Name="GenderID" Nullable="false" Type="Byte" />
+          <Property Name="Email" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="CreatedON" Precision="3" Type="DateTime" />
           <Property Name="RoleID" Type="Int32" />
           <Property Name="StatusID" Type="Int32" />
-          <Property Name="VaildUpTo" Type="DateTime" Precision="3" />
-          <Property Name="DisplayPicURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VaildUpTo" Precision="3" Type="DateTime" />
+          <Property Name="DisplayPicURL" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Occupation" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
           <Property Name="CountryID" Type="Int32" />
           <Property Name="ThirdPartyProviderID" Type="Int32" />
-          <Property Name="LastLoggedIN" Type="DateTime" Precision="3" />
-          <Property Name="DefaultLandingPage" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MobileNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="UserInterest">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenantID" Type="Int32" Nullable="false" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="Interest" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LastLoggedIN" Precision="3" Type="DateTime" />
+          <Property Name="DefaultLandingPage" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="MobileNumber" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="Interest" MaxLength="500" FixedLength="false" Unicode="false" Type="String" />
         </EntityType>
         <EntityType Name="UserLoginAuditTrail">
           <Key>
@@ -534,7 +517,6 @@
           <EntitySet Name="TenantMasters" EntityType="Self.TenantMaster" />
           <EntitySet Name="ThirdpartyProviders" EntityType="Self.ThirdpartyProvider" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="UserInterests" EntityType="Self.UserInterest" />
           <EntitySet Name="UserLoginAuditTrails" EntityType="Self.UserLoginAuditTrail" />
           <EntitySet Name="UserNotifications" EntityType="Self.UserNotification" />
           <EntitySet Name="UserStatusMasters" EntityType="Self.UserStatusMaster" />
@@ -762,6 +744,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="ELearningDatabaseModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Interest" ColumnName="Interest" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="TenantID" ColumnName="TenantID" />
@@ -780,16 +763,6 @@
                 <ScalarProperty Name="LastLoggedIN" ColumnName="LastLoggedIN" />
                 <ScalarProperty Name="DefaultLandingPage" ColumnName="DefaultLandingPage" />
                 <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserInterests">
-            <EntityTypeMapping TypeName="ELearningDatabaseModel.UserInterest">
-              <MappingFragment StoreEntitySet="UserInterest">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TenantID" ColumnName="TenantID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Interest" ColumnName="Interest" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -839,7 +812,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          </EntityContainerMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
