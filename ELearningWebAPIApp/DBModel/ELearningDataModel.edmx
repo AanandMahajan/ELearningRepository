@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ELearningDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ELearningDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -87,6 +87,17 @@
           <Property Name="Likes" Type="int" />
           <Property Name="Enrollments" Type="int" />
           <Property Name="AvgRating" Type="int" />
+        </EntityType>
+        <EntityType Name="CourseLikeUnlikeView">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Flag" Type="int" Nullable="false" />
+          <Property Name="ActionBy" Type="int" Nullable="false" />
+          <Property Name="ActionON" Type="datetime" />
         </EntityType>
         <EntityType Name="CourseStatusMaster">
           <Key>
@@ -248,6 +259,7 @@
           <EntitySet Name="CountryMaster" EntityType="Self.CountryMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CourseBookmark" EntityType="Self.CourseBookmark" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CourseDetail" EntityType="Self.CourseDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseLikeUnlikeView" EntityType="Self.CourseLikeUnlikeView" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CourseStatusMaster" EntityType="Self.CourseStatusMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FileTypeMaster" EntityType="Self.FileTypeMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderMaster" EntityType="Self.GenderMaster" Schema="dbo" store:Type="Tables" />
@@ -516,6 +528,7 @@
             <End Role="CourseDetail" EntitySet="CourseDetails" />
             <End Role="ChapterDetail" EntitySet="ChapterDetails" />
           </AssociationSet>
+          <EntitySet Name="CourseLikeUnlikeViews" EntityType="ELearningDatabaseModel.CourseLikeUnlikeView" />
         </EntityContainer>
         <Association Name="FK_ChapterContent_ChapterID">
           <End Type="ELearningDatabaseModel.ChapterDetail" Role="ChapterDetail" Multiplicity="1" />
@@ -541,6 +554,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CourseLikeUnlikeView">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="Flag" Type="Int32" Nullable="false" />
+          <Property Name="ActionBy" Type="Int32" Nullable="false" />
+          <Property Name="ActionON" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -773,6 +797,18 @@
                 <ScalarProperty Name="TenantID" ColumnName="TenantID" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CourseLikeUnlikeViews">
+            <EntityTypeMapping TypeName="ELearningDatabaseModel.CourseLikeUnlikeView">
+              <MappingFragment StoreEntitySet="CourseLikeUnlikeView">
+                <ScalarProperty Name="ActionON" ColumnName="ActionON" />
+                <ScalarProperty Name="ActionBy" ColumnName="ActionBy" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
