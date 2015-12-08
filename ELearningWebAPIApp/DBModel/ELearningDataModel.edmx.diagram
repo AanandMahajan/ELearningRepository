@@ -25,6 +25,9 @@
         <EntityTypeShape EntityType="ELearningDatabaseModel.UserLoginAuditTrail" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.UserNotification" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.UserStatusMaster" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="ELearningDatabaseModel.FK_ChapterContent_ChapterID" />
+        <AssociationConnector Association="ELearningDatabaseModel.FK_ChapterDetail_CourseID" />
+        <EntityTypeShape EntityType="ELearningDatabaseModel.CourseLikeUnlikeView" Width="1.5" PointX="11.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

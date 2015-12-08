@@ -45,5 +45,6 @@ namespace ELearning.WebAPI.DBModel
         public DbSet<UserLoginAuditTrail> UserLoginAuditTrails { get; set; }
         public DbSet<UserNotification> UserNotifications { get; set; }
         public DbSet<UserStatusMaster> UserStatusMasters { get; set; }
+        public DbSet<CourseLikeUnlikeView> CourseLikeUnlikeViews { get; set; }
     }
 }

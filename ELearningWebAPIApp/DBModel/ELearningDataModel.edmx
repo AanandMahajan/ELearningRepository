@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ELearningDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ELearningDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -30,7 +30,7 @@
           <Property Name="TenantID" Type="int" Nullable="false" />
           <Property Name="CourseID" Type="int" Nullable="false" />
           <Property Name="ChapterID" Type="int" Nullable="false" />
-          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Title" Type="varchar" MaxLength="250" />
           <Property Name="FileTypeID" Type="int" Nullable="false" />
           <Property Name="FileBlobURL" Type="varchar" MaxLength="50" />
           <Property Name="Order" Type="int" />
@@ -86,6 +86,18 @@
           <Property Name="Views" Type="int" />
           <Property Name="Likes" Type="int" />
           <Property Name="Enrollments" Type="int" />
+          <Property Name="AvgRating" Type="int" />
+        </EntityType>
+        <EntityType Name="CourseLikeUnlikeView">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Flag" Type="int" Nullable="false" />
+          <Property Name="ActionBy" Type="int" Nullable="false" />
+          <Property Name="ActionON" Type="datetime" />
         </EntityType>
         <EntityType Name="CourseStatusMaster">
           <Key>
@@ -121,7 +133,7 @@
           <Property Name="TenantID" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
           <Property Name="ALT_Text" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="BLOB_URL" Type="varchar" MaxLength="50" />
+          <Property Name="BLOB_URL" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="NotificationTypeMaster">
           <Key>
@@ -162,7 +174,7 @@
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Email" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
@@ -175,7 +187,7 @@
           <Property Name="RoleID" Type="int" />
           <Property Name="StatusID" Type="int" />
           <Property Name="VaildUpTo" Type="datetime" />
-          <Property Name="DisplayPicURL" Type="varchar" MaxLength="50" />
+          <Property Name="DisplayPicURL" Type="nvarchar" MaxLength="500" />
           <Property Name="Occupation" Type="varchar" MaxLength="50" />
           <Property Name="CountryID" Type="int" />
           <Property Name="ThirdPartyProviderID" Type="int" />
@@ -223,6 +235,30 @@
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_ChapterContent_ChapterID">
+          <End Role="ChapterDetail" Type="Self.ChapterDetail" Multiplicity="1" />
+          <End Role="ChapterContent" Type="Self.ChapterContent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChapterDetail">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChapterContent">
+              <PropertyRef Name="ChapterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChapterDetail_CourseID">
+          <End Role="CourseDetail" Type="Self.CourseDetail" Multiplicity="1" />
+          <End Role="ChapterDetail" Type="Self.ChapterDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseDetail">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChapterDetail">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ELearningDatabaseModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CategoryMaster" EntityType="Self.CategoryMaster" Schema="dbo" store:Type="Tables" />
@@ -231,6 +267,7 @@
           <EntitySet Name="CountryMaster" EntityType="Self.CountryMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CourseBookmark" EntityType="Self.CourseBookmark" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CourseDetail" EntityType="Self.CourseDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CourseLikeUnlikeView" EntityType="Self.CourseLikeUnlikeView" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CourseStatusMaster" EntityType="Self.CourseStatusMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FileTypeMaster" EntityType="Self.FileTypeMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderMaster" EntityType="Self.GenderMaster" Schema="dbo" store:Type="Tables" />
@@ -244,9 +281,16 @@
           <EntitySet Name="UserLoginAuditTrail" EntityType="Self.UserLoginAuditTrail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserNotification" EntityType="Self.UserNotification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserStatusMaster" EntityType="Self.UserStatusMaster" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ChapterContent_ChapterID" Association="Self.FK_ChapterContent_ChapterID">
+            <End Role="ChapterDetail" EntitySet="ChapterDetail" />
+            <End Role="ChapterContent" EntitySet="ChapterContent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChapterDetail_CourseID" Association="Self.FK_ChapterDetail_CourseID">
+            <End Role="CourseDetail" EntitySet="CourseDetail" />
+            <End Role="ChapterDetail" EntitySet="ChapterDetail" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ELearningDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -275,10 +319,11 @@
           <Property Name="TenantID" Type="Int32" Nullable="false" />
           <Property Name="CourseID" Type="Int32" Nullable="false" />
           <Property Name="ChapterID" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="FileTypeID" Type="Int32" Nullable="false" />
           <Property Name="FileBlobURL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Order" Type="Int32" />
+          <NavigationProperty Name="ChapterDetail" Relationship="ELearningDatabaseModel.FK_ChapterContent_ChapterID" FromRole="ChapterContent" ToRole="ChapterDetail" />
         </EntityType>
         <EntityType Name="ChapterDetail">
           <Key>
@@ -290,6 +335,8 @@
           <Property Name="ChapterTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="Order" Type="Int32" />
+          <NavigationProperty Name="ChapterContents" Relationship="ELearningDatabaseModel.FK_ChapterContent_ChapterID" FromRole="ChapterDetail" ToRole="ChapterContent" />
+          <NavigationProperty Name="CourseDetail" Relationship="ELearningDatabaseModel.FK_ChapterDetail_CourseID" FromRole="ChapterDetail" ToRole="CourseDetail" />
         </EntityType>
         <EntityType Name="CountryMaster">
           <Key>
@@ -331,6 +378,8 @@
           <Property Name="Views" Type="Int32" />
           <Property Name="Likes" Type="Int32" />
           <Property Name="Enrollments" Type="Int32" />
+          <Property Name="AvgRating" Type="Int32" />
+          <NavigationProperty Name="ChapterDetails" Relationship="ELearningDatabaseModel.FK_ChapterDetail_CourseID" FromRole="CourseDetail" ToRole="ChapterDetail" />
         </EntityType>
         <EntityType Name="CourseStatusMaster">
           <Key>
@@ -366,7 +415,7 @@
           <Property Name="TenantID" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ALT_Text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="BLOB_URL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BLOB_URL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="NotificationTypeMaster">
           <Key>
@@ -420,7 +469,7 @@
           <Property Name="RoleID" Type="Int32" />
           <Property Name="StatusID" Type="Int32" />
           <Property Name="VaildUpTo" Type="DateTime" Precision="3" />
-          <Property Name="DisplayPicURL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayPicURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CountryID" Type="Int32" />
           <Property Name="ThirdPartyProviderID" Type="Int32" />
@@ -489,7 +538,51 @@
           <EntitySet Name="UserLoginAuditTrails" EntityType="Self.UserLoginAuditTrail" />
           <EntitySet Name="UserNotifications" EntityType="Self.UserNotification" />
           <EntitySet Name="UserStatusMasters" EntityType="Self.UserStatusMaster" />
+          <AssociationSet Name="FK_ChapterContent_ChapterID" Association="ELearningDatabaseModel.FK_ChapterContent_ChapterID">
+            <End Role="ChapterDetail" EntitySet="ChapterDetails" />
+            <End Role="ChapterContent" EntitySet="ChapterContents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChapterDetail_CourseID" Association="ELearningDatabaseModel.FK_ChapterDetail_CourseID">
+            <End Role="CourseDetail" EntitySet="CourseDetails" />
+            <End Role="ChapterDetail" EntitySet="ChapterDetails" />
+          </AssociationSet>
+          <EntitySet Name="CourseLikeUnlikeViews" EntityType="ELearningDatabaseModel.CourseLikeUnlikeView" />
         </EntityContainer>
+        <Association Name="FK_ChapterContent_ChapterID">
+          <End Type="ELearningDatabaseModel.ChapterDetail" Role="ChapterDetail" Multiplicity="1" />
+          <End Type="ELearningDatabaseModel.ChapterContent" Role="ChapterContent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChapterDetail">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChapterContent">
+              <PropertyRef Name="ChapterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChapterDetail_CourseID">
+          <End Type="ELearningDatabaseModel.CourseDetail" Role="CourseDetail" Multiplicity="1" />
+          <End Type="ELearningDatabaseModel.ChapterDetail" Role="ChapterDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CourseDetail">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChapterDetail">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CourseLikeUnlikeView">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="Flag" Type="Int32" Nullable="false" />
+          <Property Name="ActionBy" Type="Int32" Nullable="false" />
+          <Property Name="ActionON" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -566,6 +659,7 @@
           <EntitySetMapping Name="CourseDetails">
             <EntityTypeMapping TypeName="ELearningDatabaseModel.CourseDetail">
               <MappingFragment StoreEntitySet="CourseDetail">
+                <ScalarProperty Name="AvgRating" ColumnName="AvgRating" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TenantID" ColumnName="TenantID" />
                 <ScalarProperty Name="CourseTitle" ColumnName="CourseTitle" />
@@ -733,7 +827,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="CourseLikeUnlikeViews">
+            <EntityTypeMapping TypeName="ELearningDatabaseModel.CourseLikeUnlikeView">
+              <MappingFragment StoreEntitySet="CourseLikeUnlikeView">
+                <ScalarProperty Name="ActionON" ColumnName="ActionON" />
+                <ScalarProperty Name="ActionBy" ColumnName="ActionBy" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

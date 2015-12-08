@@ -29,10 +29,11 @@ namespace ELearning.WebAPI.Models
             modelBuilder.Entity<ChapterContent>().ToTable("ChapterContent");
             modelBuilder.Entity<CategoryMaster>().ToTable("CategoryMaster");
             modelBuilder.Entity<ImageMaster>().ToTable("ImageMaster");
-            
+            modelBuilder.Entity<CourseLikeUnlikeView>().ToTable("CourseLikeUnlikeView");
+
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-
+            modelBuilder.Entity<CourseLikeUnlikeView>().HasKey(t => t.ID);
             // Configure the primary key for BaseCard
             modelBuilder.Entity<ChapterDetail>().HasKey(t => t.ID);
             //specify no autogenerate the Id Column
@@ -66,5 +67,8 @@ namespace ELearning.WebAPI.Models
         public DbSet<CategoryMaster> CategoryMasters { get; set; }
 
         public System.Data.Entity.DbSet<ELearning.WebAPI.DBModel.ImageMaster> ImageMasters { get; set; }
+
+        public System.Data.Entity.DbSet<ELearning.WebAPI.DBModel.CourseLikeUnlikeView> CourseLikeUnlikeViews { get; set; }
+
     }
 }

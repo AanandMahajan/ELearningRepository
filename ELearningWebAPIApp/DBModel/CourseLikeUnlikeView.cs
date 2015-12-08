@@ -12,12 +12,13 @@ namespace ELearning.WebAPI.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class CourseLikesStat
+    public partial class CourseLikeUnlikeView
     {
         public int ID { get; set; }
         public int TenantID { get; set; }
         public int CourseID { get; set; }
-        public int LikedBy { get; set; }
-        public Nullable<System.DateTime> LikedON { get; set; }
+        public int Flag { get; set; }
+        public int ActionBy { get; set; }
+        public Nullable<System.DateTime> ActionON { get; set; }
     }
 }
