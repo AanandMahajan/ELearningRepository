@@ -35,6 +35,13 @@ namespace ELearning.WebAPI.Controllers
             return user;
         }
 
+        [ActionName("GetCountries")]
+        [HttpGet]
+        public IEnumerable<CountryMaster> GetCountries()
+        {
+            return db.CountryMasters.AsEnumerable();
+        }
+
         // PUT api/User/5
         public HttpResponseMessage PutUser(int id, User user)
         {

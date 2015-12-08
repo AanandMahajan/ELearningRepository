@@ -29,7 +29,7 @@ namespace ELearning.WebAPI.Models
             modelBuilder.Entity<ChapterContent>().ToTable("ChapterContent");
             modelBuilder.Entity<CategoryMaster>().ToTable("CategoryMaster");
             modelBuilder.Entity<ImageMaster>().ToTable("ImageMaster");
-            
+            modelBuilder.Entity<CountryMaster>().ToTable("CountryMaster");
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
 
@@ -64,6 +64,8 @@ namespace ELearning.WebAPI.Models
         public DbSet<CourseDetail> CourseDetails { get; set; }
 
         public DbSet<CategoryMaster> CategoryMasters { get; set; }
+
+        public DbSet<CountryMaster> CountryMasters { get; set; }
 
         public System.Data.Entity.DbSet<ELearning.WebAPI.DBModel.ImageMaster> ImageMasters { get; set; }
     }
