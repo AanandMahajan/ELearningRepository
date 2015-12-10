@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html ng-app="ELearning.Web" ng-controller="LandingPageController" ng-init="authentication=false">
 <head>
-    
+
 
     <title>CourseCloud</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,50 +12,53 @@
     <!--fonts-->
     <link href='http://fonts.googleapis.com/css?family=Monda:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700' rel='stylesheet' type='text/css'>
-    
+
     <link href="../../Scripts/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../../Scripts/css/owl.carousel.css" rel="stylesheet" />
     <link href="../../Scripts/css/style.css" rel="stylesheet" />
     <link href="../../Scripts/css/swipebox.css" rel="stylesheet" />
     <link href="../../Scripts/css/dashboard.css" rel="stylesheet" />
-        
+
     <script src="../../Scripts/js/jquery-2.1.4.min.js"></script>
     <script src="../../Scripts/js/jquery.swipebox.min.js"></script>
-    <script src="../../Scripts/js/bootstrap.min.js"></script>    
+    <script src="../../Scripts/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
 
 
     <script src="../../Scripts/js/owl.carousel.js"></script>
-    <script src="../../Scripts/js/azure-search.min.js"></script>    
+    <script src="../../Scripts/js/azure-search.min.js"></script>
     <script src="../../Scripts/js/easing.js"></script>
-    <script src="../../Scripts/js/move-top.js"></script>    
+    <script src="../../Scripts/js/move-top.js"></script>
 
 
     <script src="../../Scripts/Factories/AuthHttpResponseInterceptor.js"></script>
     <script src="../../Scripts/Factories/LoginFactory.js"></script>
     <script src="../../Scripts/Factories/RegistrationFactory.js"></script>
-    
+
     <script src="../../Scripts/Controllers/CourseDetailsController.js"></script>
     <script src="../../Scripts/Controllers/LandingPageController.js"></script>
     <script src="../../Scripts/Controllers/LoginController.js"></script>
     <script src="../../Scripts/Controllers/RegisterController.js"></script>
     <script src="../../Scripts/Controllers/SearchController.js"></script>
     <script src="../../Scripts/Controllers/HomeController.js"></script>
+    
+    <script src="../../Scripts/Directive/SearchPage.js"></script>
 
     <script src="../../Scripts/ELearning.Web.js"></script>
 
-     <script src="../../Scripts/js/md5.min.js"></script>
+    <script src="../../Scripts/js/md5.min.js"></script>
     <script src="../../Scripts/js/angular-http-loader.js"></script>
     <script src='../../Scripts/js/azure-blob-upload.js'></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="../../Scripts/js/angularjs-dropdown-multiselect.js"></script>
+
     
 </head>
 <body>
-    
+
     <div class="header" id="home">
 
         <div class="header_nav" id="home">
@@ -64,10 +67,10 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <img src="../../images/ELearningLogoImage.png" alt="..." class="img-responsive" width="70" height="70">
-                        
+
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right" ng-hide="authentication">
                             <li>
                                 <a href="#" data-toggle="modal" href="#doc" class="scroll">
@@ -112,15 +115,22 @@
                             <!--script-->
                         </ul>
 
-
-
-
-                        <ul class="nav navbar-nav navbar-right" ng-show="authentication">
+                        <ul class="nav navbar-nav" ng-show="authentication">
 
                             <ul class="nav nav-pills" role="tablist">
+                                
+                                <li>    
+                                        <div>
+                                            <input type="text" style="width:600px; margin-left:20px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">                                                                            
+                                        </div>                                   
+                                </li>
+                                <li>
+                                    <span style="width:10px; margin-right:50px" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+                                </li>
+
 
                                 <li class="dropdown">
-                                    <div class="btn btn-default dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <div class="btn btn-default dropdown-toggle" style="margin-left:200px" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         <span class="glyphicon glyphicon-list-alt badge"> 4</span>
                                     </div>
 
@@ -133,7 +143,7 @@
 
                                 <li class="dropdown">
                                     <div class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        <img ng-src="{{user.DisplayPicURL}}" alt="{{user.FullName}}" class="profile-img"  style="width:24px;height:25px;"/>
+                                        <img ng-src="{{user.DisplayPicURL}}" alt="{{user.FullName}}" class="profile-img" style="width:24px;height:25px;" />
                                         <span ng-bind="user.FullName"></span> <b class="caret"></b>
                                     </div>
 
@@ -146,20 +156,20 @@
                                 </li>
                             </ul>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.navbar-collapse -->
 
 
-                    <div class="clearfix"></div>
-                </div><!-- /.container-fluid -->
-            </nav>
-        </div>
+                <div class="clearfix"></div>
+        </div><!-- /.container-fluid -->
+        </nav>
+    </div>
 
 
     </div>
 
-    
+
     <div ng-view></div>
-    
+
 
     <div class="modal" id="Login" tabindex="-1" role="dialog" aria-labelledby="LoginLabel">
         <div class="modal-dialog" role="document">
@@ -182,11 +192,11 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <div class="col-lg-6">
+                    <!--<div class="col-lg-6">
                         <img src="../../images/linked in.png" alt="No image" class="img-responsive col-lg-1">
                         <img src="../../images/twitter.png" alt="No image" class="img-responsive col-lg-1">
                         <input class="col-lg-1" type="checkbox" value="remember-me"> Remember me
-                    </div>
+                    </div>-->
 
 
                     <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="login(modal)">Login</button>

@@ -4,6 +4,7 @@ var ELearningWeb = angular.module('ELearning.Web', ['ngRoute', 'ng.httpLoader', 
 
 //ELearningWeb.constant('WebAPIBaseURL', 'http://pad22991/');
 ELearningWeb.constant('WebAPIBaseURL', 'http://localhost:49923/');
+ELearningWeb.constant('search_api_key', '3C0D5A6CEA52BBDB1FF804AF56A1289D');
 
 ELearningWeb.controller('LandingPageController', LandingPageController);
 ELearningWeb.controller('LoginController', LoginController);
@@ -14,6 +15,11 @@ ELearningWeb.controller('HomeController', HomeController);
 ELearningWeb.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 ELearningWeb.factory('LoginFactory', LoginFactory);
 ELearningWeb.factory('RegistrationFactory', RegistrationFactory);
+
+
+ELearningWeb.directive('search', Search);
+
+
 
 
 var configFunction = function ($routeProvider, $httpProvider,httpMethodInterceptorProvider) {

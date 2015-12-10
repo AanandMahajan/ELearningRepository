@@ -1,0 +1,65 @@
+﻿<div>
+        
+    <div class="col-lg-2">
+        <strong> Filter</strong>
+        <br />
+        <br />
+        <strong> Category</strong>
+        <div ng-repeat="model in facetresults">
+            <input type="checkbox" ng-model="model.isSelected" />{{model.facet}} <strong> ({{model.count}})</strong>
+        </div>
+        <br />
+        <strong> File Types</strong>
+        <div ng-repeat="model in facetfiletypes">
+            <input type="checkbox" ng-model="model.isSelected" />{{model.facet}}
+        </div>
+
+        <br />
+        <button ng-click="applyfilter()">Filter</button>
+    </div>
+
+    <div class="bs-example col-lg-10" data-example-id="media-alignment">
+        <div>
+            <button style="margin-left:80%" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0">Prev <</button>
+            {{showSearchResultRange}}
+            <button style="margin-left:10px" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5">Next ></button>
+        </div>
+        <br />
+        <br />
+        <div ng-repeat="model in searchresults">
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" style="width: 64px; height: 64px;" src={{model.BLOB_URL}} alt="64x64" data-holder-rendered="true">
+                    </a>
+                </div>
+                <div class="media-body">
+
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{model.CourseTitle}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            {{model.Description}}
+                        </div>
+                        <div class="panel-footer">
+                            <button ng-click="registerCourse(model.ID)">View</button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div><br />
+
+        </div>
+
+        <div>
+            <button style="margin-left:80%" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0">Prev <</button>
+            {{showSearchResultRange}}
+            <button style="margin-left:10px" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5">Next ></button>
+        </div>
+        <br />
+        
+    </div>
+</div>
