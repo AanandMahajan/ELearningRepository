@@ -6,6 +6,16 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL, a
 
     $scope.user = {};
     
+    $http.get(WebAPIBaseURL + 'api/user/GetCountries/country').then(
+               function successCallback(res) {
+                   $scope.publisher.Countries = res.data;
+                   },
+               function errorCallback(res) {
+                    console.log(res);
+               }
+           );
+
+
     //$scope.WebApiBaseURL = 'http://pad22991/';
 
     $location.path('/routeSearch');
@@ -139,19 +149,18 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL, a
 
     };
 
+    
 
-
-    $scope.logout = function () {
+   $scope.logout = function () {
         console.log("loging out..");
         $scope.authentication = false;
         $location.path('/routeSearch');
     };
 
         //Adding new user
-    $scope.AddUser = function (myModal) {      
-
-        $scope.publisher.Password = md5($scope.publisher.Password);
-        
+        $scope.AddUser = function (myModal) {      
+       $scope.publisher.Password = md5($scope.publisher.Password);
+       
         var f = document.getElementById('file').files[0];
         //r = new FileReader();
         //r.onloadend = function (e) {
@@ -166,6 +175,10 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL, a
         };
         azureBlob.upload(config);
         $scope.publisher.DisplayPicURL = "https://elearningstrg.blob.core.windows.net/userimg/" + f.name;
+        $scope.publisher.TenantID = 1;
+        $scope.publisher.RoleID = 3;
+        $scope.publisher.CreatedON = new Date();
+       
         $http.post(WebAPIBaseURL + 'api/user/adduser/user', angular.toJson($scope.publisher)).then(
 
             function successCallback(res) {

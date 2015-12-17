@@ -268,7 +268,7 @@
                     </div><br />
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-king" id="basic-addon1"></span>
-                        <input type="text" class="form-control" ng-model="publisher.country" placeholder="Country" aria-describedby="basic-addon1">
+                        <select ng-model="publisher.CountryID" ng-options="option.ID as option.Country for option in publisher.Countries" class="form-control" aria-describedby="basic-addon1"></select>
                     </div><br />
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-equalizer" id="basic-addon1"></span>
