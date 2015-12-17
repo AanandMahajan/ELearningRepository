@@ -1,26 +1,34 @@
 ﻿<div id="categories" ng-controller="HomeController" ng-init="getCategories()">
-    <div class="container_16">
-        <a class="flip-container flipper block {{colors[(course.ID%10)]}}" href="" ng-repeat="course in categories">
-            <div class="flipper-front">
-                <div class="title icon">
-                    <div style="display: block; margin: auto; text-align:center">
-                        {{course.Category | uppercase}}
+    <div>
+        <div class="container_16" ng-hide="showsearchresult">
+            <a class="flip-container flipper block {{colors[(course.ID%10)]}}" href="" ng-repeat="course in categories">
+                <div class="flipper-front">
+                    <div class="title icon">
+                        <div style="display: block; margin: auto; text-align:center">
+                            {{course.Category | uppercase}}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="flipper-back">
-                <div><div>{{course.Category}}</div></div>
-            </div>
-        </a>
-        <a class="flip-container flipper block tree" href="">
-            <div class="flipper-front">
-                <div class="title icon">
-                    <div style="display: block; margin: auto; text-align:center">Browse All</div>
+                <div class="flipper-back">
+                    <div><div>{{course.Category}}</div></div>
                 </div>
-            </div>
-            <div class="flipper-back">
-                <div><div>Browse All</div></div>
-            </div>
-        </a>
+            </a>
+            <a class="flip-container flipper block tree" href="">
+                <div class="flipper-front">
+                    <div class="title icon">
+                        <div style="display: block; margin: auto; text-align:center">Browse All</div>
+                    </div>
+                </div>
+                <div class="flipper-back">
+                    <div><div>Browse All</div></div>
+                </div>
+            </a>
+        </div>
+        
+        <div ng-show="showsearchresult">
+            <search></search>
+        </div>
+
     </div>
+
 </div>

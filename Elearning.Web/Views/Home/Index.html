@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="ELearning.Web" ng-controller="LandingPageController" ng-init="authentication=false">
+<html ng-app="ELearning.Web" ng-controller="LandingPageController" ng-init="intitalizevalues();">
 <head>
 
 
@@ -42,7 +42,7 @@
     <script src="../../Scripts/Controllers/RegisterController.js"></script>
     <script src="../../Scripts/Controllers/SearchController.js"></script>
     <script src="../../Scripts/Controllers/HomeController.js"></script>
-    
+
     <script src="../../Scripts/Directive/SearchPage.js"></script>
 
     <script src="../../Scripts/ELearning.Web.js"></script>
@@ -55,7 +55,7 @@
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="../../Scripts/js/angularjs-dropdown-multiselect.js"></script>
 
-    
+
 </head>
 <body>
 
@@ -118,16 +118,31 @@
                         <ul class="nav navbar-nav" ng-show="authentication">
 
                             <ul class="nav nav-pills" role="tablist">
-                                
-                                <li>    
-                                        <div>
-                                            <input type="text" style="width:600px; margin-left:20px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">                                                                            
-                                        </div>                                   
-                                </li>
-                                <li>
-                                    <span style="width:10px; margin-right:50px" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+
+
+                                <li class="dropdown" dropdown>
+                                    <div ng-mouseover="Show" ng-dropdown-multiselect="" search-filter="customFilter" options="resultdata" selected-model="categoryselected" extra-settings="categorysettings" translation-texts="example5customTexts"></div>
                                 </li>
 
+                                <li>
+                                    <div>
+                                        <input type="text" style="width:200px; margin-left:20px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
+                                    </div>
+                                </li>
+                                <li>
+                                    <span style="width:10px; margin-right:50px" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
+                                </li>
+
+                                <li class="dropdown">
+                                    <div class="btn btn-default dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <span class="glyphicon glyphicon-list-alt badge">Menu</span>
+                                    </div>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                        <li ng-click="GoToUserDashBoard()">Home</li>
+
+                                    </ul>
+                                </li>
 
                                 <li class="dropdown">
                                     <div class="btn btn-default dropdown-toggle" style="margin-left:200px" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -217,7 +232,7 @@
                 <div class="modal-body">
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
-                        <input type="file" id="file" class="form-control"  name="file" aria-describedby="basic-addon1" placeholder="Display pic" />
+                        <input type="file" id="file" class="form-control" name="file" aria-describedby="basic-addon1" placeholder="Display pic" />
                     </div><br />
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>

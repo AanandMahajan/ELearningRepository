@@ -1,6 +1,10 @@
-﻿var HomeController = function ($scope, $location, $http, WebAPIBaseURL) {
+﻿var HomeController = function ($scope, $location, $http, WebAPIBaseURL, $rootScope) {
    
+    
+    $scope.showsearchresult = false;
+
     $scope.getCategories = function () {
+        $scope.showsearchresult = false;
         console.log('Inside getcategory()');
         $http({ method: 'get', url: WebAPIBaseURL+'api/CategoryMasters/' }).
             then(function (response) {
@@ -11,7 +15,22 @@
     }
 
     $scope.colors = ['army', 'purple', 'sky', 'lightpurple', 'blue', 'yellow', 'orange', 'teal', 'brown', 'plum'];
+
+    $scope.$on('SearchResultSuccess', function (event, args) {            
+        
+        if (args.data.value.length > 0)
+            $scope.showsearchresult = true;
+            //$scope.$digest();
+    });
+
+    $scope.$on('GoToUserDashBoard', function (event, args) {
+
+        if (args.data == true)
+            $scope.showsearchresult = false;
+        //$scope.$digest();
+    });
+        
 }
 
 // The inject property of every controller (and pretty much every other type of object in Angular) needs to be a string array equal to the controllers arguments, only as strings
-HomeController.$inject = ['$scope', '$location', '$http', WebAPIBaseURL];
+HomeController.$inject = ['$scope', '$location', '$http', WebAPIBaseURL, '$rootScope'];
