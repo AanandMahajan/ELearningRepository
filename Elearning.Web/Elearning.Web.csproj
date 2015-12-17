@@ -65,6 +65,7 @@
     <Content Include="images\busy.GIF" />
     <Content Include="Scripts\Controllers\HomeController.js" />
     <Content Include="Scripts\css\dashboard.css" />
+    <Content Include="Scripts\Directive\SearchPage.js" />
     <Content Include="Scripts\js\angular-http-loader.js" />
     <Content Include="Scripts\js\angularjs-dropdown-multiselect.js" />
     <Content Include="Scripts\js\azure-blob-upload.js" />
@@ -72,6 +73,7 @@
     <Content Include="Views\Account\Login.html" />
     <Content Include="Views\Account\Register.html" />
     <Content Include="Views\Home\Index.html" />
+    <Content Include="Views\Search\SearchResult.html" />
     <Content Include="Views\Utilities\Loader.html" />
     <Content Include="Views\RoutesDemo\CourseDetails.html" />
     <Content Include="Views\RoutesDemo\UserHome.html" />
@@ -146,9 +148,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Search\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
