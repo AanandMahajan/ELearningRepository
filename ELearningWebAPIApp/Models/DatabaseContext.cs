@@ -17,6 +17,7 @@ namespace ELearning.WebAPI.Models
 
         public DatabaseContext() : base("name=DatabaseContext")
         {
+            base.Configuration.ProxyCreationEnabled = false;
             Database.SetInitializer<DatabaseContext>(null);
         }
 

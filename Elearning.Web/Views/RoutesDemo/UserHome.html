@@ -1,34 +1,137 @@
-﻿<div id="categories" ng-controller="HomeController" ng-init="getCategories()">
+﻿<div ng-controller="HomeController" ng-init="getCategories(); getCourseDetails();">
     <div>
-        <div class="container_16" ng-hide="showsearchresult">
-            <a class="flip-container flipper block {{colors[(course.ID%10)]}}" href="" ng-repeat="course in categories">
-                <div class="flipper-front">
-                    <div class="title icon">
-                        <div style="display: block; margin: auto; text-align:center">
-                            {{course.Category | uppercase}}
+        <div ng-hide="showsearchresult">
+            <div id="categories" class="container_16">
+                <a class="flip-container flipper block {{colors[(course.ID%10)]}}" href="" ng-repeat="course in categories">
+                    <div class="flipper-front">
+                        <div class="title icon">
+                            <div style="display: block; margin: auto; text-align:center">
+                                {{course.Category | uppercase}}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="flipper-back">
-                    <div><div>{{course.Category}}</div></div>
-                </div>
-            </a>
-            <a class="flip-container flipper block tree" href="">
-                <div class="flipper-front">
-                    <div class="title icon">
-                        <div style="display: block; margin: auto; text-align:center">Browse All</div>
+                    <div class="flipper-back">                        
+                        <div class="courses">
+                            Enrollments
+                            <div>{{course.NoOfEnrollments}}</div>                            
+                        </div>
+                        <div class="courses">
+                            Courses
+                            <div>{{course.NoOfCourses}}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="flipper-back">
-                    <div><div>Browse All</div></div>
-                </div>
-            </a>
+                </a>
+                <a class="flip-container flipper block tree" href="">
+                    <div class="flipper-front">
+                        <div class="title icon">
+                            <div style="display: block; margin: auto; text-align:center">Browse All</div>
+                        </div>
+                    </div>
+                    <div class="flipper-back">
+                        <div class="courses">Browse All</div>
+                    </div>
+                </a>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Menu -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="{{$index}}" class="{{($index == 0 ? 'active':'')}}" ng-repeat="course in courses"></li>
+                </ol>
+
+                <!-- Items -->
+                <div class="carousel-inner">
+                    <div class="{{($index == 0 ? 'item active' : 'item')}}" ng-repeat="course in courses">
+                        <div>
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title" style="text-align:center">
+                                        {{course.CourseTitle}}
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" style="width: 200px; height: 200px;" src="../../images/VisualStudio.png" alt="64x64" data-holder-rendered="true">
+                                    </a>
+                                </div>
+                                <div class="media-body" style="background-color:aliceblue">
+                                    <div class="col-lg-10">
+                                        <div>
+                                            <ul class="nav nav-tabs">
+                                                <li role="presentation" class="active"><a ng-click="btnClickDescription()">Description</a></li>
+                                                <li role="presentation" class="active"><a ng-click="btnClickOutline()">Outline</a></li>
+                                            </ul>
+                                        </div><br />
+                                        <div ng-show="isDescription">
+                                            <strong style="color:skyblue">
+                                                Description: {{course.Description}}
+                                                <br />
+                                                Created On: {{course.CreatedON | date:'dd-MM-yyyy'}}
+                                            </strong>
+                                        </div>
+                                        <div ng-hide="isDescription">
+                                            <strong style="color:skyblue">
+                                                Outline:
+                                                <br />
+                                                Tags: {{course.Tags}}
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div>
+                                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                            <span class="badge">{{course.Views}}</span>
+                                        </div><br />
+                                        <div>
+                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                            <span class="badge">{{course.Likes}}</span>
+                                        </div><br />
+                                        <div>
+                                            <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                                            <span class="badge">{{course.Enrollments}}</span>
+                                        </div><br />
+                                        <div>
+                                            <button class="btn btn-success">Enroll <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+                <a class="left carousel-control" data-slide="prev" onclick="$('#myCarousel').carousel('prev')" style="width:5%">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="icon-prev"></span>
+                </a>
+                <a class="right carousel-control" data-slide="next" onclick="$('#myCarousel').carousel('next')" style="width:5%">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="icon-next"></span>
+                </a>
+            </div>
+            
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#myCarousel').carousel();
+                });
+            </script>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
-        
         <div ng-show="showsearchresult">
             <search></search>
         </div>
-
     </div>
-
 </div>
