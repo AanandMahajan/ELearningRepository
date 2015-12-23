@@ -15,7 +15,7 @@
     $scope.getCategories = function () {
         $scope.showsearchresult = false;
         console.log('Inside getcategory()');
-        $http({ method: 'get', url: WebAPIBaseURL + 'api/CategoryMasters/getTopCategory/1' }).
+        $http({ method: 'get', url: WebAPIBaseURL + 'api/CategoryMasters/topcategories/getdata' }).
             then(function (response) {
                 $scope.status = response.status;
                 $scope.categories = response.data;
