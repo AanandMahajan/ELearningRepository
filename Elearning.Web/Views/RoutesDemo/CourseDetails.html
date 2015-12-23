@@ -16,7 +16,7 @@
         <div class="media-body" style="background-color:aliceblue">
 
             <div class="col-lg-10">
-                <div>                
+                <div>
 
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="active"><a ng-click="btnClickDescription()">Description</a></li>
@@ -26,63 +26,63 @@
                 </div><br />
                 <div ng-show="isDescription">
                     <strong style="color:skyblue">
-                        Description: {{course.Description}}
-                        <br />
-                        Created On: {{course.CreatedON}}
-                    </strong>
-                </div>
-                <div ng-hide="isDescription">
-                    <strong style="color:skyblue">
-                        Outline: {{course.Description}}
-                        <br />
-                        Tags: {{course.Tags}}
-                    </strong>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div>
-                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                    <span class="badge">{{course.Views}}</span>
-                </div><br />
-                <div>
-                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                    <span class="badge">{{course.Likes}}</span>
-                </div><br />
-                <div>
-                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
-                    <span class="badge">{{course.Enrollments}}</span>
-                </div><br />
-                <div>
-                    <button class="btn btn-success">Enroll <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> </button>
-                </div>
-
-
-            </div>
-
-        </div>
-
-        <div class="panel-body accordion" style="border:2px">
-            <strong>Topics:</strong><br /><br />
-
-            <div class="list-group accordion-section" ng-repeat="topic in course.ChapterDetails" style="cursor: pointer;">
-
-                <div id="accordionParent-{{$index}}" class="list-group-item accordion-section-title" href="#accordionChild-{{$index}}" ng-click="clickSectionTitle($index)">{{topic.ChapterTitle}}</div>
-                <div id="accordionChild-{{$index}}" class="accordion-section-content" style="cursor: pointer;">
-                    <div ng-repeat="chapter in topic.ChapterContents">
-                        <ul>
-                            <li>
-                                <a class="list-group-item">{{chapter.Title}}</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="panel-footer">
-            <strong>User's who viewed this course also viewed: TBD</strong>
-        </div>
+        Description: {{course.Description}}
+    <br />
+    Created On: {{course.CreatedON}}
+    </strong>
+</div>
+<div ng-hide="isDescription">
+    <strong style="color:skyblue">
+        Outline: {{course.Description}}
+    <br />
+    Tags: {{course.Tags}}
+    </strong>
+</div>
+</div>
+<div class="col-lg-2">
+    <div>
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span class="badge">{{course.Views}}</span>
+    </div><br />
+    <div>
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        <span class="badge">{{course.Likes}}</span>
+    </div><br />
+    <div>
+        <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+        <span class="badge">{{course.Enrollments}}</span>
+    </div><br />
+    <div>
+        <button class="btn btn-success">Enroll <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> </button>
     </div>
+
+
+</div>
+
+</div>
+
+<div class="panel-body accordion" style="border:2px">
+    <strong>Topics:</strong><br /><br />
+
+    <div class="list-group accordion-section" ng-repeat="topic in course.ChapterDetails" style="cursor: pointer;">
+
+        <div id="accordionParent-{{$index}}" class="list-group-item accordion-section-title" href="#accordionChild-{{$index}}" ng-click="clickSectionTitle($index)">{{topic.ChapterTitle}}</div>
+        <div id="accordionChild-{{$index}}" class="accordion-section-content" style="cursor: pointer;">
+            <div ng-repeat="chapter in topic.ChapterContents">
+                <ul>
+                    <li>
+                        <a class="list-group-item view-pdf" ng-click=openPdf(chapter.Title)>{{chapter.Title}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="panel-footer">
+    <strong>User's who viewed this course also viewed: TBD</strong>
+</div>
+</div>
 
 
 
