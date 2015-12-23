@@ -52,7 +52,7 @@
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <h3 class="panel-title" style="text-align:center">
-                                        {{course.CourseTitle}}
+                                        {{course.CourseDetailItem.CourseTitle}}
                                     </h3>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img class="media-object" style="width: 200px; height: 200px;" src="../../images/VisualStudio.png" alt="64x64" data-holder-rendered="true">
+                                        <img class="media-object" style="width: 200px; height: 200px;" src="{{course.BlobURL}}" alt="64x64" data-holder-rendered="true">
                                     </a>
                                 </div>
                                 <div class="media-body" style="background-color:aliceblue">
@@ -73,31 +73,31 @@
                                         </div><br />
                                         <div ng-show="isDescription">
                                             <strong style="color:skyblue">
-                                                Description: {{course.Description}}
+                                                Description: {{course.CourseDetailItem.Description}}
                                                 <br />
-                                                Created On: {{course.CreatedON | date:'dd-MM-yyyy'}}
+                                                Created On: {{course.CourseDetailItem.CreatedON | date:'dd-MM-yyyy'}}
                                             </strong>
                                         </div>
                                         <div ng-hide="isDescription">
                                             <strong style="color:skyblue">
                                                 Outline:
                                                 <br />
-                                                Tags: {{course.Tags}}
+                                                Tags: {{course.CourseDetailItem.Tags}}
                                             </strong>
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div>
                                             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                                            <span class="badge">{{course.Views}}</span>
+                                            <span class="badge">{{course.CourseDetailItem.Views}}</span>
                                         </div><br />
                                         <div>
                                             <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                                            <span class="badge">{{course.Likes}}</span>
+                                            <span class="badge">{{course.CourseDetailItem.Likes}}</span>
                                         </div><br />
                                         <div>
                                             <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
-                                            <span class="badge">{{course.Enrollments}}</span>
+                                            <span class="badge">{{course.CourseDetailItem.Enrollments}}</span>
                                         </div><br />
                                         <div>
                                             <button class="btn btn-success">Enroll <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> </button>
@@ -109,12 +109,10 @@
                     </div>
                 </div>    
                 <a class="left carousel-control" data-slide="prev" onclick="$('#myCarousel').carousel('prev')" style="width:5%">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="icon-prev"></span>
+                    <span class="glyphicon glyphicon-chevron-left"></span>                    
                 </a>
                 <a class="right carousel-control" data-slide="next" onclick="$('#myCarousel').carousel('next')" style="width:5%">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="icon-next"></span>
+                    <span class="glyphicon glyphicon-chevron-right"></span>                    
                 </a>
             </div>
             

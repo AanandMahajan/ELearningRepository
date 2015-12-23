@@ -20,12 +20,22 @@ namespace ELearning.WebAPI.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         [HttpGet]
-        public IEnumerable<CourseDetail> GetRecommendedCourseDetails()
+        public IEnumerable<CourseItem> GetRecommendedCourseDetails()
         {            
             var response = (from course in db.CourseDetails
                             orderby course.Enrollments descending
                             select course).Take(5);
-            return response;
+            var imageMaster = db.ImageMasters;
+            List<CourseItem> courseItemList = new List<CourseItem>();
+            foreach (var item in response)
+            {
+                 string url = (from course in imageMaster
+                              where course.ID == item.CourseImageID
+                              select course).First().BLOB_URL;
+                courseItemList.Add(new CourseItem(url, item));
+            }
+
+            return courseItemList;
         }
 
         // GET api/CourseDetail
