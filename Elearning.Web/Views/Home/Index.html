@@ -42,7 +42,7 @@
     <script src="../../Scripts/Controllers/RegisterController.js"></script>
     <script src="../../Scripts/Controllers/SearchController.js"></script>
     <script src="../../Scripts/Controllers/HomeController.js"></script>
-
+    
     <script src="../../Scripts/Directive/SearchPage.js"></script>
 
     <script src="../../Scripts/ELearning.Web.js"></script>
@@ -55,14 +55,14 @@
     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="../../Scripts/js/angularjs-dropdown-multiselect.js"></script>
 
-
+    
 </head>
 <body>
 
     <div class="header" id="home">
 
-        <div class="header_nav" id="home">
-            <nav class="navbar navbar-default chn-gd">
+        <div class="header_nav" id="home" >
+            <nav class="navbar navbar-default chn-gd" style="background: #e2e2e2;">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -118,16 +118,16 @@
                         <ul class="nav navbar-nav" ng-show="authentication">
 
                             <ul class="nav nav-pills" role="tablist">
-
+                                
 
                                 <li class="dropdown" dropdown>
                                     <div ng-mouseover="Show" ng-dropdown-multiselect="" search-filter="customFilter" options="resultdata" selected-model="categoryselected" extra-settings="categorysettings" translation-texts="example5customTexts"></div>
                                 </li>
 
-                                <li>
-                                    <div>
+                                <li>    
+                                        <div>
                                         <input type="text" style="width:200px; margin-left:20px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
-                                    </div>
+                                        </div>                                   
                                 </li>
                                 <li>
                                     <span style="width:10px; margin-right:50px" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
@@ -186,27 +186,27 @@
     <div ng-view></div>
 
 
-    <div class="modal" id="Login" tabindex="-1" role="dialog" aria-labelledby="LoginLabel">
+    <div class="modal" id="Login" tabindex="-1" role="dialog" aria-labelledby="LoginLabel" >
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
+            <div class="model-content-style">
+                <div class="model-header-style">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="LoginLabel">Login</h4>
                 </div>
 
-                <div class="modal-body">
+                <div class="modal-body" style="background-color: rgba(119, 170, 232, 0.11);">
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1" style="background: #309bbe;"></span>
                         <input type="text" ng-model="email" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
                     </div>
 
                     <br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-eye-close" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-eye-close" id="basic-addon1" style="background: #309bbe;"></span>
                         <input type="password" ng-model="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="model-footer-style">
                     <!--<div class="col-lg-6">
                         <img src="../../images/linked in.png" alt="No image" class="img-responsive col-lg-1">
                         <img src="../../images/twitter.png" alt="No image" class="img-responsive col-lg-1">
@@ -223,39 +223,39 @@
 
     <div class="modal" id="User" tabindex="-1" role="dialog" aria-labelledby="LoginLabel">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
+            <div class="model-content-style">
+                <div class="model-header-style">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Sign Up User</h4>
                 </div>
 
-                <div class="modal-body">
+                <div class="modal-body" style="background-color: rgba(119, 170, 232, 0.11);">
                     <div class="input-group">
                         <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
-                        <input type="file" id="file" class="form-control" name="file" aria-describedby="basic-addon1" placeholder="Display pic" />
+                        <input type="file" id="file" class="form-control"  name="file" aria-describedby="basic-addon1" placeholder="Display pic" />
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1" style="background: #309bbe;"></span>
                         <input type="text" class="form-control" ng-model="publisher.FullName" placeholder="Full Name" aria-describedby="basic-addon1">
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-envelope" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-envelope" id="basic-addon1" style="background: #309bbe;"></span>
                         <input type="email" class="form-control" ng-model="publisher.Email" placeholder="Email Id" aria-describedby="basic-addon1">
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-asterisk" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-asterisk" id="basic-addon1" style="background: #309bbe;"></span>
                         <input type="password" class="form-control" ng-model="publisher.Password" placeholder="Password" aria-describedby="basic-addon1">
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-asterisk" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-asterisk" id="basic-addon1" style="background: #309bbe;"></span>
                         <input type="password" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon1">
                     </div>      <br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-indent-right" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-indent-right" id="basic-addon1" style="background: #309bbe;"></span>
                         <input type="date" class="form-control" ng-model="publisher.DOB" placeholder="Date of Birth" aria-describedby="basic-addon1">
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-indent-right" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-indent-right" id="basic-addon1" style="background: #309bbe;"></span>
                         <form aria-describedby="basic-addon1" class="form-control">
                             <input type="radio" ng-model="publisher.GenderID" ng-value="1">Male
                             <input type="radio" ng-model="publisher.GenderID" ng-value="2">Female
@@ -263,20 +263,20 @@
                         </form>
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-plane" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-plane" id="basic-addon1" style="background: #309bbe;"></span>
                         <input type="text" class="form-control" ng-model="publisher.Occupation" placeholder="Occupation" aria-describedby="basic-addon1">
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-king" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-king" id="basic-addon1" style="background: #309bbe;"></span>
                         <select ng-model="publisher.CountryID" ng-options="option.ID as option.Country for option in publisher.Countries" class="form-control" aria-describedby="basic-addon1"></select>
                     </div><br />
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-equalizer" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-equalizer" id="basic-addon1" style="background: #309bbe;"></span>
                         <input type="text" class="form-control" ng-model="publisher.Interest" placeholder="Interests" aria-describedby="basic-addon1">
                     </div>   <br />
                 </div>
 
-                <div class="modal-footer">
+                <div class="model-footer-style">
                     <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="AddUser()">Create Account</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>

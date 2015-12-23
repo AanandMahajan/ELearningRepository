@@ -1,8 +1,49 @@
-﻿var HomeController = function ($scope, $location, $http, WebAPIBaseURL, $rootScope) {
+﻿var HomeController = function ($scope, $location, $http, WebAPIBaseURL, $rootScope, search_api_key) {
        
     $scope.showsearchresult = false;
 
     $scope.isDescription = true;
+
+    $scope.btnGetAllSearchResultForCategory=function(category)
+    {
+        $rootScope.top_result_count = 5;
+        $rootScope.skip_result_count = 0;
+        result_set = '';
+
+        if (category!="")
+            result_set = "(Category:" + category + ")";
+                
+        searchcourse(result_set);
+    }
+
+  
+    function searchcourse(searchkey) {
+        $http.get("https://coursesearch.search.windows.net/indexes/courseindex/docs?search=" + searchkey + "&$top=" + $rootScope.top_result_count + "&$skip=" + $rootScope.skip_result_count + "&$count=true&facet=Category&facet=FileTypes&searchMode=all&api-version=2015-02-28-Preview&querytype=full", { headers: { 'api-key': search_api_key } }).then(
+
+          function successCallback(results) {
+
+              //console.log(results);
+              if (results.data.value.length > 0) {
+                  $scope.searchresultcount = true;
+                  $scope.searchresults = results.data.value;
+                  $rootScope.globalsearchresult = results.data;
+                  //$scope.$apply();
+                  $scope.$broadcast('SearchResultSuccess', { data: $rootScope.globalsearchresult });
+              }
+              else {
+                  $scope.searchresultcount = false;
+                  alert("No data found");
+              }
+
+
+          },
+          function errorCallback(res) {
+              //console.log(res);
+          }
+      );
+    }
+
+
 
     $scope.btnClickDescription = function () {
         $scope.isDescription = true;
@@ -52,4 +93,4 @@
 }
 
 // The inject property of every controller (and pretty much every other type of object in Angular) needs to be a string array equal to the controllers arguments, only as strings
-HomeController.$inject = ['$scope', '$location', '$http', WebAPIBaseURL, '$rootScope'];
+HomeController.$inject = ['$scope', '$location', '$http', WebAPIBaseURL, '$rootScope', search_api_key];

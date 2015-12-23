@@ -2,7 +2,7 @@
     <div>
         <div ng-hide="showsearchresult">
             <div id="categories" class="container_16">
-                <a class="flip-container flipper block {{colors[(course.ID%10)]}}" href="" ng-repeat="course in categories">
+                <a class="flip-container flipper block {{colors[(course.ID%10)]}}" href="" ng-repeat="course in categories" ng-click="btnGetAllSearchResultForCategory(course.Category);">
                     <div class="flipper-front">
                         <div class="title icon">
                             <div style="display: block; margin: auto; text-align:center">
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                 </a>
-                <a class="flip-container flipper block tree" href="">
+                <a class="flip-container flipper block tree" href="" ng-click="btnGetAllSearchResultForCategory('')">
                     <div class="flipper-front">
                         <div class="title icon">
                             <div style="display: block; margin: auto; text-align:center">Browse All</div>
