@@ -97,7 +97,7 @@ nav.navbar.navbar-default.chn-gd {
 
     .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a {
         padding: 4px 12px;
-        color: #309BBE !important;
+        color: black !important;
         font-family: 'Roboto Slab', serif;
         font-weight: 500;
         font-size: 16px;
@@ -742,7 +742,7 @@ input.nuber {
 /*--contact--*/
 /*--footer--*/
 .footer {
-    background: #309BBE;
+    background: #e7e7e7 ;
     padding: 2em 0em;
 }
 
@@ -755,20 +755,20 @@ input.nuber {
         font-weight: 700;
         font-size: 35px;
         text-decoration: none;
-        color: #fff;
+        color: black;
         margin-bottom: 10px;
-    }
+   }
 
     .footer-text p {
         margin-top: 10px;
-        color: #fff;
+        color: black;
         font-family: 'Monda', sans-serif;
         font-size: 14px;
         font-weight: 100;
-    }
+     }
 
         .footer-text p a {
-            color: #fff;
+            color: black;
         }
 
             .footer-text p a:hover {
@@ -1423,3 +1423,30 @@ input.nuber {
     padding:15px;
     display:none;
 }
+
+.model-footer-style {
+    margin-top: 15px;
+    padding: 19px 20px 20px;
+    text-align: right;
+    border-top: 2px solid #3B73AF;
+    background-color: rgb(206, 226, 243);
+    border-bottom-left-radius: 6px;
+  
+}
+.model-header-style {
+    padding: 15px;
+    border-bottom:2px solid #3B73AF;
+    min-height: 10px;
+     color:#3B73AF;
+    background-color: rgb(206, 226, 243);
+    
+}
+.model-content-style {
+        position: relative;
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: 6px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.5);
+        background-color:#fff;
+    
+}
+
