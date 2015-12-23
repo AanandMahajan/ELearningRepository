@@ -17,6 +17,24 @@ namespace ELearning.WebAPI.Controllers
     {
         private DatabaseContext db = new DatabaseContext();
 
+        public IQueryable<CategoryMaster> getTopCategory()
+        {
+            var categoryList = (from cat in db.CategoryMasters
+                               orderby cat.Category descending
+                               select cat).Take(7);
+
+            //To get total nof courses and enrollment categorywise
+            //var temp = categoryList
+            //            .GroupBy(l => l.CategoryID)
+            //            .Select(cl => new CategoryMisc 
+            //            { 
+            //                CategoryId = cl.Key,
+            //                NoOfCourses = cl.Count(),
+            //                NoOfEnrollment = (int)cl.Sum(c => c.Enrollments) 
+            //            });
+            return categoryList;
+        }
+
         // GET: api/CategoryMasters
         public IQueryable<CategoryMaster> GetCategoryMasters()
         {

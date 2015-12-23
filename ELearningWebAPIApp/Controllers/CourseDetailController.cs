@@ -19,6 +19,15 @@ namespace ELearning.WebAPI.Controllers
     {
         private DatabaseContext db = new DatabaseContext();
 
+        [HttpGet]
+        public IEnumerable<CourseDetail> GetRecommendedCourseDetails()
+        {            
+            var response = (from course in db.CourseDetails
+                            orderby course.Enrollments descending
+                            select course).Take(5);
+            return response;
+        }
+
         // GET api/CourseDetail
         public IEnumerable<CourseDetail> GetCourseDetails()
         {
