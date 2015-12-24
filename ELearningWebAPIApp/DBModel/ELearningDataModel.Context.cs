@@ -41,10 +41,10 @@ namespace ELearning.WebAPI.DBModel
         public DbSet<TenantMaster> TenantMasters { get; set; }
         public DbSet<ThirdpartyProvider> ThirdpartyProviders { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserInterest> UserInterests { get; set; }
         public DbSet<UserLoginAuditTrail> UserLoginAuditTrails { get; set; }
         public DbSet<UserNotification> UserNotifications { get; set; }
         public DbSet<UserStatusMaster> UserStatusMasters { get; set; }
         public DbSet<CourseLikeUnlikeView> CourseLikeUnlikeViews { get; set; }
+        public DbSet<UserEnrollmentInfo> UserEnrollmentInfoes { get; set; }
     }
 }
