@@ -1,4 +1,5 @@
-﻿<div>
+﻿<link href="../../Scripts/css/style.css" rel="stylesheet" />
+<div>
         
     <div class="col-lg-2">
         <strong> Filter</strong>
@@ -35,14 +36,14 @@
                 </div>
                 <div class="media-body">
 
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
+                    <div class="panel panel-success-style">
+                        <div class="panel-heading" style="background-color: rgb(206, 226, 243); color: #3B73AF; border: #3B73AF;">
                             <h3 class="panel-title">{{model.CourseTitle}}</h3>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body" style="background: rgba(119, 170, 232, 0.11);">
                             {{model.Description}}
                         </div>
-                        <div class="panel-footer">
+                        <div class="panel-footer" style="background: rgba(119, 170, 232, 0.11); border: rgba(119, 170, 232, 0.11); ">
                             <button ng-click="registerCourse(model.ID)">View</button>
                         </div>
                     </div>

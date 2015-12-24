@@ -1,4 +1,6 @@
-﻿<div ng-controller="HomeController" ng-init="getCategories(); getCourseDetails();">
+﻿<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href="../../Scripts/css/style.css" rel="stylesheet" />
+<div ng-controller="HomeController" ng-init="getCategories(); getCourseDetails();">
     <div>
         <div ng-hide="showsearchresult">
             <div id="categories" class="container_16">
@@ -49,8 +51,8 @@
                 <div class="carousel-inner">
                     <div class="{{($index == 0 ? 'item active' : 'item')}}" ng-repeat="course in courses">
                         <div>
-                            <div class="panel panel-success">
-                                <div class="panel-heading">
+                            <div class="panel panel-success-style">
+                                <div class="panel-heading" style="background-color: rgb(206, 226, 243); color: #3B73AF; border:#3B73AF;">
                                     <h3 class="panel-title" style="text-align:center">
                                         {{course.CourseDetailItem.CourseTitle}}
                                     </h3>
