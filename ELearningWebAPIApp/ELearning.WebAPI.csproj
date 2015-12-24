@@ -165,6 +165,7 @@
     <Compile Include="Controllers\CourseLikeUnlikeViewsController.cs" />
     <Compile Include="Controllers\ImageMastersController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserEnrollmentInfoesController.cs" />
     <Compile Include="DBModel\CategoryMaster.cs">
       <DependentUpon>ELearningDataModel.tt</DependentUpon>
     </Compile>
@@ -231,7 +232,7 @@
     <Compile Include="DBModel\User.cs">
       <DependentUpon>ELearningDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\UserInterest.cs">
+    <Compile Include="DBModel\UserEnrollmentInfo.cs">
       <DependentUpon>ELearningDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\UserLoginAuditTrail.cs">

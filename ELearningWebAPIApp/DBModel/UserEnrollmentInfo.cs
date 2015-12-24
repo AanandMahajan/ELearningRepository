@@ -12,11 +12,14 @@ namespace ELearning.WebAPI.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class UserInterest
+    public partial class UserEnrollmentInfo
     {
         public int ID { get; set; }
         public int TenantID { get; set; }
         public int UserID { get; set; }
-        public string Interest { get; set; }
+        public int CourseID { get; set; }
+        public Nullable<System.DateTime> StartedON { get; set; }
+        public Nullable<System.DateTime> CompletedON { get; set; }
+        public int CategoryID { get; set; }
     }
 }

@@ -12,6 +12,35 @@
         $scope.isDescription = false;
     }
 
+    $scope.btnEnrollClick = function () {
+        if ($scope.user.FullName == undefined) {
+            alert('Please login before enrolling !! ');
+        }
+        else {
+            //Logic for enrolling            
+            //console.log($scope.course);
+
+            var UserCourseEnrollment = {};
+            UserCourseEnrollment.TenantID = 1;
+            UserCourseEnrollment.UserID = $scope.user.ID;
+            UserCourseEnrollment.CourseID = $scope.course.ID;
+            UserCourseEnrollment.StartedON = new Date();
+            UserCourseEnrollment.CategoryID = $scope.course.CategoryID;
+
+            $http.post(WebAPIBaseURL + '/api/UserEnrollmentInfoes', angular.toJson(UserCourseEnrollment)).then(
+
+                 function successCallback(res) {                  
+                     console.log("Course Enrolled" + res);
+                     alert('User Enrolled for this course !! ');
+                 },                 
+                 function errorCallback(res) {
+                     console.log("Enrollment Failed: " + res);
+                 }
+             );
+
+        }
+    }
+
     $scope.initialize = function () {
         $http.get(WebAPIBaseURL + 'api/CourseDetail/' + $routeParams.id).then(
 
@@ -20,7 +49,7 @@
 
                 $http.get(WebAPIBaseURL + 'api/ImageMasters/' + $scope.course.CourseImageID).then(
                         function successCallback(res) {
-                            $scope.courseImageUrl = res.data.BLOB_URL;                                                        
+                            $scope.courseImageUrl = res.data.BLOB_URL;
                         },
                         function errorCallback(res) {
                             console.log(res);

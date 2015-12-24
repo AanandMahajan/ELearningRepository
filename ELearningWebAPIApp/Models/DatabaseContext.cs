@@ -17,7 +17,7 @@ namespace ELearning.WebAPI.Models
 
         public DatabaseContext() : base("name=DatabaseContext")
         {
-            base.Configuration.ProxyCreationEnabled = false;
+            //base.Configuration.ProxyCreationEnabled = false;
             Database.SetInitializer<DatabaseContext>(null);
         }
 
@@ -31,8 +31,9 @@ namespace ELearning.WebAPI.Models
             modelBuilder.Entity<CategoryMaster>().ToTable("CategoryMaster");
             modelBuilder.Entity<ImageMaster>().ToTable("ImageMaster");
             modelBuilder.Entity<CourseLikeUnlikeView>().ToTable("CourseLikeUnlikeView");
-
             modelBuilder.Entity<CountryMaster>().ToTable("CountryMaster");
+            modelBuilder.Entity<UserEnrollmentInfo>().ToTable("UserEnrollmentInfo");
+            
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Entity<CourseLikeUnlikeView>().HasKey(t => t.ID);
@@ -73,6 +74,8 @@ namespace ELearning.WebAPI.Models
         public System.Data.Entity.DbSet<ELearning.WebAPI.DBModel.ImageMaster> ImageMasters { get; set; }
 
         public System.Data.Entity.DbSet<ELearning.WebAPI.DBModel.CourseLikeUnlikeView> CourseLikeUnlikeViews { get; set; }
+
+        public System.Data.Entity.DbSet<ELearning.WebAPI.DBModel.UserEnrollmentInfo> UserEnrollmentInfoes { get; set; }
 
     }
 }
