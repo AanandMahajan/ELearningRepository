@@ -12,6 +12,46 @@
         $scope.isDescription = false;
     }
 
+    $scope.btnLikeCourse = function () {
+
+        //api/UserCourseLikeInfoes/5
+        if ($scope.user.FullName == undefined) {
+            alert('Please login before enrolling !! ');
+        }
+        else {
+            var UserCourseLike = {};
+            
+            UserCourseLike.UserID = $scope.user.ID;
+            UserCourseLike.CourseID = $scope.course.ID;
+            
+            $http.post(WebAPIBaseURL + '/api/GetUserCourseLikeInfo',UserCourseLike).then(
+
+                   function successCallback(res) {                       
+
+                       console.log(res);
+                       UserCourseLike.TenantID = 1;
+                       UserCourseLike.LikeDate = new Date();
+                       UserCourseLike.CategoryID = $scope.course.CategoryID;                       
+
+                       //$http.post(WebAPIBaseURL + '/api/UserCourseLikeInfoes', angular.toJson(UserCourseLike)).then(
+
+                       //     function successCallback(res) {
+                       //         console.log("Course Liked" + res);
+                       //     },
+                       //     function errorCallback(res) {
+                       //         console.log("Course Like Failed" + res);
+                       //     }
+                       // );                   
+               },
+               function errorCallback(res) {
+                   console.log("Course Like Failed" + res);
+               }
+           );
+            
+           
+
+    }
+
     $scope.btnEnrollClick = function () {
         if ($scope.user.FullName == undefined) {
             alert('Please login before enrolling !! ');

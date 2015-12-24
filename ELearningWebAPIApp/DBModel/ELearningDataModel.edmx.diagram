@@ -28,6 +28,8 @@
         <AssociationConnector Association="ELearningDatabaseModel.FK_ChapterDetail_CourseID" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.CourseLikeUnlikeView" Width="1.5" PointX="11.375" PointY="10.75" />
         <EntityTypeShape EntityType="ELearningDatabaseModel.UserEnrollmentInfo" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ELearningDatabaseModel.UserCourseLikeInfo" Width="1.5" PointX="3.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ELearningDatabaseModel.UserCourseViewInfo" Width="1.5" PointX="5.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

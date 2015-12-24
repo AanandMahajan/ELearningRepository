@@ -196,6 +196,28 @@
           <Property Name="MobileNumber" Type="varchar" MaxLength="10" />
           <Property Name="Interest" Type="varchar" MaxLength="500" />
         </EntityType>
+        <EntityType Name="UserCourseLikeInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="LikeDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserCourseViewInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="ViewDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="UserEnrollmentInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -281,6 +303,8 @@
           <EntitySet Name="TenantMaster" EntityType="Self.TenantMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThirdpartyProvider" EntityType="Self.ThirdpartyProvider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCourseLikeInfo" EntityType="Self.UserCourseLikeInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCourseViewInfo" EntityType="Self.UserCourseViewInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserEnrollmentInfo" EntityType="Self.UserEnrollmentInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserLoginAuditTrail" EntityType="Self.UserLoginAuditTrail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserNotification" EntityType="Self.UserNotification" Schema="dbo" store:Type="Tables" />
@@ -543,6 +567,8 @@
           </AssociationSet>
           <EntitySet Name="CourseLikeUnlikeViews" EntityType="ELearningDatabaseModel.CourseLikeUnlikeView" />
           <EntitySet Name="UserEnrollmentInfoes" EntityType="ELearningDatabaseModel.UserEnrollmentInfo" />
+          <EntitySet Name="UserCourseLikeInfoes" EntityType="ELearningDatabaseModel.UserCourseLikeInfo" />
+          <EntitySet Name="UserCourseViewInfoes" EntityType="ELearningDatabaseModel.UserCourseViewInfo" />
         </EntityContainer>
         <Association Name="FK_ChapterContent_ChapterID">
           <End Type="ELearningDatabaseModel.ChapterDetail" Role="ChapterDetail" Multiplicity="1" />
@@ -590,6 +616,28 @@
           <Property Name="StartedON" Type="DateTime" Precision="3" />
           <Property Name="CompletedON" Type="DateTime" Precision="3" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserCourseLikeInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="LikeDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserCourseViewInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ViewDate" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -844,6 +892,30 @@
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="CompletedON" ColumnName="CompletedON" />
                 <ScalarProperty Name="StartedON" ColumnName="StartedON" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCourseLikeInfoes">
+            <EntityTypeMapping TypeName="ELearningDatabaseModel.UserCourseLikeInfo">
+              <MappingFragment StoreEntitySet="UserCourseLikeInfo">
+                <ScalarProperty Name="LikeDate" ColumnName="LikeDate" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TenantID" ColumnName="TenantID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCourseViewInfoes">
+            <EntityTypeMapping TypeName="ELearningDatabaseModel.UserCourseViewInfo">
+              <MappingFragment StoreEntitySet="UserCourseViewInfo">
+                <ScalarProperty Name="ViewDate" ColumnName="ViewDate" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="CourseID" ColumnName="CourseID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="TenantID" ColumnName="TenantID" />
