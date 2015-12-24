@@ -1452,3 +1452,7 @@ input.nuber {
 .panel-success-style {
     border-color: #3B73AF;
 }
+.icon {
+    width:15px;
+    height:15px;
+}
