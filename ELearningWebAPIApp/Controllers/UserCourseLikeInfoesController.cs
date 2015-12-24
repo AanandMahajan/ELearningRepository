@@ -72,10 +72,10 @@ namespace ELearning.WebAPI.Controllers
         }
 
         // POST: api/UserCourseLikeInfoes
-        [ActionName("GetUserCourseLikeInfo")]
+        [ActionName("UserLikeInfo")]
         [HttpPost]
         [ResponseType(typeof(UserCourseLikeInfo))]
-        public IHttpActionResult GetUserCourseLikeInfo(UserCourseLikeInfo userCourseLikeInfo)
+        public IHttpActionResult PostUserLikeInfo(UserCourseLikeInfo userCourseLikeInfo)
         {
             if (!ModelState.IsValid)
             {
@@ -88,7 +88,8 @@ namespace ELearning.WebAPI.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = userCourseLikeInfo.ID }, userLikeList);
         }
-        
+        [ActionName("SaveUserLike")]
+        [HttpPost]
         // POST: api/UserCourseLikeInfoes
         [ResponseType(typeof(UserCourseLikeInfo))]
         public IHttpActionResult PostUserCourseLikeInfo(UserCourseLikeInfo userCourseLikeInfo)
@@ -105,10 +106,12 @@ namespace ELearning.WebAPI.Controllers
         }
 
         // DELETE: api/UserCourseLikeInfoes/5
+        [ActionName("DeleteUserLike")]
+        [HttpPost]
         [ResponseType(typeof(UserCourseLikeInfo))]
-        public IHttpActionResult DeleteUserCourseLikeInfo(int id)
+        public IHttpActionResult PostDropUserCourseLike(UserCourseLikeInfo id)
         {
-            UserCourseLikeInfo userCourseLikeInfo = db.UserCourseLikeInfoes.Find(id);
+            UserCourseLikeInfo userCourseLikeInfo = db.UserCourseLikeInfoes.Find(id.ID);
             if (userCourseLikeInfo == null)
             {
                 return NotFound();

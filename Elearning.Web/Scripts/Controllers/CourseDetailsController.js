@@ -3,6 +3,7 @@
     $scope.course = {};
     $scope.courseImageUrl = "";
     $scope.isDescription = true;
+    $scope.isCourseLiked = true;
 
     $scope.btnClickDescription = function () {
         $scope.isDescription = true;
@@ -23,32 +24,49 @@
 
             UserCourseLike.UserID = $scope.user.ID;
             UserCourseLike.CourseID = $scope.course.ID;
-
-            $http.post(WebAPIBaseURL + '/api/GetUserCourseLikeInfo', UserCourseLike).then(
+           
+            $http.post(WebAPIBaseURL + 'api/UserCourseLikeInfoes/UserLikeInfo/getdata', angular.toJson(UserCourseLike)).then(
 
                    function successCallback(res) {
 
                        console.log(res);
-                       UserCourseLike.TenantID = 1;
-                       UserCourseLike.LikeDate = new Date();
-                       UserCourseLike.CategoryID = $scope.course.CategoryID;
+                       if (res.data.length == 0) {
 
-                       //$http.post(WebAPIBaseURL + '/api/UserCourseLikeInfoes', angular.toJson(UserCourseLike)).then(
+                           UserCourseLike.TenantID = 1;
+                           UserCourseLike.LikeDate = new Date();
+                           UserCourseLike.CategoryID = $scope.course.CategoryID;
 
-                       //     function successCallback(res) {
-                       //         console.log("Course Liked" + res);
-                       //     },
-                       //     function errorCallback(res) {
-                       //         console.log("Course Like Failed" + res);
-                       //     }
-                       // );                   
+                           $http.post(WebAPIBaseURL + 'api/UserCourseLikeInfoes/SaveUserLike/savedata', angular.toJson(UserCourseLike)).then(
+
+                                function successCallback(res) {
+                                    console.log("Course Liked" + res);
+                                    $scope.isCourseLiked = false;
+                                },
+                                function errorCallback(res) {
+                                    console.log("Course Like Failed" + res);
+                                }
+                            );                   
+                       }
+                       else
+                       {
+                           var val = {};
+                           val.ID = res.data[0].ID;
+                           $http.post(WebAPIBaseURL + 'api/UserCourseLikeInfoes/DeleteUserLike/deletelike', angular.toJson(val)).then(
+
+                                  function successCallback(res) {
+                                      console.log("Course Liked" + res);
+                                      $scope.isCourseLiked = true;
+                                  },
+                                  function errorCallback(res) {
+                                      console.log("Course Like Failed" + res);
+                                  }
+                              );
+                       }
                    },
                function errorCallback(res) {
                    console.log("Course Like Failed" + res);
                }
            );
-
-
         }
     }
 
@@ -90,6 +108,31 @@
                 $http.get(WebAPIBaseURL + 'api/ImageMasters/' + $scope.course.CourseImageID).then(
                         function successCallback(res) {
                             $scope.courseImageUrl = res.data.BLOB_URL;
+
+
+                            var UserCourseLike = {};
+
+                            UserCourseLike.UserID = $scope.user.ID;
+                            UserCourseLike.CourseID = $scope.course.ID;
+                            // Get Likes details
+                            $http.post(WebAPIBaseURL + 'api/UserCourseLikeInfoes/UserLikeInfo/getdata', angular.toJson(UserCourseLike)).then(
+
+                                             function successCallback(res) {
+
+                                                 console.log(res);
+                                                 if (res.data.length == 0) {
+                                                     $scope.isCourseLiked = true;
+                                                 }
+                                                 else {
+                                                     $scope.isCourseLiked = false;
+                                                 }
+
+                                             },
+                                         function errorCallback(res) {
+                                             console.log("Course Like Failed" + res);
+                                         }
+                                     );
+
                         },
                         function errorCallback(res) {
                             console.log(res);
@@ -100,6 +143,8 @@
                 console.log(res);
             }
         );
+
+       
 
         $scope.isDescription = true;
     }
