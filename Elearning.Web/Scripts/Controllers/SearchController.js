@@ -11,7 +11,7 @@ var SearchController = function ($rootScope, $scope, $location, $http, WebAPIBas
         $scope.resultdata = [];
         $scope.categoryselected = [];
 
-        $http({ method: 'get', url: WebAPIBaseURL + 'api/CategoryMasters/' }).
+        $http({ method: 'get', url: WebAPIBaseURL + 'api/CategoryMasters/getcategories/getdata' }).
            then(function (response) {
                for (var i = 0; i < response.data.length; i++) {
                    $scope.resultdata.push({ label: response.data[i].Category });

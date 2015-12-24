@@ -74,7 +74,7 @@
                     <div ng-repeat="chapter in topic.ChapterContents">
                         <ul>
                             <li>
-                                <a class="list-group-item">{{chapter.Title}}</a>
+                        <a class="list-group-item view-pdf" ng-click=openPdf(chapter.Title)>{{chapter.Title}}</a>
                             </li>
                         </ul>
                     </div>
