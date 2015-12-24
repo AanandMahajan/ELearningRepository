@@ -2,7 +2,7 @@
     <div>
         <div ng-hide="showsearchresult">
             <div id="categories" class="container_16">
-                <a class="flip-container flipper block {{colors[(course.ID%10)]}}" href="" ng-repeat="course in categories">
+                <a class="flip-container flipper block {{colors[(course.ID%10)]}}" href="" ng-repeat="course in categories" ng-click="btnGetAllSearchResultForCategory(course.Category);">
                     <div class="flipper-front">
                         <div class="title icon">
                             <div style="display: block; margin: auto; text-align:center">
@@ -10,10 +10,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flipper-back">                        
+                    <div class="flipper-back">
                         <div class="courses">
                             Enrollments
-                            <div>{{course.NoOfEnrollments}}</div>                            
+                            <div>{{course.NoOfEnrollments}}</div>
                         </div>
                         <div class="courses">
                             Courses
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                 </a>
-                <a class="flip-container flipper block tree" href="">
+                <a class="flip-container flipper block tree" href="" ng-click="btnGetAllSearchResultForCategory('')">
                     <div class="flipper-front">
                         <div class="title icon">
                             <div style="display: block; margin: auto; text-align:center">Browse All</div>
@@ -32,11 +32,7 @@
                     </div>
                 </a>
             </div>
-
-            <br />
-            <br />
-            <br />
-            <br />
+            
             <br />
 
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -107,26 +103,21 @@
                             </div>
                         </div>
                     </div>
-                </div>    
+                </div>
                 <a class="left carousel-control" data-slide="prev" onclick="$('#myCarousel').carousel('prev')" style="width:5%">
-                    <span class="glyphicon glyphicon-chevron-left"></span>                    
+                    <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
                 <a class="right carousel-control" data-slide="next" onclick="$('#myCarousel').carousel('next')" style="width:5%">
-                    <span class="glyphicon glyphicon-chevron-right"></span>                    
+                    <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
             </div>
-            
+
             <script type="text/javascript">
                 $(document).ready(function () {
                     $('#myCarousel').carousel();
                 });
             </script>
 
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
         </div>
         <div ng-show="showsearchresult">
             <search></search>
