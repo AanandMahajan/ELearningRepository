@@ -1400,7 +1400,7 @@ input.nuber {
     padding:15px;
     display:inline-block;
     border-bottom:1px solid #1a1a1a;
-    background:#333 !important;
+    background:rgb(103, 120, 167) !important;
     transition:all linear 0.15s;
     /* Type */
     font-size:1.200em;
