@@ -1,6 +1,6 @@
 ﻿var HomeController = function ($scope, $location, $http, WebAPIBaseURL, $rootScope, search_api_key) {
        
-    $scope.showsearchresult = false;
+    $rootScope.showsearchresult = false;
 
     $scope.isDescription = true;
 
@@ -53,8 +53,20 @@
         $scope.isDescription = false;
     }
 
+    $scope.init=function()
+    {
+        
+        $scope.getCategories();
+        $scope.getCourseDetails();
+
+        if ($rootScope.isComingFromCourseDetails != undefined && $rootScope.isComingFromCourseDetails == true) {
+            $rootScope.showsearchresult = true;
+            $rootScope.isComingFromCourseDetails = false;
+        }
+    }
+
     $scope.getCategories = function () {
-        $scope.showsearchresult = false;
+        $rootScope.showsearchresult = false;
         console.log('Inside getcategory()');
         $http({ method: 'get', url: WebAPIBaseURL + 'api/CategoryMasters/topcategories/getdata' }).
             then(function (response) {
@@ -70,19 +82,19 @@
     $scope.$on('SearchResultSuccess', function (event, args) {            
         
         if (args.data.value.length > 0)
-            $scope.showsearchresult = true;
+            $rootScope.showsearchresult = true;
             //$scope.$digest();
     });
 
     $scope.$on('GoToUserDashBoard', function (event, args) {
 
         if (args.data == true)
-            $scope.showsearchresult = false;
+            $rootScope.showsearchresult = false;
         //$scope.$digest();
     });
 
-    $scope.getCourseDetails = function ($filter) {
-        $scope.showsearchresult = false;
+    $scope.getCourseDetails = function () {
+        $rootScope.showsearchresult = false;
         console.log('Inside getcourse()');
         $http({ method: 'get', url: WebAPIBaseURL + 'api/CourseDetail/GetRecommendedCourseDetails/1' }).
             then(function (response) {

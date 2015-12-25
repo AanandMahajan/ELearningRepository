@@ -60,7 +60,11 @@ var SearchController = function ($rootScope, $scope, $location, $http, WebAPIBas
         if ($scope.searchkeys.length > 0) {
             var searchkey = $scope.searchkeys + '*';
             $rootScope.searchtext = $scope.searchkeys;
-            result_set += "AND (CourseTitle:" + searchkey + " OR Description:" + searchkey + ")";
+
+            if (categoryFilter.length > 0)
+                result_set += "AND ";
+
+            result_set += "(CourseTitle:" + searchkey + " OR Description:" + searchkey + ")";
         }
         
 
