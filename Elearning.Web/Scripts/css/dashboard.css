@@ -4,14 +4,15 @@
 
 
 #categories {
-    height: 480px;
-    width: 900px;
+    height: 250px;
+    width: 800px;
     padding: 0;
 }
 
 .container_16 {
     position: relative;
-    left: 250px;
+    left: 260px;
+    margin-top:10px;
 }
 
 #categories .flipper {
@@ -31,10 +32,10 @@
     border: 1px;
     border-color: white;
     border-style: solid;
-    width: 140px;
-    height: 90px;
-    top: 45px;
-    left: 95px;
+    width: 150px;
+    height: 110px;
+    top: 10px;
+    left: 85px;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -135,8 +136,8 @@
 #categories .block, #categories .flipper-front, #categories .flipper-back {
     display: inline-block;
     text-align: center;
-    height: 181px;
-    width: 192px;
+    height: 130px;
+    width: 170px;
 }
 
 #categories .flip-container {
