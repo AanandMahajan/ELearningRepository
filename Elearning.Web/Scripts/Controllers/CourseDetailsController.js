@@ -215,7 +215,7 @@
             var b = a.extend({}, defaults, b);
             var c = (b.scrollable === true) ? 'style="max-height: 420px;overflow-y: auto;"' : "";
             html = '<div class="modal fade" id="myModal">';
-            html += '<div class="modal-dialog">';
+            html += '<div class="modal-dialog" style="width: 800px;">';
             html += '<div class="modal-content">';
             html += '<div class="model-header-style">';
             html += '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>';
@@ -240,25 +240,30 @@
     })
 
     $scope.openPdf = function (chapterTitle) {
-        /*
-        * Here is how you use it
-        */
-        //$(function () {
-        //    $('.view-pdf').on('click', function () {
-        //var pdf_link = $(this).attr('href');
-        var pdf_link = "https://elearningstrg.blob.core.windows.net/coursedocuments/jquery-tutorial-beginners.pdf";
-                //var iframe = '<div class="iframe-container"><iframe src="'+pdf_link+'"></iframe></div>'
-                //var iframe = '<object data="'+pdf_link+'" type="application/pdf"><embed src="'+pdf_link+'" type="application/pdf" /></object>'        
-                var iframe = '<object type="application/pdf" data="' + pdf_link + '#toolbar=0" width="100%" height="500">No Support</object>';
-                $.createModal({
-                    title: chapterTitle,
-                    message: iframe,
-                    closeButton: true,
-                    scrollable: false
-                });
-                //return false;
-        //    });
-        //})
+        if ($scope.user.FullName != undefined) {
+            /*
+            * Here is how you use it
+            */
+            //$(function () {
+            //    $('.view-pdf').on('click', function () {
+            //var pdf_link = $(this).attr('href');
+            var pdf_link = "https://elearningstrg.blob.core.windows.net/coursedocuments/jquery-tutorial-beginners.pdf";
+            //var iframe = '<div class="iframe-container"><iframe src="'+pdf_link+'"></iframe></div>'
+            //var iframe = '<object data="'+pdf_link+'" type="application/pdf"><embed src="'+pdf_link+'" type="application/pdf" /></object>'        
+            var iframe = '<object type="application/pdf" data="' + pdf_link + '#toolbar=0" width="100%" height="500">No Support</object>';
+            $.createModal({
+                title: chapterTitle,
+                message: iframe,
+                closeButton: true,
+                scrollable: false
+            });
+            //return false;
+            //    });
+            //})
+        }
+        else {
+            alert("Please login!!");
+        }
     }
 }
 
