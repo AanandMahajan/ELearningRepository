@@ -186,6 +186,7 @@
     function close_accordion_section(indexer) {
         $('.accordion ' + '#accordionParent-' + indexer).removeClass('active');
         $('.accordion ' + '#accordionChild-' + indexer).slideUp(300).removeClass('open');
+        $('#imgExpandCollapse-' + indexer).attr('src', '../../images/expand.png');
     }
 
     $scope.clickSectionTitle = function (indexer) {
@@ -198,6 +199,8 @@
             close_accordion_section(indexer);
             // Add active class to section title
             $(accordionParent).addClass('active');
+            //add collpase icon
+            $('#imgExpandCollapse-' + indexer).attr('src', '../../images/collapse.png');
             // Open up the hidden content panel
             $('.accordion ' + '#accordionChild-' + indexer).slideDown(300).addClass('open');
         }

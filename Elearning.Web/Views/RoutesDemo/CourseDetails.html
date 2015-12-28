@@ -75,7 +75,8 @@
 
             <div class="list-group accordion-section" ng-repeat="topic in course.ChapterDetails" style="cursor: pointer; background: rgba(119, 170, 232, 0.11); border: 1px solid #3b73af; " >
 
-                <div id="accordionParent-{{$index}}" class="list-group-item accordion-section-title" href="#accordionChild-{{$index}}" ng-click="clickSectionTitle($index)">{{topic.ChapterTitle}}</div>
+                <div id="accordionParent-{{$index}}" class="list-group-item accordion-section-title" href="#accordionChild-{{$index}}" ng-click="clickSectionTitle($index)">
+                <img id="imgExpandCollapse-{{$index}}" src="../../images/expand.png" />{{topic.ChapterTitle}}</div>
                 <div id="accordionChild-{{$index}}" class="accordion-section-content" style="cursor: pointer;">
                     <div ng-repeat="chapter in topic.ChapterContents" >
                         <ul>
