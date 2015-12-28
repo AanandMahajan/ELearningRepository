@@ -115,27 +115,14 @@
                             <!--script-->
                         </ul>
 
-                        <ul class="nav navbar-nav" ng-show="authentication">
+                        <ul class="nav navbar-nav navbar-right" ng-show="authentication" style="border-right: 1px solid rgba(48, 155, 190, 0.44);">
 
                             <ul class="nav nav-pills" role="tablist">
-                                
-
-                                <li class="dropdown" dropdown>
-                                    <div ng-mouseover="Show" ng-dropdown-multiselect="" search-filter="customFilter" options="resultdata" selected-model="categoryselected" extra-settings="categorysettings" translation-texts="example5customTexts"></div>
-                                </li>
-
-                                <li>    
-                                        <div>
-                                        <input type="text" style="width:200px; margin-left:20px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
-                                        </div>                                   
-                                </li>
-                                <li>
-                                    <span style="width:10px; margin-right:50px" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
-                                </li>
 
                                 <li class="dropdown">
                                     <div class="btn btn-default dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        <span class="glyphicon glyphicon-list-alt badge">Menu</span>
+                                       <!-- <span class="glyphicon glyphicon-list-alt badge">Menu</span>-->
+                                        <img src="../../images/Menu.png" style="width:20px;height:20px;"/>
                                     </div>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
@@ -143,6 +130,21 @@
 
                                     </ul>
                                 </li>
+
+                                <li class="dropdown" >
+                                    <div ng-mouseover="Show" ng-dropdown-multiselect="" search-filter="customFilter" options="resultdata" selected-model="categoryselected" extra-settings="categorysettings" translation-texts="example5customTexts"></div>
+                                </li>
+
+                                <li>
+                                    <div>
+                                        <input type="text" style="width:200px; margin-left:20px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
+                                    </div>
+                                </li>
+                                <li>
+                                    <span style="width:10px; margin-right:50px" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
+                                </li>
+
+                                
 
                                 <li class="dropdown">
                                     <div class="btn btn-default dropdown-toggle" style="margin-left:200px" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

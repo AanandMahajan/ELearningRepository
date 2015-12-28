@@ -69,6 +69,7 @@
     <Content Include="images\EnrollNow.jpg" />
     <Content Include="images\expand.png" />
     <Content Include="images\like_icon.png" />
+    <Content Include="images\Menu.png" />
     <Content Include="images\Unlike_icon.jpg" />
     <Content Include="images\view-icon.jpg" />
     <Content Include="images\view.jpg" />
