@@ -180,7 +180,7 @@
             html = '<div class="modal fade" id="myModal">';
             html += '<div class="modal-dialog">';
             html += '<div class="modal-content">';
-            html += '<div class="modal-header">';
+            html += '<div class="model-header-style">';
             html += '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>';
             if (b.title.length > 0) {
                 html += '<h4 class="modal-title">' + b.title + "</h4>";
@@ -189,7 +189,7 @@
             html += '<div class="modal-body" ' + c + ">";
             html += b.message;
             html += "</div>";
-            html += '<div class="modal-footer">';
+            html += '<div class="model-footer-style">';
             if (b.closeButton === true) {
                 html += '<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>';
             }
