@@ -1,9 +1,10 @@
-﻿var CourseDetailsController = function ($scope, $location, $routeParams, WebAPIBaseURL, $http) {
+﻿var CourseDetailsController = function ($scope, $location, $routeParams, WebAPIBaseURL, $http, $rootScope) {
 
     $scope.course = {};
     $scope.courseImageUrl = "";
     $scope.isDescription = true;
     $scope.isCourseLiked = true;
+    $scope.isCourseEnrolled = false;
 
     $scope.btnClickDescription = function () {
         $scope.isDescription = true;
@@ -30,7 +31,7 @@
                    function successCallback(res) {
 
                        console.log(res);
-                       if (res.data.length == 0) {
+                       if (res.data[0].length == 0) {
 
                            UserCourseLike.TenantID = 1;
                            UserCourseLike.LikeDate = new Date();
@@ -41,6 +42,7 @@
                                 function successCallback(res) {
                                     console.log("Course Liked" + res);
                                     $scope.isCourseLiked = false;
+                                    $scope.course.Likes+=1;
                                 },
                                 function errorCallback(res) {
                                     console.log("Course Like Failed" + res);
@@ -56,6 +58,7 @@
                                   function successCallback(res) {
                                       console.log("Course Liked" + res);
                                       $scope.isCourseLiked = true;
+                                      $scope.course.Likes -= 1;
                                   },
                                   function errorCallback(res) {
                                       console.log("Course Like Failed" + res);
@@ -69,6 +72,21 @@
            );
         }
     }
+
+    $scope.$on('GoToUserDashBoard', function (event, args) {
+        $location.path('/routeHome');
+    });
+
+    $scope.$on('SearchResultSuccess', function (event, args) {
+
+        if (args.data.value.length > 0)
+        {
+            $rootScope.isComingFromCourseDetails = true;
+        }
+        $location.path('/routeHome');
+        //$scope.$digest();
+    });
+
 
     $scope.btnEnrollClick = function () {
         if ($scope.user.FullName == undefined) {
@@ -89,7 +107,9 @@
 
                  function successCallback(res) {                  
                      console.log("Course Enrolled" + res);
-                     alert('User Enrolled for this course !! ');
+                     $scope.isCourseEnrolled = true;
+                     $scope.course.Enrollments += 1;
+                     //alert('User Enrolled for this course !! ');
                  },                 
                  function errorCallback(res) {
                      console.log("Enrollment Failed: " + res);
@@ -108,31 +128,45 @@
                 $http.get(WebAPIBaseURL + 'api/ImageMasters/' + $scope.course.CourseImageID).then(
                         function successCallback(res) {
                             $scope.courseImageUrl = res.data.BLOB_URL;
+                            
+                                if ($scope.user.FullName != undefined) {
+                                    var UserCourseLike = {};
+
+                                    UserCourseLike.UserID = $scope.user.ID;
+                                    UserCourseLike.CourseID = $scope.course.ID;
+                                    UserCourseLike.TenantID = 1;
+                                    UserCourseLike.StartedON = new Date();
+                                    UserCourseLike.CategoryID = $scope.course.CategoryID;
+
+                                    // Get Likes details
+                                    $http.post(WebAPIBaseURL + 'api/UserCourseLikeInfoes/UserLikeInfo/getdata', angular.toJson(UserCourseLike)).then(
+
+                                                     function successCallback(res) {
+
+                                                         console.log(res);
+                                                         if (res.data[0].length == 0) {
+                                                             $scope.isCourseLiked = true;
+                                                         }
+                                                         else {
+                                                             $scope.isCourseLiked = false;
+                                                         }
+
+                                                         if (res.data[1].length == 0) {
+                                                             $scope.isCourseEnrolled = false;
+                                                         }
+                                                         else {
+                                                             $scope.isCourseEnrolled = true;
+                                                         }
+
+                                                        
 
 
-                            var UserCourseLike = {};
-
-                            UserCourseLike.UserID = $scope.user.ID;
-                            UserCourseLike.CourseID = $scope.course.ID;
-                            // Get Likes details
-                            $http.post(WebAPIBaseURL + 'api/UserCourseLikeInfoes/UserLikeInfo/getdata', angular.toJson(UserCourseLike)).then(
-
-                                             function successCallback(res) {
-
-                                                 console.log(res);
-                                                 if (res.data.length == 0) {
-                                                     $scope.isCourseLiked = true;
+                                                     },
+                                                 function errorCallback(res) {
+                                                     console.log("Course Like Failed" + res);
                                                  }
-                                                 else {
-                                                     $scope.isCourseLiked = false;
-                                                 }
-
-                                             },
-                                         function errorCallback(res) {
-                                             console.log("Course Like Failed" + res);
-                                         }
-                                     );
-
+                                             );
+                                }
                         },
                         function errorCallback(res) {
                             console.log(res);
@@ -226,4 +260,4 @@
 }
 
 // The inject property of every controller (and pretty much every other type of object in Angular) needs to be a string array equal to the controllers arguments, only as strings
-CourseDetailsController.$inject = ['$scope', '$location', '$routeParams', WebAPIBaseURL, '$http'];
+CourseDetailsController.$inject = ['$scope', '$location', '$routeParams', WebAPIBaseURL, '$http','$rootScope'];

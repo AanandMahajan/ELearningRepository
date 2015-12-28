@@ -34,6 +34,7 @@ namespace ELearning.WebAPI.Models
             modelBuilder.Entity<CountryMaster>().ToTable("CountryMaster");
             modelBuilder.Entity<UserEnrollmentInfo>().ToTable("UserEnrollmentInfo");
             modelBuilder.Entity<UserCourseLikeInfo>().ToTable("UserCourseLikeInfo");
+            modelBuilder.Entity<UserCourseViewInfo>().ToTable("UserCourseViewInfo");
             
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 

@@ -1,6 +1,6 @@
 ﻿<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link href="../../Scripts/css/style.css" rel="stylesheet" />
-<div ng-controller="HomeController" ng-init="getCategories(); getCourseDetails();">
+<div ng-controller="HomeController" ng-init="init();">
     <div>
         <div ng-hide="showsearchresult">
             <div id="categories" class="container_16">
@@ -34,7 +34,7 @@
                     </div>
                 </a>
             </div>
-            
+
             <br />
 
             <div id="myCarousel" class="carousel slide" data-ride="carousel">

@@ -81,12 +81,42 @@ namespace ELearning.WebAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
+                       
+            var userViewList = (from cat in db.UserCourseViewInfoes
+                                where cat.CourseID == userCourseLikeInfo.CourseID && cat.UserID == userCourseLikeInfo.UserID
+                                select cat);
+
+            //List<UserCourseViewInfo> lst = userViewList.ToList();
+
+            if(!userViewList.Any())
+            {
+                //Add User information in View list
+
+                UserCourseViewInfo userCourseViewInfo = new UserCourseViewInfo();
+                userCourseViewInfo.CategoryID = userCourseLikeInfo.CategoryID;
+                userCourseViewInfo.CourseID = userCourseLikeInfo.CourseID;
+                userCourseViewInfo.TenantID = userCourseLikeInfo.TenantID;
+                userCourseViewInfo.UserID = userCourseLikeInfo.UserID;
+                userCourseViewInfo.ViewDate = DateTime.Now;
+
+                db.UserCourseViewInfoes.Add(userCourseViewInfo);
+                db.SaveChanges();
+                
+            }
 
             var userLikeList = (from cat in db.UserCourseLikeInfoes
                                 where cat.CourseID == userCourseLikeInfo.CourseID && cat.UserID == userCourseLikeInfo.UserID
                                 select cat);
 
-            return CreatedAtRoute("DefaultApi", new { id = userCourseLikeInfo.ID }, userLikeList);
+            var userEnrollmentInfo = (from cat in db.UserEnrollmentInfoes
+                                where cat.CourseID == userCourseLikeInfo.CourseID && cat.UserID == userCourseLikeInfo.UserID
+                                select cat);
+
+            List<Object> lst = new List<object>();
+            lst.Add(userLikeList);
+            lst.Add(userEnrollmentInfo);
+            
+            return CreatedAtRoute("DefaultApi", new { id = userCourseLikeInfo.ID }, lst);
         }
         [ActionName("SaveUserLike")]
         [HttpPost]
