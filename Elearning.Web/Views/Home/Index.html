@@ -66,11 +66,11 @@
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <img src="../../images/ELearningLogoImage.png" alt="..." class="img-responsive" width="70" height="70">
+                        <img src="../../images/ELearningLogoImage.png" alt="..." class="img-responsive" width="90" height="90" style="padding-bottom:10px;">
 
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                         <ul class="nav navbar-nav navbar-right" ng-hide="authentication">
                             <li>
                                 <a href="#" data-toggle="modal" href="#doc" class="scroll">
@@ -115,63 +115,66 @@
                             <!--script-->
                         </ul>
 
-                        <ul class="nav navbar-nav navbar-right" ng-show="authentication" style="border-right: 1px solid rgba(48, 155, 190, 0.44);">
+                        <ul class="nav navbar-nav navbar-right" ng-show="authentication" style="width: 1050px;">
 
-                            <ul class="nav nav-pills" role="tablist">
+                            <!--<ul class="nav nav-pills" role="tablist" style="padding-left:30px;padding-top:20px;">-->
 
-                                <li class="dropdown">
-                                    <div class="btn btn-default dropdown-toggle" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                       <!-- <span class="glyphicon glyphicon-list-alt badge">Menu</span>-->
-                                        <img src="../../images/Menu.png" style="width:20px;height:20px;"/>
-                                    </div>
+                            <li class="dropdown" style="padding-left: 30px; padding-top: 20px; border-right: #e7e7e7;">
+                                <div id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <!-- <span class="glyphicon glyphicon-list-alt badge">Menu</span>-->
+                                    <img src="../../images/Menu.png" style="width:34px;height:34px;" />
+                                </div>
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-                                        <li ng-click="GoToUserDashBoard()">Home</li>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                    <li ng-click="GoToUserDashBoard()" style="padding-left:5px;">Home</li>
 
-                                    </ul>
-                                </li>
+                                </ul>
+                            </li>
 
-                                <li class="dropdown" >
-                                    <div ng-mouseover="Show" ng-dropdown-multiselect="" search-filter="customFilter" options="resultdata" selected-model="categoryselected" extra-settings="categorysettings" translation-texts="example5customTexts"></div>
-                                </li>
+                            <li class="dropdown" style="padding-left: 30px; border-right: #e7e7e7;padding-top:20px;">
+                                <div ng-mouseover="Show" ng-dropdown-multiselect="" search-filter="customFilter" options="resultdata" selected-model="categoryselected" extra-settings="categorysettings" translation-texts="example5customTexts"></div>
+                            </li>
+                            <!--<li style=" border-right: #e7e7e7; padding-top: 20px;">
+                                  <span style="width: 10px; border: 1px solid #ccc;" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
+                            </li>-->
+                            <li style=" border-right: #e7e7e7; padding-top: 20px;">
+                                <div class="input-group">
+                                    <span style="width: 10px; border: 1px solid #ccc;" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
+                                    <input type="text" style="width:500px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
+                                </div>
+                            </li>
+                           
+                           
 
-                                <li>
-                                    <div>
-                                        <input type="text" style="width:200px; margin-left:20px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
-                                    </div>
-                                </li>
-                                <li>
-                                    <span style="width:10px; margin-right:50px" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
-                                </li>
 
-                                
 
-                                <li class="dropdown">
-                                    <div class="btn btn-default dropdown-toggle" style="margin-left:200px" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        <span class="glyphicon glyphicon-list-alt badge"> 4</span>
-                                    </div>
+                            <li class="dropdown" style=" border-right: #e7e7e7;padding-top:20px;padding-left:50px;">
+                                <div id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                   <!-- <span class="glyphicon glyphicon-list-alt badge"> 4</span>-->
+                                    <img src="../../images/Notification.jpg" style="width:30px;height:30px;" ><span class="badge" style="background-color:red;"> 4</span><img>
+                                </div>
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <li><a href="#">New course request from your friend</a></li>
-                                        <li><a href="#"><strong>you have 4 notification unread </strong></a></li>
-                                        <li><a href="#">Reminder</a></li>
-                                    </ul>
-                                </li>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <li><a href="#">New course request from your friend</a></li>
+                                    <li><a href="#"><strong>you have 4 notification unread </strong></a></li>
+                                    <li><a href="#">Reminder</a></li>
+                                </ul>
+                            </li>
 
-                                <li class="dropdown">
-                                    <div class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        <img ng-src="{{user.DisplayPicURL}}" alt="{{user.FullName}}" class="profile-img" style="width:24px;height:25px;" />
-                                        <span ng-bind="user.FullName"></span> <b class="caret"></b>
-                                    </div>
+                            <li class="dropdown" style="float: right; border-right: #e7e7e7; padding-top: 20px;">
+                                <div class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <img ng-src="{{user.DisplayPicURL}}" alt="{{user.FullName}}" class="profile-img" style="width:24px;height:25px;" />
+                                    <span ng-bind="user.FullName"></span> <b class="caret"></b>
+                                </div>
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a href="#">Edit Profile</a></li>
-                                        <li><a href="#">Change Password</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#/routeSearch"><div ng-click="logout()"> Logout</div></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Edit Profile</a></li>
+                                    <li><a href="#">Change Password</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#/routeSearch"><div ng-click="logout()"> Logout</div></a></li>
+                                </ul>
+                            </li>
+                            <!--</ul>-->
                         </ul>
                 </div><!-- /.navbar-collapse -->
 
