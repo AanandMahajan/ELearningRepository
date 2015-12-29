@@ -235,7 +235,7 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL, a
                             }
                         );
 
-                        alert("user image uploaded successfully");
+                        //alert("user image uploaded successfully");
                         console.log(data);
                         console.log(status);
                     },

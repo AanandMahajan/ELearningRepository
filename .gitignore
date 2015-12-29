@@ -31,3 +31,4 @@
 *.suo
 /ELearning.Database/ELearning.Database.dbmdl
 /Elearning.Web/images/images.jpg
+/packages
