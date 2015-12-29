@@ -46,5 +46,7 @@ namespace ELearning.WebAPI.DBModel
         public DbSet<UserStatusMaster> UserStatusMasters { get; set; }
         public DbSet<CourseLikeUnlikeView> CourseLikeUnlikeViews { get; set; }
         public DbSet<UserEnrollmentInfo> UserEnrollmentInfoes { get; set; }
+        public DbSet<UserCourseLikeInfo> UserCourseLikeInfoes { get; set; }
+        public DbSet<UserCourseViewInfo> UserCourseViewInfoes { get; set; }
     }
 }

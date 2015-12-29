@@ -33,6 +33,8 @@ namespace ELearning.WebAPI.Models
             modelBuilder.Entity<CourseLikeUnlikeView>().ToTable("CourseLikeUnlikeView");
             modelBuilder.Entity<CountryMaster>().ToTable("CountryMaster");
             modelBuilder.Entity<UserEnrollmentInfo>().ToTable("UserEnrollmentInfo");
+            modelBuilder.Entity<UserCourseLikeInfo>().ToTable("UserCourseLikeInfo");
+            modelBuilder.Entity<UserCourseViewInfo>().ToTable("UserCourseViewInfo");
             
             //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
@@ -76,6 +78,10 @@ namespace ELearning.WebAPI.Models
         public System.Data.Entity.DbSet<ELearning.WebAPI.DBModel.CourseLikeUnlikeView> CourseLikeUnlikeViews { get; set; }
 
         public System.Data.Entity.DbSet<ELearning.WebAPI.DBModel.UserEnrollmentInfo> UserEnrollmentInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<ELearning.WebAPI.DBModel.UserCourseLikeInfo> UserCourseLikeInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<ELearning.WebAPI.DBModel.UserCourseViewInfo> UserCourseViewInfoes { get; set; }
 
     }
 }

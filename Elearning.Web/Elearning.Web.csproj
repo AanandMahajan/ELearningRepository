@@ -63,10 +63,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="images\busy.GIF" />
+    <Content Include="images\collapse.png" />
     <Content Include="images\enroll-icon.png" />
     <Content Include="images\Enroll.jpg" />
     <Content Include="images\EnrollNow.jpg" />
+    <Content Include="images\expand.png" />
     <Content Include="images\like_icon.png" />
+    <Content Include="images\Menu.png" />
+    <Content Include="images\Notification.jpg" />
+    <Content Include="images\Unlike_icon.jpg" />
     <Content Include="images\view-icon.jpg" />
     <Content Include="images\view.jpg" />
     <Content Include="Scripts\Controllers\HomeController.js" />

@@ -16,7 +16,7 @@
                 <img class="media-object" style="width: 200px; height: 200px;" src={{courseImageUrl}} alt="64x64" data-holder-rendered="true">
             </a>
         </div>
-        <div class="media-body" style="background: rgba(119, 170, 232, 0.11);color:#3b73af">
+        <div class="media-body" style="background: rgba(119, 170, 232, 0.11); color: #3b73af; border:1px solid #3b73af">
 
             <div class=" col-lg-10">
                 <div>                
@@ -49,7 +49,8 @@
                     <span class="badge">{{course.Views}}</span>
                 </div><br />
                 <div>
-                    <img src="../../images/like_icon.png" style="width:25px;height:25px" title="Like"/>
+                    <img src="../../images/like_icon.png" style="width:25px;height:25px" title="Like" ng-click="btnLikeCourse()" ng-show="isCourseLiked"/>
+                    <img src="../../images/Unlike_icon.jpg" style="width:25px;height:25px" title="Like" ng-click="btnLikeCourse()" ng-hide="isCourseLiked"/>
                      <!-- <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>-->
                     <span class="badge">{{course.Likes}}</span>
                 </div><br />
@@ -60,7 +61,8 @@
                 </div><br />
                 <div>
                     <!--<button class="btn btn-success">Enroll <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> </button>-->
-                    <img src="../../images/EnrollNow.jpg" style="height:30px;width:85px;" ng-click="btnEnrollClick();" />
+                    <img src="../../images/EnrollNow.jpg" style="height:30px;width:85px;" ng-click="btnEnrollClick();" ng-hide="isCourseEnrolled" />
+                    <div ng-show="isCourseEnrolled"><strong> User has enrolled for this course </strong></div>
                 </div>
 
 
@@ -71,14 +73,15 @@
         <div class="panel-body accordion" style="border: 2px; background: rgba(119, 170, 232, 0.11);">
             <strong>Topics:</strong><br /><br />
 
-            <div class="list-group accordion-section" ng-repeat="topic in course.ChapterDetails" style="cursor: pointer;">
+            <div class="list-group accordion-section" ng-repeat="topic in course.ChapterDetails" style="cursor: pointer; background: rgba(119, 170, 232, 0.11); border: 1px solid #3b73af; " >
 
-                <div id="accordionParent-{{$index}}" class="list-group-item accordion-section-title" href="#accordionChild-{{$index}}" ng-click="clickSectionTitle($index)">{{topic.ChapterTitle}}</div>
+                <div id="accordionParent-{{$index}}" class="list-group-item accordion-section-title" href="#accordionChild-{{$index}}" ng-click="clickSectionTitle($index)">
+                <img id="imgExpandCollapse-{{$index}}" src="../../images/expand.png" />{{topic.ChapterTitle}}</div>
                 <div id="accordionChild-{{$index}}" class="accordion-section-content" style="cursor: pointer;">
-                    <div ng-repeat="chapter in topic.ChapterContents">
+                    <div ng-repeat="chapter in topic.ChapterContents" >
                         <ul>
                             <li>
-                        <a class="list-group-item view-pdf" ng-click=openPdf(chapter.Title)>{{chapter.Title}}</a>
+                                <a class="list-group-item view-pdf" ng-click=openPdf(chapter.Title) style="background: rgb(206, 226, 243); border: 1px solid #3b73af; color: #3b73af; ">{{chapter.Title}}</a>
                             </li>
                         </ul>
                     </div>
