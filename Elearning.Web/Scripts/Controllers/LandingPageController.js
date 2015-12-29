@@ -1,17 +1,17 @@
 ﻿
-var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL, azureBlob, search_api_key, $rootScope) {
+var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL, azureBlob, search_api_key, $rootScope, $q) {
     //$scope.authentication = false;
     $scope.email = '';
     $scope.publisher = {};
 
     $scope.user = {};
-    
+
     $http.get(WebAPIBaseURL + 'api/user/GetCountries/country').then(
                function successCallback(res) {
                    $scope.publisher.Countries = res.data;
-                   },
+               },
                function errorCallback(res) {
-                    console.log(res);
+                   console.log(res);
                }
            );
 
@@ -20,8 +20,7 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL, a
 
     $location.path('/routeSearch');
 
-    $scope.GoToUserDashBoard=function()
-    {
+    $scope.GoToUserDashBoard = function () {
         $scope.$broadcast('GoToUserDashBoard', { data: true });
     }
 
@@ -51,8 +50,7 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL, a
 
     }
 
-    $scope.SearchUserHome=function()
-    {
+    $scope.SearchUserHome = function () {
         $rootScope.top_result_count = 5;
         $rootScope.skip_result_count = 0;
 
@@ -134,7 +132,7 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL, a
                   alert("Wrong Credentials!!");
               }
               else {
-                  console.log("Login Successfull: " +res);
+                  console.log("Login Successfull: " + res);
                   $scope.user = res.data;
                   $scope.authentication = true;
                   $location.path('/routeHome');
@@ -142,57 +140,125 @@ var LandingPageController = function ($scope, $location, $http, WebAPIBaseURL, a
 
           },
           function errorCallback(res) {
-              console.log("Login Failed: " +res);
+              console.log("Login Failed: " + res);
           }
               );
-
-
     };
 
-    
 
-   $scope.logout = function () {
+
+    $scope.logout = function () {
         console.log("loging out..");
         $scope.authentication = false;
         $location.path('/routeSearch');
     };
 
-        //Adding new user
-        $scope.AddUser = function (myModal) {      
-       $scope.publisher.Password = md5($scope.publisher.Password);
-       
-        var f = document.getElementById('file').files[0];
-        //r = new FileReader();
-        //r.onloadend = function (e) {
-        //    var data = e.target.result;
-        //}
-        //r.readAsBinaryString(f);
-       
-        var config = {
-            baseUrl: "https://elearningstrg.blob.core.windows.net/userimg/"+f.name,
-            sasToken: "?sv=2015-04-05&sr=c&sig=OZGZWbDFeA9PTw%2BBsOU%2FIlC5OZ2iAHOuh8BQwOyR2Wo%3D&st=2015-12-02T09%3A10%3A44Z&se=2015-12-04T10%3A10%3A44Z&sp=rw",
-            file: f,
-        };
-        azureBlob.upload(config);
-        $scope.publisher.DisplayPicURL = "https://elearningstrg.blob.core.windows.net/userimg/" + f.name;
-        $scope.publisher.TenantID = 1;
-        $scope.publisher.RoleID = 3;
-        $scope.publisher.CreatedON = new Date();
-       
-        $http.post(WebAPIBaseURL + 'api/user/adduser/user', angular.toJson($scope.publisher)).then(
-
-            function successCallback(res) {
-                console.log(res);
-                alert("User added successfully!! Please login and continue");
-        },
-            function errorCallback(res) {
-                console.log(res);
-                alert("User insertion failed. Please try again");
+    //Adding new user
+    $scope.AddUser = function (myModal) {
+        $scope.publisher.Password = md5($scope.publisher.Password);
+        var file = document.getElementById('file').files[0];
+        if (selectedFile == null) {
+            alert("Please select a file first.");
         }
-        );
+        else {
+            var fileContent = selectedFile.slice(0, selectedFile.size - 1);
 
+            //1. Add/Update CORS rule.
+            $http({ method: 'get', url: WebAPIBaseURL + 'api/BlobUpload/AddCorsRuleStorage/addrule' }).
+                    then(function (response) {
+                        if (response.data) {
+                            //2. Get shared access signature.
+                            $http({ method: 'get', url: WebAPIBaseURL + 'api/BlobUpload/GetSAS/?containerName=userimg&blobName=' + file.name }).
+                                then(function (response) {
+                                    if (response) {
+                                        //SAS = response.data.toString();
+                                        SAS = response.data.substring(1,response.data.length-1);
+                                        reader.readAsArrayBuffer(fileContent);
+                                    } else {
+                                        alert("Can't get the Shared Access Signature");
+                                    }
+                            });
+                        } else {
+                            alert('CORS not updated...');
+                        }
+                    });
+        }
     };
+
+    var SAS = null;
+    var reader = null;
+    var selectedFile = null;
+    $(document).ready(function () {
+        reader = new FileReader();
+        reader.onloadend = function (evt) {
+            if (evt.target.readyState == FileReader.DONE) {
+                //var baseUrl = $("#sasUrl").val();
+                //var indexOfQueryStart = baseUrl.indexOf("?");
+                //submitUri = baseUrl.substring(0, indexOfQueryStart) + '/' + selectedFile.name + baseUrl.substring(indexOfQueryStart);
+                var baseUrl = 'https://elearningstrg.blob.core.windows.net/userimg/';
+                submitUri = baseUrl + selectedFile.name + SAS.substring(SAS.indexOf("?"),SAS.length);
+                console.log(submitUri);
+
+                var requestData = new Uint8Array(evt.target.result);
+
+                //2. Upload blob to azure.
+                $.ajax({
+                    url: submitUri,
+                    type: "PUT",
+                    data: requestData,
+                    processData: false,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('x-ms-blob-type', 'BlockBlob');
+                        xhr.setRequestHeader('x-ms-blob-content-type', selectedFile.type);
+                        //xhr.setRequestHeader('Content-Length', requestData.length);
+                    },
+                    success: function (data, status) {
+                        $scope.publisher.DisplayPicURL = 'https://elearningstrg.blob.core.windows.net/userimg/' + selectedFile.name;
+                        $scope.publisher.TenantID = 1;
+                        $scope.publisher.RoleID = 3;
+                        $scope.publisher.CreatedON = new Date();
+
+                        //4. Submit user data.
+                        $http.post(WebAPIBaseURL + 'api/user/adduser/user', angular.toJson($scope.publisher)).then(
+
+                            function successCallback(res) {
+                                console.log(res);
+                                alert("User added successfully!! Please login and continue");
+                            },
+                            function errorCallback(res) {
+                                console.log(res);
+                                alert("User insertion failed. Please try again");
+                            }
+                        );
+
+                        alert("user image uploaded successfully");
+                        console.log(data);
+                        console.log(status);
+                    },
+                    error: function (xhr, desc, err) {
+                        alert("Failed to upload user image.");
+                        console.log(desc);
+                        console.log(err);
+                    }
+                });
+            }
+        };
+        $("#file").bind('change', function (e) {
+            var files = e.target.files;
+            selectedFile = files[0];
+        });
+        //$("#buttonUploadFile").click(function (e) {
+        //    if (selectedFile == null) {
+        //        alert("Please select a file first.");
+        //    }
+        //    else {
+        //        var fileContent = selectedFile.slice(0, selectedFile.size - 1);
+        //        reader.readAsArrayBuffer(fileContent);
+        //    }
+        //});
+    })
+
 }
 
-    // The inject property of every controller (and pretty much every other type of object in Angular) needs to be a string array equal to the controllers arguments, only as strings
+// The inject property of every controller (and pretty much every other type of object in Angular) needs to be a string array equal to the controllers arguments, only as strings
 LandingPageController.$inject = ['$scope', '$location', '$http', WebAPIBaseURL, azureBlob, search_api_key, '$rootScope'];
