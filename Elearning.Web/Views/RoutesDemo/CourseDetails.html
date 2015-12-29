@@ -81,7 +81,7 @@
                     <div ng-repeat="chapter in topic.ChapterContents" >
                         <ul>
                             <li>
-                                <a class="list-group-item view-pdf" ng-click=openPdf(chapter.Title) style="background: rgb(206, 226, 243); border: 1px solid #3b73af; color: #3b73af; ">{{chapter.Title}}</a>
+                                <a class="list-group-item view-pdf" ng-click="openPdf(chapter.Title, chapter.FileBlobURL)" style="background: rgb(206, 226, 243); border: 1px solid #3b73af; color: #3b73af; ">{{chapter.Title}}</a>
                             </li>
                         </ul>
                     </div>

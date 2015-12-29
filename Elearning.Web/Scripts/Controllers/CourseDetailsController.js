@@ -239,7 +239,7 @@
         }
     })
 
-    $scope.openPdf = function (chapterTitle) {
+    $scope.openPdf = function (chapterTitle, chapterFileBlobURL) {
         if ($scope.user.FullName != undefined) {
             /*
             * Here is how you use it
@@ -247,10 +247,10 @@
             //$(function () {
             //    $('.view-pdf').on('click', function () {
             //var pdf_link = $(this).attr('href');
-            var pdf_link = "https://elearningstrg.blob.core.windows.net/coursedocuments/jquery-tutorial-beginners.pdf";
+            //var pdf_link = "https://elearningstrg.blob.core.windows.net/coursedocuments/jquery-tutorial-beginners.pdf";
             //var iframe = '<div class="iframe-container"><iframe src="'+pdf_link+'"></iframe></div>'
             //var iframe = '<object data="'+pdf_link+'" type="application/pdf"><embed src="'+pdf_link+'" type="application/pdf" /></object>'        
-            var iframe = '<object type="application/pdf" data="' + pdf_link + '#toolbar=0" width="100%" height="500">No Support</object>';
+            var iframe = '<object type="application/pdf" data="' + chapterFileBlobURL + '#toolbar=0" width="100%" height="500">No Support</object>';
             $.createModal({
                 title: chapterTitle,
                 message: iframe,
