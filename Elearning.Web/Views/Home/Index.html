@@ -62,13 +62,16 @@
     <div class="header" id="home">
 
         <div class="header_nav" id="home" >
-            <nav class="navbar navbar-default chn-gd" style="background: #e2e2e2;">
+            <nav class="navbar navbar-default chn-gd"  >
+                <div class="navbar-header">
+                    <img src="../../images/ELearningLogoImage.png" alt="..." class="img-responsive" width="130" height="90">
+                </div>
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
+                    <!--<div class="navbar-header">
                         <img src="../../images/ELearningLogoImage.png" alt="..." class="img-responsive" width="90" height="90" style="padding-bottom:10px;">
 
-                    </div>
+                    </div>-->
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                         <ul class="nav navbar-nav navbar-right" ng-hide="authentication">
@@ -139,8 +142,8 @@
                             </li>-->
                             <li style=" border-right: #e7e7e7; padding-top: 20px;">
                                 <div class="input-group">
-                                    <span style="width: 10px; border: 1px solid #ccc;" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
                                     <input type="text" style="width:500px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
+                                    <span style="width: 10px; border: 1px solid #ccc;" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
                                 </div>
                             </li>
                            
@@ -236,7 +239,7 @@
 
                 <div class="modal-body" style="background-color: rgba(119, 170, 232, 0.11);">
                     <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1"></span>
+                        <span class="input-group-addon glyphicon glyphicon-user" id="basic-addon1" style="background: #309bbe;"></span>
                         <input type="file" id="file" class="form-control"  name="file" aria-describedby="basic-addon1" placeholder="Display pic" />
                     </div><br />
                     <div class="input-group">
