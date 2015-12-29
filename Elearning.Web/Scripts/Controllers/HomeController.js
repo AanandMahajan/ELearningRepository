@@ -99,8 +99,10 @@
         $http({ method: 'get', url: WebAPIBaseURL + 'api/CourseDetail/GetRecommendedCourseDetails/1' }).
             then(function (response) {
                 $scope.status = response.status;
-                $scope.courses = response.data;                
-            });        
+                $scope.courses =  response.data;
+            }, function (err) { 
+                console.log(err);
+            });
     }
 }
 

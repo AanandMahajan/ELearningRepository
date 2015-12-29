@@ -12,19 +12,22 @@ using ELearning.WebAPI.DBModel;
 using ELearning.WebAPI.Models;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace ELearning.WebAPI.Controllers
 {
+    //[KnownType(typeof(CourseItem))]
     public class CourseDetailController : ApiController
     {
         private DatabaseContext db = new DatabaseContext();
 
         [HttpGet]
         public IEnumerable<CourseItem> GetRecommendedCourseDetails()
-        {            
+        {
             var response = (from course in db.CourseDetails
                             orderby course.Enrollments descending
                             select course).Take(5);
+            var res = response.ToList();
             var imageMaster = db.ImageMasters;
             List<CourseItem> courseItemList = new List<CourseItem>();
             foreach (var item in response)
@@ -32,7 +35,7 @@ namespace ELearning.WebAPI.Controllers
                  string url = (from course in imageMaster
                               where course.ID == item.CourseImageID
                               select course).First().BLOB_URL;
-                courseItemList.Add(new CourseItem(url, item));
+                 courseItemList.Add(new CourseItem() { BlobUrl = url, Course = (CourseDetail)item } );
             }
 
             return courseItemList;

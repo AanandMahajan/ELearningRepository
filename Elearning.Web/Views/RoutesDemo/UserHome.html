@@ -50,7 +50,7 @@
                             <div class="panel panel-success-style">
                                 <div class="panel-heading" style="background-color: rgb(206, 226, 243); color: #3B73AF; border:#3B73AF;">
                                     <h3 class="panel-title" style="text-align:center">
-                                        {{course.CourseDetailItem.CourseTitle}}
+                                        {{course.Course.CourseTitle}}
                                     </h3>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img class="media-object" style="width: 200px; height: 200px;" src="{{course.BlobURL}}" alt="64x64" data-holder-rendered="true">
+                                        <img class="media-object" style="width: 200px; height: 200px;" src="{{course.BlobUrl}}" alt="64x64" data-holder-rendered="true">
                                     </a>
                                 </div>
                                 <div class="media-body" style="background: rgba(119, 170, 232, 0.11); color: #3b73af">
@@ -71,31 +71,31 @@
                                         </div><br />
                                         <div ng-show="isDescription">
                                             <strong style="color: #3b73af">
-                                                Description: {{course.CourseDetailItem.Description}}
+                                                Description: {{course.Course.Description}}
                                                 <br />
-                                                Created On: {{course.CourseDetailItem.CreatedON | date:'dd-MM-yyyy'}}
+                                                Created On: {{course.Course.CreatedON | date:'dd-MM-yyyy'}}
                                             </strong>
                                         </div>
                                         <div ng-hide="isDescription">
                                             <strong style="color:skyblue">
                                                 Outline:
                                                 <br />
-                                                Tags: {{course.CourseDetailItem.Tags}}
+                                                Tags: {{course.Course.Tags}}
                                             </strong>
                                         </div>
                                     </div>
                                     <div class="col-lg-2">
                                         <div>
                                             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                                            <span class="badge">{{course.CourseDetailItem.Views}}</span>
+                                            <span class="badge">{{course.Course.Views}}</span>
                                         </div><br />
                                         <div>
                                             <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                                            <span class="badge">{{course.CourseDetailItem.Likes}}</span>
+                                            <span class="badge">{{course.Course.Likes}}</span>
                                         </div><br />
                                         <div>
                                             <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
-                                            <span class="badge">{{course.CourseDetailItem.Enrollments}}</span>
+                                            <span class="badge">{{course.Course.Enrollments}}</span>
                                         </div><br />
                                         <div>
                                             <!--<button class="btn btn-success">Enroll <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> </button>-->
