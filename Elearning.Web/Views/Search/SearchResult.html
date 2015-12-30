@@ -1,7 +1,7 @@
 ﻿<link href="../../Scripts/css/style.css" rel="stylesheet" />
 <div>
         
-    <div class="col-lg-2">
+    <div class="col-lg-2" style="font-size:12px;padding-left:80px;padding-top:40px;">
         <strong> Filter</strong>
         <br />
         <br />
@@ -21,35 +21,36 @@
 
     <div class="bs-example col-lg-10" data-example-id="media-alignment">
         <div>
-            <button style="margin-left:80%" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0">Prev <</button>
-            {{showSearchResultRange}}
-            <button style="margin-left:10px" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5">Next ></button>
+            <img src="../../images/prev.jpg" style="margin-left: 72%; width: 20px; height: 20px;" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0" />
+            <span style="color: #3B73AF;"><b> {{showSearchResultRange}}</b></span>
+            <img src="../../images/next.jpg" style="margin-left: 10px; width: 20px; height: 20px;" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5" />
         </div>
-        <br />
-        <br />
+         <br />
         <div ng-repeat="model in searchresults">
-            <div class="media">
+            <div class="media" style="border-bottom: 1px solid #3B73AF">
                 <div class="media-left">
-                    <a href="#">
+                    <a ng-click="registerCourse(model.ID)">
                         <img class="media-object" style="width: 64px; height: 64px;" src={{model.BLOB_URL}} alt="64x64" data-holder-rendered="true">
                     </a>
                 </div>
                 <div class="media-body">
 
-                    <div class="panel panel-success-style">
-                        <div class="panel-heading" style="background-color: rgb(206, 226, 243); color: #3B73AF; border: #3B73AF;">
-                            <h3 class="panel-title">{{model.CourseTitle}}</h3>
+                    <div class="panel-success-style" style="background-color: rgba(119, 170, 232, 0.11); color: #3B73AF; ">
+                        <div class="panel-heading" >
+                           <!-- <a ng-href="registerCourse(model.ID)"><h3 class="panel-title"><b>{{model.CourseTitle}}</b></h3></a>-->
+                            <a ng-click="registerCourse(model.ID)" ><b>{{model.CourseTitle}}</b></a>
                         </div>
-                        <div class="panel-body" style="background: rgba(119, 170, 232, 0.11);">
+                        <div class="panel-body" style="font-size:12px;">
                             {{model.Description}}
                         </div>
-                        <div class="panel-footer" style="background: rgba(119, 170, 232, 0.11); border: rgba(119, 170, 232, 0.11); ">
+                       
+                        <!--<div class="panel-footer">-->
                            <!-- <button ng-click="registerCourse(model.ID)">View</button>-->
                           
-                            <img src="../../images/view.jpg" style="height:26px;width:57px;" ng-click="registerCourse(model.ID)" />
+                            <!--<img src="../../images/view.jpg" style="height:26px;width:57px;" ng-click="registerCourse(model.ID)" />-->
                            
 
-                        </div>
+                        <!--</div>-->
                     </div>
 
 
@@ -60,9 +61,9 @@
         </div>
 
         <div>
-            <button style="margin-left:80%" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0">Prev <</button>
-            {{showSearchResultRange}}
-            <button style="margin-left:10px" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5">Next ></button>
+            <img src="../../images/prev.jpg" style="margin-left: 72%; width: 20px; height: 20px;" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0" />
+            <span style="color: #3B73AF;"><b> {{showSearchResultRange}}</b></span>
+            <img src="../../images/next.jpg" style="margin-left: 10px; width: 20px; height: 20px;" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5" />
         </div>
         <br />
         
