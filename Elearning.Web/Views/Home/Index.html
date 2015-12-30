@@ -64,14 +64,14 @@
         <div class="header_nav" id="home" >
             <nav class="navbar navbar-default chn-gd"  >
                 <div class="navbar-header">
-                    <img src="../../images/ELearningLogoImage.png" alt="..." class="img-responsive" width="130" height="90">
+                    <img src="../../images/ELearningLogoImage.png" alt="..." ng-click="GoToUserDashBoard()" class="img-responsive" width="130" height="90" style="cursor:pointer;">
                 </div>
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <!--<div class="navbar-header">
-                        <img src="../../images/ELearningLogoImage.png" alt="..." class="img-responsive" width="90" height="90" style="padding-bottom:10px;">
+                <img src="../../images/ELearningLogoImage.png" alt="..." class="img-responsive" width="90" height="90" style="padding-bottom:10px;">
 
-                    </div>-->
+            </div>-->
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                         <ul class="nav navbar-nav navbar-right" ng-hide="authentication">
@@ -129,7 +129,7 @@
                                 </div>
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-                                    <li ng-click="GoToUserDashBoard()" style="padding-left:5px;">Home</li>
+                                    <li ng-click="GoToUserDashBoard()" style="padding-left:5px; cursor:pointer;">Home</li>
 
                                 </ul>
                             </li>
@@ -138,22 +138,22 @@
                                 <div ng-mouseover="Show" ng-dropdown-multiselect="" search-filter="customFilter" options="resultdata" selected-model="categoryselected" extra-settings="categorysettings" translation-texts="example5customTexts"></div>
                             </li>
                             <!--<li style=" border-right: #e7e7e7; padding-top: 20px;">
-                                  <span style="width: 10px; border: 1px solid #ccc;" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
-                            </li>-->
+                          <span style="width: 10px; border: 1px solid #ccc;" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
+                    </li>-->
                             <li style=" border-right: #e7e7e7; padding-top: 20px;">
                                 <div class="input-group">
                                     <input type="text" style="width:500px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
                                     <span style="width: 10px; border: 1px solid #ccc;" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
                                 </div>
                             </li>
-                           
-                           
+
+
 
 
 
                             <li class="dropdown" style=" border-right: #e7e7e7;padding-top:20px;padding-left:50px;">
                                 <div id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                   <!-- <span class="glyphicon glyphicon-list-alt badge"> 4</span>-->
+                                    <!-- <span class="glyphicon glyphicon-list-alt badge"> 4</span>-->
                                     <img src="../../images/Notification.jpg" style="width:30px;height:30px;" ><span class="badge" style="background-color:red;"> 4</span><img>
                                 </div>
 
@@ -179,12 +179,13 @@
                             </li>
                             <!--</ul>-->
                         </ul>
+                     </span>
                 </div><!-- /.navbar-collapse -->
 
 
                 <div class="clearfix"></div>
+            </nav>
         </div><!-- /.container-fluid -->
-        </nav>
     </div>
 
 

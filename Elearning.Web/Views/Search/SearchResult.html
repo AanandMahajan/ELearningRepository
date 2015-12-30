@@ -21,24 +21,24 @@
 
     <div class="bs-example col-lg-10" data-example-id="media-alignment">
         <div>
-            <img src="../../images/prev.jpg" style="margin-left: 72%; width: 20px; height: 20px;" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0" />
+            <img src="../../images/prev.jpg" style="margin-left: 72%; width: 20px; height: 20px; cursor:pointer;" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0" />
             <span style="color: #3B73AF;"><b> {{showSearchResultRange}}</b></span>
-            <img src="../../images/next.jpg" style="margin-left: 10px; width: 20px; height: 20px;" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5" />
+            <img src="../../images/next.jpg" style="margin-left: 10px; width: 20px; height: 20px; cursor:pointer;" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5" />
         </div>
          <br />
         <div ng-repeat="model in searchresults">
             <div class="media" style="border-bottom: 1px solid #3B73AF">
                 <div class="media-left">
-                    <a ng-click="registerCourse(model.ID)">
+                    <a ng-click="registerCourse(model.ID)" style="cursor:pointer">
                         <img class="media-object" style="width: 64px; height: 64px;" src={{model.BLOB_URL}} alt="64x64" data-holder-rendered="true">
                     </a>
                 </div>
                 <div class="media-body">
 
                     <div class="panel-success-style" style="background-color: rgba(119, 170, 232, 0.11); color: #3B73AF; ">
-                        <div class="panel-heading" >
-                           <!-- <a ng-href="registerCourse(model.ID)"><h3 class="panel-title"><b>{{model.CourseTitle}}</b></h3></a>-->
-                            <a ng-click="registerCourse(model.ID)" ><b>{{model.CourseTitle}}</b></a>
+                        <div class="panel-heading" style="cursor:pointer">
+                            <!-- <a ng-href="registerCourse(model.ID)"><h3 class="panel-title"><b>{{model.CourseTitle}}</b></h3></a>-->
+                            <a ng-click="registerCourse(model.ID)"><b>{{model.CourseTitle}}</b></a>
                         </div>
                         <div class="panel-body" style="font-size:12px;">
                             {{model.Description}}
