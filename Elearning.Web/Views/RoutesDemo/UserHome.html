@@ -2,8 +2,8 @@
 <link href="../../Scripts/css/style.css" rel="stylesheet" />
 <div ng-controller="HomeController" ng-init="init();">
     <div>
-        <div ng-hide="showsearchresult">
-            <div id="categories" class="container_16">
+        <div ng-hide="showsearchresult" style="background-image: url(../../images/Backgroud3.jpg); height:565px">
+            <div id="categories" class="container_16" style="padding-top: 25px;">
                 <a class="flip-container flipper block {{colors[(course.ID%10)]}}" href="" ng-repeat="course in categories" ng-click="btnGetAllSearchResultForCategory(course.Category);">
                     <div class="flipper-front">
                         <div class="title icon">
@@ -34,82 +34,23 @@
                     </div>
                 </a>
             </div>
-
             <br />
-            <h3>
+            <h3 style="margin-left: 7px; margin-bottom: 5px">
                 Recommendations
             </h3>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Menu -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="{{$index}}" class="{{($index == 0 ? 'active':'')}}" ng-repeat="course in courses"></li>
-                </ol>
-
+                <!--<ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="{{$index}}" class="{{($index == 0 ? 'active':'')}}" ng-repeat="course in courses"></li>
+            </ol>-->
                 <!-- Items -->
                 <div class="carousel-inner">
                     <div class="{{($index == 0 ? 'item active' : 'item')}}" ng-repeat="course in courses">
                         <div style="display:block; margin-left: 45px; margin-right: 45px;">
-                            <!--<div class="panel panel-success-style">
-                                <div class="panel-heading" style="background-color: rgb(206, 226, 243); color: #3B73AF; border:#3B73AF;">
-                                    <h3 class="panel-title" style="text-align:center">
-                                        {{course.Course.CourseTitle}}
-                                    </h3>
-                                </div>
-                            </div>-->
-
                             <div>
                                 <p>
                                     <img src="{{course.BlobUrl}}" alt="64x64" style="float: left; width: 110px; height: 110px; margin-left:25px; margin-right:10px; margin-right:" data-holder-rendered="true">{{course.Course.Description}}
                                 </p>
-                                <!--<div class="col-md-10 media-body" style="color: #000000">
-                                    <span></span>
-                                </div>-->
-                                <!--<div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" style="width: 200px; height: 200px;" src="{{course.BlobUrl}}" alt="64x64" data-holder-rendered="true">
-                                    </a>
-                                </div>-->
-                                <!--<div class="media-body" style="background: rgba(119, 170, 232, 0.11); color: #3b73af">
-                                    <div class="col-lg-10">
-                                        <div>
-                                            <ul class="nav nav-tabs">
-                                                <li role="presentation" class="active"><a ng-click="btnClickDescription()">Description</a></li>
-                                                <li role="presentation" class="active"><a ng-click="btnClickOutline()">Outline</a></li>
-                                            </ul>
-                                        </div><br />
-                                        <div ng-show="isDescription">
-                                            <strong style="color: #3b73af">
-                                                Description: {{course.Course.Description}}
-                                                <br />
-                                                Created On: {{course.Course.CreatedON | date:'dd-MM-yyyy'}}
-                                            </strong>
-                                        </div>
-                                        <div ng-hide="isDescription">
-                                            <strong style="color:skyblue">
-                                                Outline:
-                                                <br />
-                                                Tags: {{course.Course.Tags}}
-                                            </strong>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <div>
-                                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                                            <span class="badge">{{course.Course.Views}}</span>
-                                        </div><br />
-                                        <div>
-                                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-                                            <span class="badge">{{course.Course.Likes}}</span>
-                                        </div><br />
-                                        <div>
-                                            <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
-                                            <span class="badge">{{course.Course.Enrollments}}</span>
-                                        </div><br />
-                                        <div>
-                                            <img src="../../images/EnrollNow.jpg" style="height:30px;width:85px;" />
-                                        </div>
-                                    </div>
-                                </div>-->
                             </div>
                         </div>
                     </div>
