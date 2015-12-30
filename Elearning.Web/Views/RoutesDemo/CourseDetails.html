@@ -4,11 +4,11 @@
 <div ng-controller="CourseDetailsController" ng-init="initialize()" style="margin-left:8px">
     
     <div class="panel panel-success-style">
-        <div class="panel-heading" style="background-color: rgb(206, 226, 243); color: #3B73AF; border: #3B73AF;">
+        <!--<div class="panel-heading" style="background-color: rgb(206, 226, 243); color: #3B73AF; border: #3B73AF;">
             <h3 class="panel-title" style="margin-left:500px;">
                 {{course.CourseTitle}}
             </h3>
-        </div>
+        </div>-->
     </div>
     <div class="media">
         <div class="media-left">
@@ -28,6 +28,9 @@
 
                 </div><br />
                 <div ng-show="isDescription">
+                    <h3 class="panel-title" style="margin-bottom:5px">
+                        {{course.CourseTitle}}
+                    </h3>
                 <strong style="color: #3b73af">
                         Description: {{course.Description}}
                         <br />
@@ -44,18 +47,18 @@
             </div>
             <div class="col-lg-2" style="margin-top:25px">
                 <div>
-                    <img src="../../images/view-icon.jpg" style="width:25px;height:25px" title="View"/>
+                    <img src="../../images/view_icon_new.png" style="width:25px;height:25px" title="View" />
                     <!--<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>-->
                     <span class="badge">{{course.Views}}</span>
                 </div><br />
                 <div>
-                    <img src="../../images/like_icon.png" style="width:25px;height:25px" title="Like" ng-click="btnLikeCourse()" ng-show="isCourseLiked"/>
-                    <img src="../../images/Unlike_icon.jpg" style="width:25px;height:25px" title="Like" ng-click="btnLikeCourse()" ng-hide="isCourseLiked"/>
+                    <img src="../../images/like_new.png" style="width:25px;height:25px" title="Like" ng-click="btnLikeCourse()" ng-show="isCourseLiked"/>
+                    <img src="../../images/liked_new.png" style="width:25px;height:25px" title="Like" ng-click="btnLikeCourse()" ng-hide="isCourseLiked"/>
                      <!-- <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>-->
                     <span class="badge">{{course.Likes}}</span>
                 </div><br />
                 <div>
-                    <img src="../../images/enroll-icon.png" style="width:25px;height:25px" title="Enrollment"/>
+                    <img src="../../images/enrollment_new.png" style="width:25px;height:25px" title="Enrollment"/>
                     <!--<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>-->
                     <span class="badge">{{course.Enrollments}}</span>
                 </div><br />
@@ -79,15 +82,16 @@
                     <img id="imgExpandCollapse-{{$index}}" src="../../images/expand.png" />{{topic.ChapterTitle}}
                 </div>
                 <div id="accordionChild-{{$index}}" class="accordion-section-content" style="cursor: pointer;">
-                    <div ng-repeat="chapter in topic.ChapterContents" >
+                    <div ng-repeat="chapter in topic.ChapterContents" style="height:30px;">
                         <ul>
-                            <li >
+                            <li>
                                 <div>
-                                  
+
                                     <a class="list-group-item view-pdf" style="background: rgb(233, 239, 246); border: rgb(233, 239, 246);" ng-click="openPdf(chapter.Title, chapter.FileBlobURL)">
-                                        <img src="../../images/List-Style.jpg" style="width:10px;height:10px;" >&nbsp;{{chapter.Title}}<img/></a>
+                                        <img src="../../images/List-Style.jpg" style="width:10px;height:10px;">&nbsp;{{chapter.Title}}<img />
+                                    </a>
                                 </div>
-                                     </li>
+                            </li>
                         </ul>
                     </div>
                 </div>

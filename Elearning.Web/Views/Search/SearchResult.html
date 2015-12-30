@@ -21,12 +21,12 @@
 
     <div class="bs-example col-lg-10" data-example-id="media-alignment">
         <div>
-            <img src="../../images/prev.jpg" style="margin-left: 72%; width: 20px; height: 20px; cursor:pointer;" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0" />
+            <img src="../../images/prev.jpg" style="margin-left: 80%; width: 20px; height: 20px; cursor:pointer;" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0" />
             <span style="color: #3B73AF;"><b> {{showSearchResultRange}}</b></span>
-            <img src="../../images/next.jpg" style="margin-left: 10px; width: 20px; height: 20px; cursor:pointer;" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5" />
+            <img src="../../images/next.jpg" style="margin-left: 4px; width: 20px; height: 20px; cursor:pointer;" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5" />
         </div>
          <br />
-        <div ng-repeat="model in searchresults">
+        <div ng-repeat="model in searchresults" style="width:87%">
             <div class="media" style="border-bottom: 1px solid #3B73AF">
                 <div class="media-left">
                     <a ng-click="registerCourse(model.ID)" style="cursor:pointer">
@@ -43,13 +43,10 @@
                         <div class="panel-body" style="font-size:12px;padding:0px 0px 15px 15px;">
                             {{model.Description}}
                         </div>
-                       
-                        <!--<div class="panel-footer">-->
-                           <!-- <button ng-click="registerCourse(model.ID)">View</button>-->
-                          
-                            <!--<img src="../../images/view.jpg" style="height:26px;width:57px;" ng-click="registerCourse(model.ID)" />-->
-                           
 
+                        <!--<div class="panel-footer">-->
+                        <!-- <button ng-click="registerCourse(model.ID)">View</button>-->
+                        <!--<img src="../../images/view.jpg" style="height:26px;width:57px;" ng-click="registerCourse(model.ID)" />-->
                         <!--</div>-->
                     </div>
 
@@ -61,9 +58,9 @@
         </div>
 
         <div>
-            <img src="../../images/prev.jpg" style="margin-left: 72%; width: 20px; height: 20px;" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0" />
+            <img src="../../images/prev.jpg" style="margin-left: 80%; width: 20px; height: 20px;" ng-click="PrevPageResult();" ng-disabled="isPrevAvailabale == 0" />
             <span style="color: #3B73AF;"><b> {{showSearchResultRange}}</b></span>
-            <img src="../../images/next.jpg" style="margin-left: 10px; width: 20px; height: 20px;" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5" />
+            <img src="../../images/next.jpg" style="margin-left: 4px; width: 20px; height: 20px;" ng-click="NextPageResult();" ng-disabled="searchresults.length < 5" />
         </div>
         <br />
         

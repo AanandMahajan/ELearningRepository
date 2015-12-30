@@ -68,9 +68,12 @@
     <Content Include="images\collapse.png" />
     <Content Include="images\enroll-icon.png" />
     <Content Include="images\Enroll.jpg" />
+    <Content Include="images\enrollment_new.png" />
     <Content Include="images\EnrollNow.jpg" />
     <Content Include="images\expand.png" />
+    <Content Include="images\liked_new.png" />
     <Content Include="images\like_icon.png" />
+    <Content Include="images\like_new.png" />
     <Content Include="images\List-Style.jpg" />
     <Content Include="images\Menu.png" />
     <Content Include="images\next.jpg" />
@@ -79,6 +82,7 @@
     <Content Include="images\Unlike_icon.jpg" />
     <Content Include="images\view-icon.jpg" />
     <Content Include="images\view.jpg" />
+    <Content Include="images\view_icon_new.png" />
     <Content Include="Scripts\Controllers\HomeController.js" />
     <Content Include="Scripts\css\dashboard.css" />
     <Content Include="Scripts\Directive\SearchPage.js" />
