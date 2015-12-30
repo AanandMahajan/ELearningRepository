@@ -75,14 +75,19 @@
 
             <div class="list-group accordion-section" ng-repeat="topic in course.ChapterDetails" style="cursor: pointer; background: rgba(119, 170, 232, 0.11); border: 1px solid #3b73af; " >
 
-                <div id="accordionParent-{{$index}}" class="list-group-item accordion-section-title" href="#accordionChild-{{$index}}" ng-click="clickSectionTitle($index)">
-                <img id="imgExpandCollapse-{{$index}}" src="../../images/expand.png" />{{topic.ChapterTitle}}</div>
+                <div id="accordionParent-{{$index}}" style="font:bold 10px;height:35px;border-radius:1px;" class=" list-group-item accordion-section-title" href="#accordionChild-{{$index}}" ng-click="clickSectionTitle($index)">
+                    <img id="imgExpandCollapse-{{$index}}" src="../../images/expand.png" />{{topic.ChapterTitle}}
+                </div>
                 <div id="accordionChild-{{$index}}" class="accordion-section-content" style="cursor: pointer;">
                     <div ng-repeat="chapter in topic.ChapterContents" >
                         <ul>
-                            <li>
-                                <a class="list-group-item view-pdf" ng-click="openPdf(chapter.Title, chapter.FileBlobURL)" style="background: rgb(206, 226, 243); border: 1px solid #3b73af; color: #3b73af; ">{{chapter.Title}}</a>
-                            </li>
+                            <li >
+                                <div>
+                                  
+                                    <a class="list-group-item view-pdf" style="background: rgb(233, 239, 246); border: rgb(233, 239, 246);" ng-click="openPdf(chapter.Title, chapter.FileBlobURL)">
+                                        <img src="../../images/List-Style.jpg" style="width:10px;height:10px;" >&nbsp;{{chapter.Title}}<img/></a>
+                                </div>
+                                     </li>
                         </ul>
                     </div>
                 </div>

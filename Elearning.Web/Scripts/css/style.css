@@ -1397,15 +1397,17 @@ input.nuber {
 /*----- Section Titles -----*/
 .accordion-section-title {
     width:100%;
-    padding:15px;
+    padding:3px;
     display:inline-block;
     border-bottom:1px solid #1a1a1a;
-    background:rgb(103, 120, 167) !important;
+    background:rgb(143, 152, 177) !important;
     transition:all linear 0.15s;
     /* Type */
-    font-size:1.200em;
+    font-size:1.100em;
     text-shadow:0px 1px 0px #1a1a1a;
-    color:#fff;
+    color:black;
+    border-radius:1px;
+    
 }
  
 .accordion-section-title.active, .accordion-section-title:hover {
