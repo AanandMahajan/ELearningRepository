@@ -1,18 +1,22 @@
 ﻿body {
     background: #eee;
+    background-image: url(../../images/Backgroud3.jpg);
+    background-size: 100%;
 }
 
 
 #categories {
-    height: 250px;
+    /*height: 250px;*/
     width: 800px;
     padding: 0;
 }
 
 .container_16 {
-    position: relative;
-    left: 260px;
-    margin-top:10px;
+    position: relative;  
+    height: 330px;  
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #categories .flipper {
@@ -34,8 +38,8 @@
     border-style: solid;
     width: 150px;
     height: 110px;
-    top: 10px;
-    left: 85px;
+    top: 25px;
+    left: 90px;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -136,8 +140,8 @@
 #categories .block, #categories .flipper-front, #categories .flipper-back {
     display: inline-block;
     text-align: center;
-    height: 130px;
-    width: 170px;
+    height: 160px;
+    width: 180px;
 }
 
 #categories .flip-container {

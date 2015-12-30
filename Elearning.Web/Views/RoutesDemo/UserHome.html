@@ -36,7 +36,9 @@
             </div>
 
             <br />
-
+            <h3>
+                Recommendations
+            </h3>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Menu -->
                 <ol class="carousel-indicators">
@@ -46,22 +48,28 @@
                 <!-- Items -->
                 <div class="carousel-inner">
                     <div class="{{($index == 0 ? 'item active' : 'item')}}" ng-repeat="course in courses">
-                        <div>
-                            <div class="panel panel-success-style">
+                        <div style="display:block; margin-left: 45px; margin-right: 45px;">
+                            <!--<div class="panel panel-success-style">
                                 <div class="panel-heading" style="background-color: rgb(206, 226, 243); color: #3B73AF; border:#3B73AF;">
                                     <h3 class="panel-title" style="text-align:center">
                                         {{course.Course.CourseTitle}}
                                     </h3>
                                 </div>
-                            </div>
+                            </div>-->
 
-                            <div class="media">
-                                <div class="media-left">
+                            <div>
+                                <p>
+                                    <img src="{{course.BlobUrl}}" alt="64x64" style="float: left; width: 110px; height: 110px; margin-left:25px; margin-right:10px; margin-right:" data-holder-rendered="true">{{course.Course.Description}}
+                                </p>
+                                <!--<div class="col-md-10 media-body" style="color: #000000">
+                                    <span></span>
+                                </div>-->
+                                <!--<div class="media-left">
                                     <a href="#">
                                         <img class="media-object" style="width: 200px; height: 200px;" src="{{course.BlobUrl}}" alt="64x64" data-holder-rendered="true">
                                     </a>
-                                </div>
-                                <div class="media-body" style="background: rgba(119, 170, 232, 0.11); color: #3b73af">
+                                </div>-->
+                                <!--<div class="media-body" style="background: rgba(119, 170, 232, 0.11); color: #3b73af">
                                     <div class="col-lg-10">
                                         <div>
                                             <ul class="nav nav-tabs">
@@ -98,16 +106,15 @@
                                             <span class="badge">{{course.Course.Enrollments}}</span>
                                         </div><br />
                                         <div>
-                                            <!--<button class="btn btn-success">Enroll <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> </button>-->
                                             <img src="../../images/EnrollNow.jpg" style="height:30px;width:85px;" />
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
                 </div>
-                <a class="left carousel-control" data-slide="prev" onclick="$('#myCarousel').carousel('prev')" style="width:5%">
+                <a class="left carousel-control" data-slide="prev" onclick="$('#myCarousel').carousel('prev')" style="width:5%;">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
                 <a class="right carousel-control" data-slide="next" onclick="$('#myCarousel').carousel('next')" style="width:5%">
