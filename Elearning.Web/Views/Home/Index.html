@@ -73,33 +73,33 @@
 
             </div>-->
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-                        <ul class="nav navbar-nav navbar-right" ng-hide="authentication">
+                    <span class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right" ng-hide="authentication" style="margin-top:30px; margin-right:45px">
                             <li>
-                                <a href="#" data-toggle="modal" href="#doc" class="scroll">
-                                    <span class="glyphicon glyphicon-list-alt icn_pos hm" aria-hidden="true"></span><br>
+                                <a href="#" data-toggle="modal" href="#doc" class="scroll" style="font-size:small; font-weight:700">
+                                    <!--<span class="glyphicon glyphicon-list-alt icn_pos hm" aria-hidden="true"></span>-->
                                     Become  a Publisher
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#" data-toggle="modal" href="#doc" class="scroll">
-                                    <span class="glyphicon glyphicon-pencil icn_pos" aria-hidden="true"></span><br>
+                                <a href="#" data-toggle="modal" href="#doc" class="scroll" style="font-size:small; font-weight:700">
+                                    <!--<span class="glyphicon glyphicon-pencil icn_pos" aria-hidden="true"></span>-->
                                     Interested in Review
                                 </a>
                             </li>
 
 
                             <li>
-                                <a data-target="#Login" data-toggle="modal" href="#doc" class="scroll">
-                                    <span class="glyphicon glyphicon-download icn_pos" aria-hidden="true"></span><br>
+                                <a data-target="#Login" data-toggle="modal" href="#doc" class="scroll" style="font-size:small; font-weight:700">
+                                    <!--<span class="glyphicon glyphicon-download icn_pos" aria-hidden="true"></span>-->
                                     Login
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#User" data-toggle="modal" href="#doc" class="scroll">
-                                    <span class="glyphicon glyphicon-hand-up icn_pos hm2" aria-hidden="true"></span><br>
+                                <a href="#User" data-toggle="modal" href="#doc" class="scroll" style="font-size:small; font-weight:700">
+                                    <!--<span class="glyphicon glyphicon-hand-up icn_pos hm2" aria-hidden="true"></span>-->
                                     Sign Up
                                 </a>
                             </li>
@@ -138,8 +138,8 @@
                                 <div ng-mouseover="Show" ng-dropdown-multiselect="" search-filter="customFilter" options="resultdata" selected-model="categoryselected" extra-settings="categorysettings" translation-texts="example5customTexts"></div>
                             </li>
                             <!--<li style=" border-right: #e7e7e7; padding-top: 20px;">
-                          <span style="width: 10px; border: 1px solid #ccc;" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
-                    </li>-->
+                  <span style="width: 10px; border: 1px solid #ccc;" class="input-group-addon glyphicon glyphicon-search" id="basic-addon1" ng-click="SearchUserHome()"></span>
+            </li>-->
                             <li style=" border-right: #e7e7e7; padding-top: 20px;">
                                 <div class="input-group">
                                     <input type="text" style="width:500px;" ng-model="searchkeys" class="form-control" placeholder="Search your technology...." aria-describedby="basic-addon1">
@@ -151,10 +151,10 @@
 
 
 
-                            <li class="dropdown" style=" border-right: #e7e7e7;padding-top:20px;padding-left:50px;">
+                            <li class="dropdown" style=" border-right: #e7e7e7;padding-top:20px;padding-left:30px;">
                                 <div id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                     <!-- <span class="glyphicon glyphicon-list-alt badge"> 4</span>-->
-                                    <img src="../../images/Notification.jpg" style="width:30px;height:30px;" ><span class="badge" style="background-color:red;"> 4</span><img>
+                                    <img src="../../images/Notification.jpg" style="width:30px;height:30px;"><span class="badge" style="background-color:red;"> 4</span><img>
                                 </div>
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -164,7 +164,7 @@
                                 </ul>
                             </li>
 
-                            <li class="dropdown" style="float: right; border-right: #e7e7e7; padding-top: 20px;">
+                            <li class="dropdown" style="float: right; border-right: #e7e7e7; padding-top: 20px; padding-right: 55px">
                                 <div class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                     <img ng-src="{{user.DisplayPicURL}}" alt="{{user.FullName}}" class="profile-img" style="width:24px;height:25px;" />
                                     <span ng-bind="user.FullName"></span> <b class="caret"></b>
@@ -179,7 +179,7 @@
                             </li>
                             <!--</ul>-->
                         </ul>
-                     </span>
+                    </span>
                 </div><!-- /.navbar-collapse -->
 
 
