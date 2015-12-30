@@ -71,8 +71,11 @@
     <Content Include="images\EnrollNow.jpg" />
     <Content Include="images\expand.png" />
     <Content Include="images\like_icon.png" />
+    <Content Include="images\List-Style.jpg" />
     <Content Include="images\Menu.png" />
+    <Content Include="images\next.jpg" />
     <Content Include="images\Notification.jpg" />
+    <Content Include="images\prev.jpg" />
     <Content Include="images\Unlike_icon.jpg" />
     <Content Include="images\view-icon.jpg" />
     <Content Include="images\view.jpg" />
