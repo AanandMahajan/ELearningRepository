@@ -158,6 +158,11 @@
                                                              $scope.isCourseEnrolled = true;
                                                          }
 
+                                                         if (res.data[2].CourseID !=  undefined) {
+                                                             $scope.course.Views+=1;
+                                                         }
+                                                         
+
                                                         
 
 

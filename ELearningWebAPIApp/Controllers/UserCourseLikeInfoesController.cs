@@ -87,12 +87,10 @@ namespace ELearning.WebAPI.Controllers
                                 select cat);
 
             //List<UserCourseViewInfo> lst = userViewList.ToList();
-
+            UserCourseViewInfo userCourseViewInfo = new UserCourseViewInfo();
             if(!userViewList.Any())
             {
-                //Add User information in View list
-
-                UserCourseViewInfo userCourseViewInfo = new UserCourseViewInfo();
+                //Add User information in View list                
                 userCourseViewInfo.CategoryID = userCourseLikeInfo.CategoryID;
                 userCourseViewInfo.CourseID = userCourseLikeInfo.CourseID;
                 userCourseViewInfo.TenantID = userCourseLikeInfo.TenantID;
@@ -115,6 +113,7 @@ namespace ELearning.WebAPI.Controllers
             List<Object> lst = new List<object>();
             lst.Add(userLikeList);
             lst.Add(userEnrollmentInfo);
+            lst.Add(userCourseViewInfo);
             
             return CreatedAtRoute("DefaultApi", new { id = userCourseLikeInfo.ID }, lst);
         }
