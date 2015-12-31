@@ -71,14 +71,14 @@
     <Content Include="images\enrollment_new.png" />
     <Content Include="images\EnrollNow.jpg" />
     <Content Include="images\expand.png" />
-    <Content Include="images\liked_new.png" />
+    <Content Include="images\like.png" />
     <Content Include="images\like_icon.png" />
-    <Content Include="images\like_new.png" />
     <Content Include="images\List-Style.jpg" />
     <Content Include="images\Menu.png" />
     <Content Include="images\next.jpg" />
     <Content Include="images\Notification.jpg" />
     <Content Include="images\prev.jpg" />
+    <Content Include="images\unlike.png" />
     <Content Include="images\Unlike_icon.jpg" />
     <Content Include="images\view-icon.jpg" />
     <Content Include="images\view.jpg" />
