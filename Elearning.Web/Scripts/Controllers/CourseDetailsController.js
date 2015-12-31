@@ -52,7 +52,7 @@
                        else
                        {
                            var val = {};
-                           val.ID = res.data[0].ID;
+                           val.ID = res.data[0][0].ID;
                            $http.post(WebAPIBaseURL + 'api/UserCourseLikeInfoes/DeleteUserLike/deletelike', angular.toJson(val)).then(
 
                                   function successCallback(res) {

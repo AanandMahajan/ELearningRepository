@@ -2,7 +2,7 @@
 <link href="../../Scripts/css/style.css" rel="stylesheet" />
 <div ng-controller="HomeController" ng-init="init();">
     <div>
-        <div ng-hide="showsearchresult" style="background-image: url(../../images/Backgroud3.jpg); height:565px">
+        <div ng-hide="showsearchresult" style="background-image: url(../../images/Backgroud3.jpg); background-size: 100%; height:570px">
             <div id="categories" class="container_16" style="padding-top: 25px;">
                 <a class="flip-container flipper block {{colors[(course.ID%10)]}}" href="" ng-repeat="course in categories" ng-click="btnGetAllSearchResultForCategory(course.Category);">
                     <div class="flipper-front">
